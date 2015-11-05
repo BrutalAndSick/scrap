@@ -1,7 +1,0 @@
-1. Agregar todos los campos de la base de datos al reporte gráfico al exportar a excel
-2. Reporte gráfico candados en semanas y fechas
-3. Reporte gráfico error en gráficas vacías crear mensaje que diga que no hay datos para mostrar
-4. Quitar botón de personalizar en reporte general para perfil de reportes
-5. Reporte de rechazados tarda mucho en abrir
-6. Captura de almacén quitar candado de APD-Parte en caso de APD WHSE ó WHS2
-
