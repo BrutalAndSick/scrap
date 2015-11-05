@@ -1,0 +1,245 @@
+area,tecnologia,defecto,causa,division,proyecto
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Carcasa Dañada,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Carcasa Dañada,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Carcasa Dañada,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Carcasa Dañada,Proveedor,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Cobre Expuesto,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Cobre Expuesto,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Componente Arrancado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Componente Dañado/Golpeado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Componente Dañado/Golpeado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Material Obsoleto,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Set Up De Equipo,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Subensamble Dañado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Subensamble Dañado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Tapa Dañada,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Tapa Dañada,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Tapa Dañada,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Tapa Dañada,Proveedor,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Atornillado Automatico,Unidad Caida Al Piso,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Componente Dañado/Golpeado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Componente Dañado/Golpeado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Material Obsoleto,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Pines De Conector Sumidos,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Serial Duplicado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Unidad Golpeada/Dañada,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Unidad Golpeada/Dañada,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Unidad Golpeada/Dañada,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Empaque,Unidad Golpeada/Dañada,Proveedor,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Componentes Arrancados,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Componentes Arrancados,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Componentes Dañados/Golpeado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Componentes Dañados/Golpeado,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Exceso De Pruebas,Medicion,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Material Obsoleto,Método,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Sin Prueba Anterior,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Sin Prueba Anterior,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Unidad Caída Al Piso,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Unidad Caída Al Piso,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Ict,Unidad Dañada Por Equipo -Eos,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Conector Dañado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Conector Dañado,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Conector Dañado,Proveedor,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Exceso De Pruebas,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Material Obsoleto,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Muestra De Oro Obsoleta,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Pines De Conector Sumidos,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Pines De Conector Sumidos,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Set Up De Equipo,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Prueba Final,Unidad Caida Al Piso,Maquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Componentes Arrancados,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Componentes Arrancados,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Componentes Dañados/Golpeado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Componentes Dañados/Golpeado,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Pcb Mal Cortado,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Pcb Mal Cortado,Máquina,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Unidad Caída Al Piso,Mano De Obra,PSAD,GM BRASIL
+BACKEND/ENSAMBLE FINAL,Sawing,Unidad Caída Al Piso,Maquina,PSAD,GM BRASIL
+PTH,Aoi de Ola,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+PTH,Aoi de Ola,Componente Arrancado,Maquina,PSAD,GM BRASIL
+PTH,Aoi de Ola,Componente Dañado (Golpeado),Mano De Obra,PSAD,GM BRASIL
+PTH,Aoi de Ola,Componente Dañado (Golpeado),Maquina,PSAD,GM BRASIL
+PTH,Aoi de Ola,Exceso De Pruebas,Mano De Obra,PSAD,GM BRASIL
+PTH,Aoi de Ola,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+PTH,Aoi de Ola,Pcb Abortado,Maquina,PSAD,GM BRASIL
+PTH,Aoi de Ola,Pruebas De Ingeniería,Metodo,PSAD,GM BRASIL
+PTH,Aoi de Ola,Sin Prueba Anterior,Mano De Obra,PSAD,GM BRASIL
+PTH,Aoi de Ola,Unidad Caida Al Piso,Equipo,PSAD,GM BRASIL
+PTH,Aoi de Ola,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Componente Arrancado,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Componente fracturado,Equipo,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Componente fracturado,Mano De Obra,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Conector fracturado,Mano De Obra,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Conector fracturado,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Conector fracturado,Metodo,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Conector quemado,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Conector quemado,Metodo,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Cortos lado BOTTOM,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Cortos lado TOP,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Insuficiencia de Soldadura,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Insuficiencia de Soldadura,Proveedor,PSAD,GM BRASIL
+PTH,Soldadura de Ola,PCB delaminado ,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,PCB delaminado ,Proveedor,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Pin Sin soldar,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Pin Sin soldar,Proveedor,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Poros de Soldadura,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Pruebas De Ingeniería,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Soldadura sobre PCB,MANO DE OBRA ,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Soldadura sobre PCB,Maquina,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Unidad Caída Al Piso,Mano De Obra,PSAD,GM BRASIL
+PTH,Soldadura de Ola,Unidad Caída Al Piso,Maquina,PSAD,GM BRASIL
+SMD,Aoi,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+SMD,Aoi,Componente Arrancado,Maquina,PSAD,GM BRASIL
+SMD,Aoi,Componente Dañado (Golpeado),Mano De Obra,PSAD,GM BRASIL
+SMD,Aoi,Componente Dañado (Golpeado),Maquina,PSAD,GM BRASIL
+SMD,Aoi,Exceso De Pruebas,Mano De Obra,PSAD,GM BRASIL
+SMD,Aoi,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Aoi,Pcb Abortado,Maquina,PSAD,GM BRASIL
+SMD,Aoi,Pruebas De Ingeniería,Metodo,PSAD,GM BRASIL
+SMD,Aoi,Sin Prueba Anterior,Mano De Obra,PSAD,GM BRASIL
+SMD,Aoi,Unidad Caida Al Piso,Equipo,PSAD,GM BRASIL
+SMD,Aoi,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+SMD,Aspi,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Aspi,Pánel Barrido,Mano De Obra,PSAD,GM BRASIL
+SMD,Aspi,Pcb Abortado,Maquina,PSAD,GM BRASIL
+SMD,Aspi,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+SMD,Aspi,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+SMD,Asys,Desplazado,Mano De Obra,PSAD,GM BRASIL
+SMD,Asys,Desplazado,Maquina,PSAD,GM BRASIL
+SMD,Asys,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Asys,Panel Atorado,Mano De Obra,PSAD,GM BRASIL
+SMD,Asys,Panel Atorado,Maquina,PSAD,GM BRASIL
+SMD,Asys,Panel Atorado,Metodo,PSAD,GM BRASIL
+SMD,Asys,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+SMD,Asys,Set Up Equipo,Mano De Obra,PSAD,GM BRASIL
+SMD,Asys,Set Up Equipo,Maquina,PSAD,GM BRASIL
+SMD,Asys,Unidad Caida Al Piso,Equipo,PSAD,GM BRASIL
+SMD,Asys,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Componente Arrancado,Maquina,PSAD,GM BRASIL
+SMD,Horno,Componente Dañado (Golpeado),Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Componente Dañado (Golpeado),Maquina,PSAD,GM BRASIL
+SMD,Horno,Componente De Canto (De Lado),Maquina,PSAD,GM BRASIL
+SMD,Horno,Componente De Canto (De Lado),Metodo,PSAD,GM BRASIL
+SMD,Horno,Componente Faltante,Maquina,PSAD,GM BRASIL
+SMD,Horno,Componente Faltante,Metodo,PSAD,GM BRASIL
+SMD,Horno,Contaminación,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Contaminación,Maquina,PSAD,GM BRASIL
+SMD,Horno,Contaminación,Metodo,PSAD,GM BRASIL
+SMD,Horno,Contaminación,Proveedor,PSAD,GM BRASIL
+SMD,Horno,Cortos /Puente De Soldadura,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Cortos /Puente De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Horno,Cortos /Puente De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Horno,Desplazado,Maquina,PSAD,GM BRASIL
+SMD,Horno,Insuficiencia De Soldadura Lado A ,Maquina,PSAD,GM BRASIL
+SMD,Horno,Insuficiencia De Soldadura Lado A ,Metodo,PSAD,GM BRASIL
+SMD,Horno,Insuficiencia De Soldadura Lado B ,Maquina,PSAD,GM BRASIL
+SMD,Horno,Insuficiencia De Soldadura Lado B ,Metodo,PSAD,GM BRASIL
+SMD,Horno,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Horno,Panel Atorado,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Panel Atorado,Maquina,PSAD,GM BRASIL
+SMD,Horno,Panel Atorado,Metodo,PSAD,GM BRASIL
+SMD,Horno,Pcb Abortado,Maquina,PSAD,GM BRASIL
+SMD,Horno,Perlas De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Horno,Perlas De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Horno,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+SMD,Horno,Sin Prueba Anterior,Mano De Obra,PSAD,GM BRASIL
+SMD,Horno,Soldadura Porosa,Maquina,PSAD,GM BRASIL
+SMD,Horno,Soldadura Porosa,Metodo,PSAD,GM BRASIL
+SMD,Horno,Soldadura Porosa,Proveedor,PSAD,GM BRASIL
+SMD,Horno,Tombstone,Maquina,PSAD,GM BRASIL
+SMD,Horno,Tombstone,Metodo,PSAD,GM BRASIL
+SMD,Horno,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Contaminación,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Contaminación,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Contaminación,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Contaminación,Proveedor,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Cortos /Puente De Soldadura,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Cortos /Puente De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Cortos /Puente De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Exceso De Soldadura,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Exceso De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Exceso De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Insuficiencia De Soldadura Lado A ,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Insuficiencia De Soldadura Lado A ,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Insuficiencia De Soldadura Lado B ,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Insuficiencia De Soldadura Lado B ,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Panel Atorado,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Panel Atorado,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Panel Atorado,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Pcb Abortado,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Pcb Defectuoso,Proveedor,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Perlas De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Perlas De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Set Up Equipo,Mano De Obra,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Set Up Equipo,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Soldadura Porosa,Maquina,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Soldadura Porosa,Metodo,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Soldadura Porosa,Proveedor,PSAD,GM BRASIL
+SMD,Impresion De Pasta,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL
+SMD,Laser,Cobre Expuesto,Mano De Obra,PSAD,GM BRASIL
+SMD,Laser,Cobre Expuesto,Maquina,PSAD,GM BRASIL
+SMD,Laser,Cobre Expuesto,Metodo,PSAD,GM BRASIL
+SMD,Laser,Cobre Expuesto,Proveedor,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Duplicado,Maquina,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Duplicado,Metodo,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Ilegible,Maquina,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Ilegible,Metodo,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Incorrecto,Maquina,PSAD,GM BRASIL
+SMD,Laser,Data Matrix Incorrecto,Metodo,PSAD,GM BRASIL
+SMD,Laser,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Laser,Material Obsoleto,Metodo,PSAD,GM BRASIL
+SMD,Laser,Panel Atorado,Mano De Obra,PSAD,GM BRASIL
+SMD,Laser,Panel Atorado,Maquina,PSAD,GM BRASIL
+SMD,Laser,Panel Atorado,Metodo,PSAD,GM BRASIL
+SMD,Laser,Sin Impresión De Data Matrix,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Adicional,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Arrancado,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Componente Arrancado,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Boca Bajo,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Boca Bajo,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Componente Con Polaridad Invertida,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Componente Con Polaridad Invertida,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Dañado (Golpeado),Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Componente Dañado (Golpeado),Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Dañado (Golpeado),Metodo,PSAD,GM BRASIL
+SMD,Siplace,Componente Dañado (Golpeado),Proveedor,PSAD,GM BRASIL
+SMD,Siplace,Componente De Canto (De Lado),Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente De Canto (De Lado),Metodo,PSAD,GM BRASIL
+SMD,Siplace,Componente Equivocado,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Componente Equivocado,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Equivocado,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Componente Equivocado,Proveedor,PSAD,GM BRASIL
+SMD,Siplace,Componente Faltante,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Componente Faltante,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Cortos /Puente De Soldadura,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Cortos /Puente De Soldadura,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Cortos /Puente De Soldadura,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Desplazado,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Desplazado,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Liberación De Equipo,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Material Obsoleto,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Panel Atorado,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Panel Atorado,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Panel Atorado,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Pcb Abortado,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Pin Elevado ,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Pin Elevado ,Maquina  ,PSAD,GM BRASIL
+SMD,Siplace,Pin Elevado ,Proveedor,PSAD,GM BRASIL
+SMD,Siplace,Pruebas De Ingenieria,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Set Up Equipo,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Set Up Equipo,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Sin Prueba Anterior,Mano De Obra,PSAD,GM BRASIL
+SMD,Siplace,Tombstone,Maquina,PSAD,GM BRASIL
+SMD,Siplace,Tombstone,Metodo,PSAD,GM BRASIL
+SMD,Siplace,Unidad Caida Al Piso,Mano De Obra,PSAD,GM BRASIL

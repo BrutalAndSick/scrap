@@ -1,0 +1,86 @@
+.clsDataArea{
+	width:100;
+	background : #F4F4F4;
+	font:"Times New Roman", Times, serif;
+	size: 11px;
+}
+
+.clsOuterFrame {
+	background-color : #3F738D;
+}
+
+.clsInnerFrame {
+	background-color : #7BA1B1;
+}
+
+.clsTopPartNavpanel {
+	background-color : #C7DCDE;
+	height: 3px;
+}
+
+.clsBottomPartNavpanel{
+	background-color : #59879D;
+	height: 3px;
+}
+
+.clsNavpanel {
+	background-color : #7BA1B1;
+	
+}
+.clsDateGrid{
+	background-color : #3F738D;
+	
+}
+
+
+.clsWeekDay{
+	background-color: #ECECF1;
+	font: bold 11px Verdana, Arrial Narrow, sans-serif;
+	color: #3F738D;
+	width : 15 px;
+	text-align: center;
+}
+
+
+.clsSelectedDayCell{
+	background-color: #F22800;
+	text-align: center;
+}
+.clsWorkDayCell{
+	background-color: #FFFFFF;
+	text-align: center;
+	width : 15 px;
+}
+.clsHoliDayCell{
+	background-color: #DCE6F0;
+	text-align: center;
+	width : 15 px;
+}
+.clsOtherMonthDayCell{
+	background-color: #FFFFFF; 
+	text-align: center;
+	width : 15 px;
+}
+
+
+.clsOtherMonthDay{
+	font: 11px Verdana, Arrial Narrow, sans-serif;
+	color: Silver;
+	text-decoration : none;
+}
+.clsCurrentMonthDay{
+	font:  11px Verdana, Arrial Narrow, sans-serif; 
+	color: #3F738D;
+	text-decoration : none;
+}
+.clsSelectedDay{
+	font: 11px Verdana, Arrial Narrow, sans-serif;
+	color: #FFFFFF;
+	text-decoration : none;
+}
+
+.clsInfoTitle{
+	font: 11px Verdana, Arrial Narrow, sans-serif; 
+	color: #FFFFFF;
+	text-align: center;
+}
