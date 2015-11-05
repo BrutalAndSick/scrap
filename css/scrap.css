@@ -1,0 +1,101 @@
+/*#####
+DARK GREY #282828
+CONTINENTAL ORANGE #FFA500
+#####*/
+body {
+    font-family: Arial;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 0px 0px 0px 0px;
+    background-color: #F1F1F1;
+    margin: 0px 0px 0px 0px;
+}
+
+#divHeader {
+    height: 72px;
+    background-color: #282828;
+    background-image: url(../img/continental.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding: 0px 0px 0px 20px;
+    color: #FFA500;
+    line-height: 72px;
+    font-weight: bold;
+    font-size: 16pt;
+    box-shadow: 0px 1px 0px #b95f00;
+    text-shadow: 0px 1px 0px #b95f00;
+}
+
+#divMenubar {
+    margin: 1px 0px 0px 0px;
+    padding: 10px 10px 10px 10px;
+    background-color: #FFA500;
+    color: #282828;
+    font-weight: normal;
+    font-size: 12pt;
+    box-shadow: 0px 1px 0px #000000;
+    text-shadow: 0px 1px 0px #000000;
+}
+
+#divWorkarea {
+    margin: 1px 0px 0px 0px;
+    padding: 30px 10px 10px 10px;
+    text-align: center;
+}
+
+#divSeparator {
+    height: 1px;
+    background-color: #FFA500;
+    margin: 15px -10px 20px -10px;
+    box-shadow: 0px 1px 0px #282828
+}
+
+#divLogin {
+    text-align: left;
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px #EAEAEA solid;
+    margin: 0px auto 0px auto;
+    box-shadow: 0px 1px 0px #FFFFFF;
+    padding: 20px 20px 20px 20px;
+}
+
+#divLogin .label {
+    height: 25px;
+    width: 80px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    line-height: 25px;
+    display: inline-block;
+}
+
+#divLogin .text {
+    height: 25px;
+    width: 80px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    border: 1px #EAEAEA solid;
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    line-height: 25px;
+    box-shadow: 0px 1px 0px #FAFAFA;
+}
+
+#divLogin .button {
+    height: 27px;
+    width: 80px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    border: 1px #EAEAEA solid;
+    background-color: #FFA500;
+    border-radius: 5px;
+    padding: 0px 10px 0px 10px;
+    color: #282828;
+    text-shadow: 0px 1px 0px #b95f00;
+    box-shadow: 0px 1px 0px #FAFAFA;
+}
