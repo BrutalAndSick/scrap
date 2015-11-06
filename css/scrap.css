@@ -12,14 +12,14 @@ body {
 }
 
 #divHeader {
-    height: 72px;
+    height: 80px;
     background-color: #282828;
     background-image: url(../img/continental.png);
     background-repeat: no-repeat;
-    background-position: right center;
+    background-position: right 20px center;
     padding: 0px 0px 0px 20px;
     color: #FFA500;
-    line-height: 72px;
+    line-height: 80px;
     font-weight: bold;
     font-size: 16pt;
     box-shadow: 0px 1px 0px #b95f00;

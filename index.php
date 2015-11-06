@@ -24,7 +24,7 @@
 <div id="divWorkarea">
     <div id="divLogin">
         <label class=" label ">Gafete</label>
-        <input class=" text" type="text" value="735443" />
+        <input class=" text" type="text" value="" />
         <input class=" button " type="button" value="capturar" />
         <div id="divSeparator"></div>
         <label class=" label ">Usuario</label>
