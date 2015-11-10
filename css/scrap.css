@@ -9,6 +9,7 @@ body {
     padding: 0px 0px 0px 0px;
     background-color: #F1F1F1;
     margin: 0px 0px 0px 0px;
+    color: #282828;
 }
 
 #divHeader {
@@ -47,11 +48,11 @@ body {
     height: 1px;
     background-color: #FFA500;
     margin: 15px -10px 20px -10px;
-    box-shadow: 0px 1px 0px #282828
+    box-shadow: 0px 1px 0px #B95F00
 }
 
-#divLogin {
-    text-align: left;
+.divLogin {
+    text-align: center;
     display: inline-block;
     background-color: #FFFFFF;
     border-radius: 10px;
@@ -61,41 +62,14 @@ body {
     padding: 20px 20px 20px 20px;
 }
 
-#divLogin .label {
-    height: 25px;
-    width: 80px;
-    margin-right: 10px;
-    margin-bottom: 5px;
+.link {
+    color: #000000;
+    text-shadow: 0px 1px 0px #D0D0D0;
+    font-size: 11pt;
     font-weight: normal;
-    line-height: 25px;
-    display: inline-block;
+    cursor: pointer;
 }
 
-#divLogin .text {
-    height: 25px;
-    width: 80px;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    border: 1px #EAEAEA solid;
-    background-color: #FAFAFA;
-    border-radius: 5px;
-    padding: 0px 10px 0px 10px;
-    line-height: 25px;
-    box-shadow: 0px 1px 0px #FAFAFA;
-}
-
-#divLogin .button {
-    height: 27px;
-    width: 80px;
-    margin-right: 10px;
-    margin-bottom: 5px;
-    font-weight: normal;
-    border: 1px #EAEAEA solid;
-    background-color: #FFA500;
-    border-radius: 5px;
-    padding: 0px 10px 0px 10px;
-    color: #282828;
-    text-shadow: 0px 1px 0px #b95f00;
-    box-shadow: 0px 1px 0px #FAFAFA;
+.link:hover {
+    text-decoration: underline;
 }
