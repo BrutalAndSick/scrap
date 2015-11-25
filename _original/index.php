@@ -1,15 +1,15 @@
-<?php include('conexion_db.php');
-	  
+<?php
+include('conexion_db.php');
+
 switch ($op) {
 	case "login" 		:  	if(active_directory($user_)=='SI') { login_ad($user_,$pass_,$tipo_); }
-							if(active_directory($user_)=='NO') { login($user_,$pass_,$tipo_); 	 }   break; 
+							if(active_directory($user_)=='NO') { login($user_,$pass_,$tipo_); 	 }   break;
 	case "formulario"	:	formulario($error,$user_,$tipo_); break;
 	default				:	formulario($error,$user_,$tipo_); break;
 }
 
-
-function active_directory($user_) {	
-	$s_1 = "select * from empleados where usuario='$user_'"; 
+function active_directory($user_) {
+	$s_1 = "select * from empleados where usuario='$user_'";
 	$r_1 = mysql_query($s_1);
 	if(mysql_num_rows($r_1)>0) { 
 		$d_1 = mysql_fetch_array($r_1);
@@ -18,7 +18,7 @@ function active_directory($user_) {
 		else {
 			return "NO"; }	
 	} else { 	
-		echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=index.php?error=1&user_=$user_&tipo_=$tipo_\">"; exit; } 	
+		echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0; URL=index.php?error=1&user_=$user_&tipo_=$tipo_\">"; exit; }
 }	
 
 

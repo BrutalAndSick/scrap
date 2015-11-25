@@ -20,6 +20,9 @@ function get_operador($campo,$buscar) {
 	//Si el material es FERT, entonces el tipo es la tabla
 	$s_1 = "select numeros_parte.*, unidades.decimales from numeros_parte, unidades where numeros_parte.nombre='$parte' and ";
 	$s_1.= "numeros_parte.unidad = unidades.unidad and numeros_parte.activo='1' ";
+//	echo "select<br />";
+//	echo $s_1;
+//	echo "select<br />";
 	$r_1 = mysql_query($s_1);
 	$d_1 = mysql_fetch_array($r_1);
 	switch($d_1['tabla']) {
@@ -182,8 +185,8 @@ function get_operador($campo,$buscar) {
 	return $d_1['campo']; }
 	
 /**/function aplica_lo_loa($planta,$codigo_scrap,$division,$prce,$area,$proyecto) {
-	//Obtener los departamentos que deben autorizar en base al código de scrap
-	//No aplica el archivo en el caso de código de scrap: 064-2, 025-4 y 062-4
+	//Obtener los departamentos que deben autorizar en base al cï¿½digo de scrap
+	//No aplica el archivo en el caso de cï¿½digo de scrap: 064-2, 025-4 y 062-4
 	if($codigo_scrap!='064-2' && $codigo_scrap!='025-4' && $codigo_scrap!='062-4') {
 	$s_1 = "select * from codigo_scrap_depto where codigo_scrap='$codigo_scrap' and id_planta='$planta' and (tipo='lo' or tipo='loa')";
 	$r_1 = mysql_query($s_1);
@@ -193,25 +196,25 @@ function get_operador($campo,$buscar) {
 }		
 	
 /**/function validar_autorizadores($planta,$codigo_scrap,$division,$prce,$area,$proyecto) {
-	$mensaj_1 = 'Hay un error con los autorizadores asignados al código de scrap seleccionado. Contacte al administrador del sistema.';
+	$mensaj_1 = 'Hay un error con los autorizadores asignados al cï¿½digo de scrap seleccionado. Contacte al administrador del sistema.';
 	$alerta_1 = utf8_encode($mensaj_1);
 	$mensaj_2 = 'Hay un error con los autorizadores especiales de monto mayor o menor a 50,000. Contacte al administrador del sistema.';
 	$alerta_2 = utf8_encode($mensaj_2);
 
 	if($planta!='' && $codigo_scrap!='' && $division!='' && $prce!='' && $area!='') {
 
-	//Si el proyecto no requiere autorización especial:
+	//Si el proyecto no requiere autorizaciï¿½n especial:
 	$s_1 = "select apr_especial from proyectos where id='$proyecto'";
 	$r_1 = mysql_query($s_1);
 	$d_1 = mysql_fetch_array($r_1); $apr_especial = $d_1['apr_especial'];
 	
 	if($apr_especial!='si') { 
-	//1.Obtener los departamentos que deben autorizar en base al código de scrap que no sean LPL
+	//1.Obtener los departamentos que deben autorizar en base al cï¿½digo de scrap que no sean LPL
 	$s_1 = "select * from codigo_scrap_depto where codigo_scrap='$codigo_scrap' and id_planta='$planta' and (id_proyecto='0' or id_proyecto='$proyecto') order by tipo";
 	$r_1 = mysql_query($s_1);
 	if(mysql_num_rows($r_1)>0) { 
 		while($d_1=mysql_fetch_array($r_1)) {
-		//Revisar si existen personas asignadas a cada nivel de autorización
+		//Revisar si existen personas asignadas a cada nivel de autorizaciï¿½n
 		if($d_1['tipo']=='lo' || $d_1['tipo']=='loa' || $d_1['tipo']=='sqm' || $d_1['tipo']=='fin' || $d_1['tipo']=='inv') {
 			$s_ = "select * from empleados where autorizador='$d_1[tipo]' and activo='1'";
 			$r_ = mysql_query($s_);
@@ -226,7 +229,7 @@ function get_operador($campo,$buscar) {
 			if(mysql_num_rows($r_)<=0) { $error++; }
 		}
 		if($d_1['tipo']=='prod') { 
-			//Debe existir un responsable para producción por área y división
+			//Debe existir un responsable para producciï¿½n por ï¿½rea y divisiï¿½n
 			$s_ = "select autorizadores.* from autorizadores, empleados where tipo='$d_1[tipo]' and id_division='$division' and ";
 			$s_.= "(id_area='$area' or id_area='%') and (id_proyecto='%' or id_proyecto='$proyecto') and autorizadores.id_emp = ";
 			$s_.= "empleados.id and empleados.activo='1'"; //echo $s_."<br>";
@@ -242,7 +245,7 @@ function get_operador($campo,$buscar) {
 	} 
 	
 	} elseif($apr_especial=='si') {  
-		//Revisar si existen personas asignadas a cada nivel de autorización (menor a 50000 y mayor a 5000) y a este proyecto (o todos) aún no sabemos el monto total
+		//Revisar si existen personas asignadas a cada nivel de autorizaciï¿½n (menor a 50000 y mayor a 5000) y a este proyecto (o todos) aï¿½n no sabemos el monto total
 		$s_ = "select empleados.* from empleados, autorizadores where empleados.autorizador='esp' and empleados.id = autorizadores.id_emp and autorizadores.tipo='esp_1' ";
 		$s_.= "and empleados.activo='1' and (id_proyecto='%' or id_proyecto='$proyecto')"; 
 		$r_ = mysql_query($s_);
@@ -269,7 +272,7 @@ function get_operador($campo,$buscar) {
 	$s_1 = "delete from autorizaciones where no_folio='$folio' and status='0' and depto!='inv'";
 	$r_1 = mysql_query($s_1); 
 	
-	//Revisar si el folio requiere de autorización OES (si algún global pc del material termina con 056)
+	//Revisar si el folio requiere de autorizaciï¿½n OES (si algï¿½n global pc del material termina con 056)
 	$s_1 = "select * from scrap_partes, numeros_parte where scrap_partes.no_folio='$folio' and scrap_partes.no_parte = numeros_parte.nombre and numeros_parte.activo!='2' ";
 	$s_1.= "and (numeros_parte.tipo = scrap_partes.tipo or numeros_parte.tipo = scrap_partes.tipo_sub) and numeros_parte.global_pc like '%-056'";
 	$r_1 = mysql_query($s_1);
@@ -283,7 +286,7 @@ function get_operador($campo,$buscar) {
 		} 
 	}			
 	
-	//Si el proyecto no requiere autorización especial:
+	//Si el proyecto no requiere autorizaciï¿½n especial:
 	$s_1 = "select apr_especial from proyectos where id='$proyecto'";
 	$r_1 = mysql_query($s_1);
 	$d_1 = mysql_fetch_array($r_1); $apr_especial = $d_1['apr_especial'];
@@ -302,7 +305,7 @@ function get_operador($campo,$buscar) {
 			}
 		}
 		
-		/*Si no se ha insertado SQM y el código de scrap es 10-3, 10-4, 10-5, 10-6, 12-1 ó 13-1 se requiere SQM obligatorio*/
+		/*Si no se ha insertado SQM y el cï¿½digo de scrap es 10-3, 10-4, 10-5, 10-6, 12-1 ï¿½ 13-1 se requiere SQM obligatorio*/
 		if(($codigo_scrap=='010-3' || $codigo_scrap=='010-4' || $codigo_scrap=='010-5' || $codigo_scrap=='010-6' || $codigo_scrap=='012-1' || $codigo_scrap=='013-1')
 		&& $sqm==0){
 			$s_3 = "select * from autorizaciones where no_folio='$folio' and depto='sqm'";
@@ -322,7 +325,7 @@ function get_operador($campo,$buscar) {
 			/*LOG SISTEMA*/log_sistema("autorizaciones","nuevo",$folio,$s_2); 
 		}
 		
-		/*Si el monto es mayor o igual a $100,000 requiere autorización de FFM*/
+		/*Si el monto es mayor o igual a $100,000 requiere autorizaciï¿½n de FFM*/
 		if($total>=100000) {
 			$s_3 = "select * from autorizaciones where no_folio='$folio' and depto='ffm'";
 			$r_3 = mysql_query($s_3);

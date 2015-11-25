@@ -101,7 +101,8 @@ function apd_sel(campo) {
 							//if($nom!='WHSE' && $nom!='WHS2' && $nom!='AEES') {
 							if($nom!='WHS2' && $nom!='AEES') {
 							$s_1 = "CREATE OR REPLACE VIEW vw_padre_".$_SESSION["IDEMP"]." AS SELECT * from partes_padre where ";
-							$s_1.= "activo!='2' and apd like '$nom'"; 
+							$s_1.= "activo!='2' and apd like '$nom'";
+							echo "###VISTA###" . $s_1 . "###VISTA###";
 							$r_1 = mysql_query($s_1); }
 							nuevo($turno,$proyecto,$area,$area_2,$estacion,$estacion_2,$linea,$linea_2,$defecto,$defecto_2,$causa,
 							$causa_2,$codigo_scrap,$vendor,$v_nombre,$codigo_scrap_2,$parte,$cantidad,$padre,$batch_id,$supervisor,$operador,$no_personal,
@@ -222,7 +223,7 @@ function nuevo($turno,$proyecto,$area,$area_2,$estacion,$estacion_2,$linea,$line
 	   $s_1 = "select proyectos.*, divisiones.nombre as division from plantas, divisiones, segmentos, profit_center, proyectos where proyectos.activo='1' and ";
 	   $s_1.= "plantas.activo='1' and divisiones.activo='1' and segmentos.activo='1' and profit_center.activo='1' and ";
 	   $s_1.= "proyectos.id_planta = plantas.id and proyectos.id_division = divisiones.id and proyectos.id_segmento = segmentos.id ";
-	   $s_1.= "and proyectos.id_pc = profit_center.id order by proyectos.nombre"; }     
+	   $s_1.= "and proyectos.id_pc = profit_center.id order by proyectos.nombre"; }
 	   $r_1 = mysql_query($s_1);?>
 	<select name="proyecto" style="width:190px;" class="texto" onChange="cambio_foco('nuevo','proyecto');" tabindex="2">
 	   <option value=""></option>
@@ -231,7 +232,7 @@ function nuevo($turno,$proyecto,$area,$area_2,$estacion,$estacion_2,$linea,$line
 	   	<?php echo $d_1['nombre']." (".$d_1['division'].")";?></option>
 	   <?php } ?>
 	</select>
-	<?php $data_proy = get_datos_proyecto($proyecto); ?></td>	
+	<?php $data_proy = get_datos_proyecto($proyecto); ?></td>
 	<td align="center"><img src="../imagenes/cuadro_rojo.gif" /></td>
 	<td>&nbsp;No. de Parte</td>
 	<td><?php $parte = strtoupper($parte); ?>
@@ -293,6 +294,7 @@ function nuevo($turno,$proyecto,$area,$area_2,$estacion,$estacion_2,$linea,$line
 
 	if($cod_scr['txs']=='ZSCR' && $parte!='' && $apd_nom!='' && $tipos['tipo']!='') { 
 	    $s_2 = "select padre from vw_padre_".$_SESSION["IDEMP"]." where material='$parte' and type='$tipos[tipo]' group by padre order by padre";
+	     echo $s_2;
 		$r_2 = mysql_query($s_2); 
 	    if($tipos['tipo']=='HALB') {
 			$padres['0']  = $parte;
@@ -390,7 +392,7 @@ function nuevo($turno,$proyecto,$area,$area_2,$estacion,$estacion_2,$linea,$line
 	<td>&nbsp;Línea</td>
 	<td><?php $s_6 = "select lineas.* from lineas, lineas_proy where lineas.activo='1' and lineas.id_area='$area' and ";
 		      $s_6.= "lineas.id_estacion='$estacion' and lineas_proy.id_linea = lineas.id and lineas_proy.id_proyecto = '$proyecto' ";
-			  $s_6.= "order by nombre"; 
+			  $s_6.= "order by nombre";
 	   	      $r_6 = mysql_query($s_6); ?>
     <select name="linea" style="width:190px;" class="texto" onChange="cambio_foco('nuevo','linea');" tabindex="13">
 		<option value=""></option>
