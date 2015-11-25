@@ -137,6 +137,22 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
+    case 7:
+        $intCodigoScrap = $_REQUEST['intCodigoScrap'];
+        $_SESSION['intCodigoScrap'] = $intCodigoScrap;
+        $_SESSION['strCodigoScrap'] = $_REQUEST['strCodigoScrap'];
+        $strSql = "SELECT proy_ubicacion.id AS 'intUbicacion', proy_ubicacion.ubicacion AS 'strUbicacion' ";
+        $strSql .= "FROM proy_ubicacion ";
+        $strSql .= "WHERE proy_ubicacion.id_proyecto = " . $_SESSION['intProyecto']  . " ";
+        $strSql .= "ORDER BY strUbicacion;";
+        $rstData = mysqli_query($objCon, $strSql);
+        while($objData = mysqli_fetch_assoc($rstData)){
+            array_push($jsnData['arrData'],array('intUbicacion'=>$objData['intUbicacion'],'strUbicacion'=>$objData['strUbicacion']));
+        }
+        unset($objData);
+        mysqli_free_result($rstData);
+        unset($rstData);
+        break;
 }
 echo json_encode($jsnData);
 
