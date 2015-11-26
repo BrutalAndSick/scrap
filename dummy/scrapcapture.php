@@ -33,29 +33,29 @@ $strDivision = $_SESSION['strDivision'];
             <td style="width: 50%; text-align: center; vertical-align: top; ">
                 <div class="divother">
                     <div class="divclass"><label for="selProyecto">Proyecto</label><select id="selProyecto" onchange="getAPD();" tabindex="1">
-                            <option value="-1" selected="selected">- Seleccione -</option>
-                            <?php
-                            $strSql = "SELECT proyectos.id AS 'intProyecto', proyectos.nombre AS 'strProyecto', segmentos.id AS 'intSegmento', segmentos.nombre AS 'strSegmento', profit_center.id AS 'intProfitCenter', profit_center.nombre AS 'strProfitCenter' ";
-                            $strSql .= "FROM segmentos, profit_center, proyectos ";
-                            $strSql .= "WHERE proyectos.activo = 1 ";
-                            $strSql .= "AND proyectos.id_planta = " . $intPlanta . " ";
-                            $strSql .= "AND proyectos.id_division = " . $intDivision . " ";
-                            $strSql .= "AND proyectos.id_segmento = segmentos.id ";
-                            $strSql .= "AND segmentos.activo = 1 ";
-                            $strSql .= "AND proyectos.id_pc = profit_center.id ";
-                            $strSql .= "AND profit_center.activo = 1 ";
-                            $strSql .= "ORDER BY proyectos.nombre; ";
-                            $rstData = mysqli_query($objCon, $strSql);
-                            while($objData = mysqli_fetch_assoc($rstData)){
-                                ?>
-                                <option value="<?php echo $objData['intProyecto'] . "|" . $objData['strProyecto'] . "|" . $objData['intSegmento'] . "|" . $objData['strSegmento'] . "|" . $objData['intProfitCenter'] . "|" . $objData['strProfitCenter']; ?>"><?php echo $objData['strProyecto']; ?></option>
-                                <?php
-                            };
-                            unset($objData);
-                            mysqli_free_result($rstData);
-                            unset($rstData);
+                        <option value="-1" selected="selected">- Seleccione -</option>
+                        <?php
+                        $strSql = "SELECT proyectos.id AS 'intProyecto', proyectos.nombre AS 'strProyecto', segmentos.id AS 'intSegmento', segmentos.nombre AS 'strSegmento', profit_center.id AS 'intProfitCenter', profit_center.nombre AS 'strProfitCenter' ";
+                        $strSql .= "FROM segmentos, profit_center, proyectos ";
+                        $strSql .= "WHERE proyectos.activo = 1 ";
+                        $strSql .= "AND proyectos.id_planta = " . $intPlanta . " ";
+                        $strSql .= "AND proyectos.id_division = " . $intDivision . " ";
+                        $strSql .= "AND proyectos.id_segmento = segmentos.id ";
+                        $strSql .= "AND segmentos.activo = 1 ";
+                        $strSql .= "AND proyectos.id_pc = profit_center.id ";
+                        $strSql .= "AND profit_center.activo = 1 ";
+                        $strSql .= "ORDER BY proyectos.nombre; ";
+                        $rstData = mysqli_query($objCon, $strSql);
+                        while($objData = mysqli_fetch_assoc($rstData)){
                             ?>
-                        </select></div>
+                            <option value="<?php echo $objData['intProyecto'] . "|" . $objData['strProyecto'] . "|" . $objData['intSegmento'] . "|" . $objData['strSegmento'] . "|" . $objData['intProfitCenter'] . "|" . $objData['strProfitCenter']; ?>"><?php echo $objData['strProyecto']; ?></option>
+                            <?php
+                        };
+                        unset($objData);
+                        mysqli_free_result($rstData);
+                        unset($rstData);
+                        ?>
+                    </select></div>
                     <div class="divclass" style="display: none" id="divAPD"><label for="selAPD">APD</label><select id="selAPD" onchange="getArea();" tabindex="2"></select></div>
                     <div class="divclass" style="display: none" id="divArea"><label for="selArea">Area</label><select id="selArea" onchange="getTecnologia();" tabindex="3"></select></div>
                     <div class="divclass" style="display: none;" id="divTecnologia"><label for="selTecnologia">Tecnología</label><select id="selTecnologia" onchange="getLinea();" tabindex="4"></select></div>
@@ -69,11 +69,12 @@ $strDivision = $_SESSION['strDivision'];
                 <div style="text-align: left;display: inline-block; width: 139mm; height: 76mm; padding: 2mm 2mm 2mm 2mm; background-color:#ff4646; box-shadow: 2px 2px 0px #000000">
                     <table style="border-spacing: 0mm; border-collapse: collapse; width: 100%">
                         <tr>
-                            <td rowspan="2" style="width: 50%"><img src="img/continental_black.png" style="height: 8mm" /></td>
-                            <td style="height: 4mm; font-size: 9pt; color:#000000; width: 50%; font-weight: bold; text-align: right;">Scrap</td>
+                            <td rowspan="2" style="width: 36mm; "><img src="img/continental_black.png" style="height: 8mm" /></td>
+                            <td style=" height: 4mm; font-size: 9pt; color:#000000; width: 37mm; font-weight: bold; text-align: center;">Scrap</td>
+                            <td rowspan="2" id="tdBarCode" style="width: 66mm; text-align: center" align="center"></td>
                         </tr>
                         <tr>
-                            <td style="height: 4mm; font-size: 9pt; color:#000000; text-align: right"><b>Folio</b><span style="margin-left: 5mm; min-width: 20mm ">0663546</span></td>
+                            <td style="height: 4mm; font-size: 9pt; color:#000000; text-align: center"><b>Folio</b><span style="margin-left: 5mm; ">000000</span></td>
                         </tr>
                     </table>
                     <table style="border-spacing: 0mm; border-collapse: collapse;">
@@ -155,14 +156,25 @@ $strDivision = $_SESSION['strDivision'];
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divPartes" class="divother2" style="margin: 0px auto 0px auto; display: none; width: 800px; ">
+                <div id="divPartes" class="divother2" style="margin: 0px auto 0px auto; display: none; width: 950px; ">
                     <div class="divclass">Numero(s) de Parte</div>
-                    <div class="divclass">
-                        <label for="txtCantidad">Cantidad</label><input type="text" id="txtCantidad" value="" style="width: 50px; text-align: center">
-                        <label for="txtNumerodeParte">Número de Parte</label><input id="txtNumerodeParte" type="text" style="width: 160px; text-align: center">
-                        <label for="selUbicacion">Ubicación</label><select id="selUbicacion" style="width: 100px;"></select>
-                        <input type="button" value="agregar" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; ">
-                        <input type="hidden" id="lblNumerodeParte" value="">
+                    <div class="divclass" style="font-size: 9pt">
+                        <label for="txtCantidad" style="width: auto; padding-right: 5px;">Cantidad</label><input type="text" id="txtCantidad" value="1" style="width: 50px; text-align: center">
+                        <label for="txtNumerodeParte" style="width: auto; padding-right: 5px;">Número de Parte</label><input id="txtNumerodeParte" type="text" style="width: 160px; text-align: center" value="" strParte="">
+                        <label for="selUbicacion" style="width: auto; padding-right: 5px;">Ubicación</label><select id="selUbicacion" style="width: 150px;"></select>
+                        <label for="txtSerial" style="width: auto; padding-right: 5px;">Serial</label><input type="text" id="txtSerial" value="9926620001391515400451" style="width: 170px; text-align: center">
+                        <input type="button" value="agregar" onclick="addParte();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; ">
+                    </div>
+                    <div id="divPartes" >
+                        <div id="divPartesHeader" >
+                            <div class="divPartesGrid divPartesCantidad divPartesHeader">Cantidad</div>
+                            <div class="divPartesGrid divPartesNoParte divPartesHeader">No. Parte</div>
+                            <div class="divPartesGrid divPartesDescripcion divPartesHeader">Descripción</div>
+                            <div class="divPartesGrid divPartesTipo divPartesHeader">Tipo</div>
+                            <div class="divPartesGrid divPartesSubTipo divPartesHeader">SubTipo</div>
+                            <div class="divPartesGrid divPartesNoSerial divPartesHeader">No. Serial</div>
+                            <div class="divPartesGrid divPartesUbicacion divPartesHeader">Ubicación</div>
+                        </div>
                     </div>
                 </div>
             </td>
@@ -171,7 +183,11 @@ $strDivision = $_SESSION['strDivision'];
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.auto-complete.js"></script>
     <script src="js/jquery.numeric.js"></script>
+    <script src="js/jquery-barcode.min.js"></script>
     <script src="js/scrapcapture.js"></script>
+    <script>
+        $('#tdBarCode').barcode("000000","code39",{barHeight:33,barWidth:2,showHRI:false,bgColor:'transparent',output:'css'});
+    </script>
 </body>
 </html>
 <?php

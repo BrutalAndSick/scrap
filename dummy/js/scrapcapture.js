@@ -10,8 +10,8 @@ function cleanSelect($strSelect){
             .find('option')
             .remove()
             .end();
-        $('#sel' + $arrDivs[$intIx]).append('<option value="-1">- Seleccione -</option>');
-        $('#sel' + $arrDivs[$intIx]).val(-1);
+//        $('#sel' + $arrDivs[$intIx]).append('<option value="-1">- Seleccione -</option>');
+//        $('#sel' + $arrDivs[$intIx]).val(-1);
         $('#td' + $arrDivs[$intIx]).html('');
     }
 };
@@ -29,10 +29,18 @@ function getAPD(){
             dataType : "json",
             url : "getdata.php",
             success : function($jsnData){
+                if($jsnData.arrData.length>1){
+                    $('#selAPD').append('<option value="-1">- Seleccione -</option>');
+                    $('#selAPD').val(-1);
+                };
                 for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                     $('#selAPD').append('<option value="' + $jsnData.arrData[$intIx].intAPD + '">' + $jsnData.arrData[$intIx].strAPD + '</option>');
                 }
-                $('#divAPD').slideDown('fast');
+                $('#divAPD').slideDown('fast',function(){
+                    if($jsnData.arrData.length<2) {
+                        getArea();
+                    }
+                });
             }
         });
     };
@@ -49,10 +57,20 @@ function getArea(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selArea').append('<option value="-1">- Seleccione -</option>');
+                $('#selArea').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selArea').append('<option value="' + $jsnData.arrData[$intIx].intArea + '">' + $jsnData.arrData[$intIx].strArea + '</option>');
             }
             $('#divArea').slideDown('fast');
+            $('#divArea').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    getTecnologia();
+                }
+            });
+
         }
     });
 }
@@ -69,10 +87,18 @@ function getTecnologia(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selTecnologia').append('<option value="-1">- Seleccione -</option>');
+                $('#selTecnologia').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selTecnologia').append('<option value="' + $jsnData.arrData[$intIx].intTecnologia + '">' + $jsnData.arrData[$intIx].strTecnologia + '</option>');
             }
-            $('#divTecnologia').slideDown('fast');
+            $('#divTecnologia').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    getLinea();
+                }
+            });
         }
     });
 }
@@ -89,10 +115,19 @@ function getLinea(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selLinea').append('<option value="-1">- Seleccione -</option>');
+                $('#selLinea').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selLinea').append('<option value="' + $jsnData.arrData[$intIx].intLinea + '">' + $jsnData.arrData[$intIx].strLinea + '</option>');
             }
-            $('#divLinea').slideDown('fast');
+            $('#divLinea').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    getDefecto();
+                }
+            });
+
         }
     });
 }
@@ -109,10 +144,18 @@ function getDefecto(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selDefecto').append('<option value="-1">- Seleccione -</option>');
+                $('#selDefecto').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selDefecto').append('<option value="' + $jsnData.arrData[$intIx].intDefecto + '">' + $jsnData.arrData[$intIx].strDefecto + '</option>');
             }
-            $('#divDefecto').slideDown('fast');
+            $('#divDefecto').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    getCausa();
+                }
+            });
         }
     });
 }
@@ -129,10 +172,18 @@ function getCausa(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selCausa').append('<option value="-1">- Seleccione -</option>');
+                $('#selCausa').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selCausa').append('<option value="' + $jsnData.arrData[$intIx].intCausa + '">' + $jsnData.arrData[$intIx].strCausa + '</option>');
             }
-            $('#divCausa').slideDown('fast');
+            $('#divCausa').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    getCodigoScrap();
+                }
+            });
         }
     });
 }
@@ -149,10 +200,18 @@ function getCodigoScrap(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selCodigoScrap').append('<option value="-1">- Seleccione -</option>');
+                $('#selCodigoScrap').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selCodigoScrap').append('<option value="' + $jsnData.arrData[$intIx].intCodigoScrap + '">' + $jsnData.arrData[$intIx].strCodigoScrap + '</option>');
             }
-            $('#divCodigoScrap').slideDown('fast');
+            $('#divCodigoScrap').slideDown('fast',function(){
+                if($jsnData.arrData.length<2) {
+                    addParts();
+                }
+            });
         }
     });
 }
@@ -163,9 +222,6 @@ function addParts(){
         .find('option')
         .remove()
         .end();
-    $('#selUbicacion').append('<option value="-1">- Seleccione -</option>');
-    $('#selUbicacion').val(-1);
-
     $intCodigoScrap = $('#CodigoScrap').val();
     $strCodigoScrap = $("#selCodigoScrap option:selected").text();
     $('#tdCodigoScrap').html($strCodigoScrap);
@@ -176,6 +232,10 @@ function addParts(){
         dataType : "json",
         url : "getdata.php",
         success : function($jsnData){
+            if($jsnData.arrData.length>1){
+                $('#selUbicacion').append('<option value="-1">- Seleccione -</option>');
+                $('#selUbicacion').val(-1);
+            };
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selUbicacion').append('<option value="' + $jsnData.arrData[$intIx].intUbicacion + '">' + $jsnData.arrData[$intIx].strUbicacion + '</option>');
             }
@@ -200,26 +260,48 @@ $(function(){
             return '<div class="autocomplete-suggestion" data-numerodeparte="'+item+'" data-val="'+item+'"><img src="img/'+item+'.jpg" style="width:100px;"> '+item.replace(re, "<b>$1</b>")+'</div>';
         },
         onSelect: function(e, term, item){
-            getNumerodeParte();
+            setNumerodeParte();
         }
     });
 
     $('#txtNumerodeParte').blur(function() {
-        getNumerodeParte();
+        setNumerodeParte();
     });
 
     $('#txtNumerodeParte').focus(function(){
-        $('#lblNumerodeParte').html('');
+        $('#txtNumerodeParte').attr('strParte','');
     });
 });
 
-function getNumerodeParte(){
-    if($('#lblNumerodeParte').html()==''){
-        $('#lblNumerodeParte').html($('#txtNumerodeParte').val());
-        if($('#lblNumerodeParte').html()!=''){
-            $.getJSON('getpartes.php', { strNumerodeParte : $('#lblNumerodeParte').html(), intProc : 1 }, function(data){
-                console.log(data);
-            });
-        };
-    }
+function setNumerodeParte(){
+    if($('#txtNumerodeParte').attr('strParte')==''){
+        $('#txtNumerodeParte').attr('strParte',$('#txtNumerodeParte').val());
+    };
+}
+
+function addParte(){
+//    if($('#txtNumerodeParte').attr('strParte')!='' && $('#txtCantidad').val()!='' && $('#selUbicacion').val()!=-1){
+    if($('#txtNumerodeParte').attr('strParte')!='' && $('#txtCantidad').val()!=''){
+        $.getJSON('getpartes.php', { strNumerodeParte : $('#txtNumerodeParte').attr('strParte'), intProc : 1 }, function(data){
+            console.log(data);
+            $strDiv = '<div id="divPartes_' + data[0].intNumerodeParte + '">';
+            $strDiv += '    <div class="divPartesGrid divPartesCantidad">' + $('#txtCantidad').val() + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesNoParte">' + data[0].strNumerodeParte + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesDescripcion">' + data[0].strDescripcionParte + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesTipo">' + data[0].strTipoParte + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesSubTipo">' + ' ' + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesNoSerial">' + $('#txtSerial').val() + '</div>';
+            $strDiv += '    <div class="divPartesGrid divPartesUbicacion">' + $('#selUbicacion option:selected').text(); + '</div>';
+            $strDiv += '</div>';
+
+            $('#divPartes').append($strDiv);
+
+            $('#txtCantidad').val(1);
+            $('#txtNumerodeParte').val('');
+            $('#txtNumerodeParte').attr('strParte','');
+            $('#selUbicacion').val(-1);
+        });
+    }else{
+        console.log('no hara nada hasta que se seleccione todo');
+    };
 }
