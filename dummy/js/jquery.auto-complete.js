@@ -1,15 +1,6 @@
-/*
-	jQuery autoComplete v1.0.7
-    Copyright (c) 2014 Simon Steinberger / Pixabay
-    GitHub: https://github.com/Pixabay/jQuery-autoComplete
-	License: http://www.opensource.org/licenses/mit-license.php
-*/
-
 (function($){
     $.fn.autoComplete = function(options){
         var o = $.extend({}, $.fn.autoComplete.defaults, options);
-
-        // public methods
         if (typeof options == 'string') {
             this.each(function(){
                 var that = $(this);
@@ -29,7 +20,6 @@
 
         return this.each(function(){
             var that = $(this);
-            // sc = 'suggestions container'
             that.sc = $('<div class="autocomplete-suggestions '+o.menuClass+'"></div>');
             that.data('sc', that.sc).data('autocomplete', that.attr('autocomplete'));
             that.attr('autocomplete', 'off');
@@ -40,7 +30,6 @@
                 that.sc.css({
                     top: that.offset().top + that.outerHeight(),
                     left: that.offset().left//,
-                    //width: that.outerWidth()
                 });
                 if (!resize) {
                     that.sc.show();
@@ -105,7 +94,6 @@
             }
 
             that.on('keydown.autocomplete', function(e){
-                // down (40), up (38)
                 if ((e.which == 40 || e.which == 38) && that.sc.html()) {
                     var next, sel = $('.autocomplete-suggestion.selected', that.sc);
                     if (!sel.length) {
@@ -119,9 +107,7 @@
                     that.updateSC(0, next);
                     return false;
                 }
-                // esc
                 else if (e.which == 27) that.val(that.last_val).sc.hide();
-                // enter or tab
                 else if (e.which == 13 || e.which == 9) {
                     var sel = $('.autocomplete-suggestion.selected', that.sc);
                     if (sel.length && that.sc.is(':visible')) { o.onSelect(e, sel.data('val'), sel); setTimeout(function(){ that.sc.hide(); }, 20); }
@@ -137,7 +123,6 @@
                             clearTimeout(that.timer);
                             if (o.cache) {
                                 if (val in that.cache) { suggest(that.cache[val]); return; }
-                                // no requests if previous suggestions were empty
                                 for (var i=1; i<val.length-o.minChars; i++) {
                                     var part = val.slice(0, val.length-i);
                                     if (part in that.cache && !that.cache[part].length) { suggest([]); return; }
@@ -161,7 +146,6 @@
         cache: 1,
         menuClass: '',
         renderItem: function (item, search){
-            // escape special characters
             search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
             var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
             return '<div class="autocomplete-suggestion" data-val="' + item + '">' + item.replace(re, "<b>$1</b>") + '</div>';

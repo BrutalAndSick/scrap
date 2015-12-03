@@ -10,10 +10,10 @@ $jsnData = array();
 
 switch($intProc){
     case 0:
-        $strSql = "SELECT nombre FROM numeros_parte WHERE activo = 1 AND nombre LIKE ('" . $strData . "%') ORDER BY nombre LIMIT 500;";
+        $strSql = "SELECT nombre, descripcion FROM numeros_parte WHERE activo = 1 AND nombre LIKE ('" . $strData . "%') ORDER BY nombre LIMIT 500;";
         $rstData = mysqli_query($objCon, $strSql);
         while ($objData = mysqli_fetch_assoc($rstData)) {
-            array_push($jsnData, $objData['nombre']);
+            array_push($jsnData, array($objData['nombre'],$objData['descripcion']));
         }
         unset($objData);
         mysqli_free_result($rstData);

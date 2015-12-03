@@ -1,10 +1,14 @@
 <?php
 ini_set("display_errors",1);
-//HTTPOnly
 ini_set('session.cookie_httponly',1);
-//CSRF
+
+
+
 session_regenerate_id();
 session_start();
+
+session_destroy();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

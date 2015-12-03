@@ -1,6 +1,12 @@
 <?php
 ini_set('display_errors',1);
 session_start();
+
+if(!isset($_SESSION["intUser"]))
+{
+    header("location: index.php");
+}
+
 date_default_timezone_set('America/Mexico_City');
 $objCon = mysqli_connect("localhost","root","","scrap_gdl");
 mysqli_query($objCon, "SET NAMES 'utf8'");
@@ -21,7 +27,6 @@ $strDivision = $_SESSION['strDivision'];
     <title>:: CONTINENTAL :: SCRAP ::</title>
     <link rel="stylesheet" type="text/css" href="css/scrap.css">
     <link rel="stylesheet" type="text/css" href="css/scrapcapture.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.auto-complete.css">
     <style>
     </style>
 </head>
@@ -66,10 +71,10 @@ $strDivision = $_SESSION['strDivision'];
                 </div>
             </td>
             <td style="width: 50%; text-align: center; vertical-align: top; ">
-                <div style="text-align: left;display: inline-block; width: 139mm; height: 76mm; padding: 2mm 2mm 2mm 2mm; background-color:#ff4646; box-shadow: 2px 2px 0px #000000">
+                <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 139mm; height: 76mm; padding: 2mm 2mm 2mm 2mm; background-color:#ff4646; box-shadow: 0px 1px 0px #000000; border-radius: 5px">
                     <table style="border-spacing: 0mm; border-collapse: collapse; width: 100%">
                         <tr>
-                            <td rowspan="2" style="width: 36mm; "><img src="img/continental_black.png" style="height: 8mm" /></td>
+                            <td rowspan="2" style="width: 36mm; "><img src="/scrap/dummy/img/continental_black.png" style="height: 8mm" /></td>
                             <td style=" height: 4mm; font-size: 9pt; color:#000000; width: 37mm; font-weight: bold; text-align: center;">Scrap</td>
                             <td rowspan="2" id="tdBarCode" style="width: 66mm; text-align: center" align="center"></td>
                         </tr>
@@ -80,7 +85,7 @@ $strDivision = $_SESSION['strDivision'];
                     <table style="border-spacing: 0mm; border-collapse: collapse;">
                         <tr style="height: 5mm;">
                             <td style="width: 10%; font-size: 9pt; color:#000000; font-weight: bold; ">Costo</td>
-                            <td style="text-align: right; width: 18%; font-size: 9pt; color:#000000; font-weight: normal;">0.00</td>
+                            <td style="text-align: right; width: 18%; font-size: 9pt; color:#000000; font-weight: normal;" id="tdCosto">0.00</td>
                             <td style="width: 14%; font-size: 9pt; color:#000000; font-weight: bold; ">MXN</td>
                             <td style="width: 16%; font-size: 9pt; color:#000000; font-weight: bold;">Fecha&nbsp;de&nbsp;captura</td>
                             <td style="width: 14%; font-size: 9pt; color:#000000; font-weight: normal; "><?php echo date("d/m/y") ?></td>
@@ -137,12 +142,10 @@ $strDivision = $_SESSION['strDivision'];
                     </table>
                     <table style="border-spacing: 0mm; border-collapse: collapse; width: 100%">
                         <tr>
-                            <td class="tdbold">Parte (Cant.)</td>
-                            <td class="tdnormal" id="tdNumeroParte"></td>
+                            <td class="tdbold" colspan="2">Parte(s) (Cantidad - Ubicacion)</td>
                         </tr>
                         <tr>
-                            <td class="tdbold">Ubicación</td>
-                            <td class="tdnormal" id="tdUbicacion"></td>
+                            <td class="tdnormal" id="tdPartes" colspan="2" style="text-align: left; height: 13mm"></td>
                         </tr>
                         <tr><td colspan="2" style="background-color: #000000; height: 1mm;"></td></tr>
                         <tr>
@@ -156,20 +159,22 @@ $strDivision = $_SESSION['strDivision'];
         </tr>
         <tr>
             <td colspan="2">
-                <div id="divPartes" class="divother2" style="margin: 0px auto 0px auto; display: none; width: 950px; ">
+                <div id="divPartes" class="divother2" style="margin: 0px auto 0px auto; display: none; width: 1000px; ">
                     <div class="divclass">Numero(s) de Parte</div>
                     <div class="divclass" style="font-size: 9pt">
-                        <label for="txtCantidad" style="width: auto; padding-right: 5px;">Cantidad</label><input type="text" id="txtCantidad" value="1" style="width: 50px; text-align: center">
                         <label for="txtNumerodeParte" style="width: auto; padding-right: 5px;">Número de Parte</label><input id="txtNumerodeParte" type="text" style="width: 160px; text-align: center" value="" strParte="">
+                        <label for="txtCantidad" style="width: auto; padding-right: 5px;">Cantidad</label><input type="text" id="txtCantidad" value="" style="width: 50px; text-align: center">
                         <label for="selUbicacion" style="width: auto; padding-right: 5px;">Ubicación</label><select id="selUbicacion" style="width: 150px;"></select>
-                        <label for="txtSerial" style="width: auto; padding-right: 5px;">Serial</label><input type="text" id="txtSerial" value="9926620001391515400451" style="width: 170px; text-align: center">
+                        <input type="button" value="seriales" onclick="showSeriales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; ">
                         <input type="button" value="agregar" onclick="addParte();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; ">
                     </div>
-                    <div id="divPartes" >
+                    <div id="lblErrors" class="lblErrorWarnings" style="  background-image: url('img/error.png')"></div>
+                    <div id="divPartesContainer" >
                         <div id="divPartesHeader" >
                             <div class="divPartesGrid divPartesCantidad divPartesHeader">Cantidad</div>
                             <div class="divPartesGrid divPartesNoParte divPartesHeader">No. Parte</div>
                             <div class="divPartesGrid divPartesDescripcion divPartesHeader">Descripción</div>
+                            <div class="divPartesGrid divPartesCostoU divPartesHeader">Costo U.</div>
                             <div class="divPartesGrid divPartesTipo divPartesHeader">Tipo</div>
                             <div class="divPartesGrid divPartesSubTipo divPartesHeader">SubTipo</div>
                             <div class="divPartesGrid divPartesNoSerial divPartesHeader">No. Serial</div>
@@ -180,14 +185,30 @@ $strDivision = $_SESSION['strDivision'];
             </td>
         </tr>
     </table>
+    <div id="divModal" style="background-color: rgba(0,0,0,.8); position: absolute; width: 100%; height: 100%; z-index: 10000000; top: 0px; left: 0px; display: none ">
+        <div id="divSeriales" style=" text-align: center; width: 500px; height: 315px; padding: 10px 10px 10px 10px; border:1px #EAEAEA solid; border-radius: 5px; box-shadow: 0px 1px 0px #FFFFFF; background-color: #FFFFFF; top:0; bottom: 0; left: 0; right: 0; margin: auto auto auto auto; position: absolute; display: none ">
+            <div style=" background-color: #EFEFEF; text-align: center; border: 1px #EAEAEA solid; border-radius: 5px; padding: 10px 10px 10px 10px; margin-bottom: 8px;">
+                Ingresar Seriales
+            </div>
+            <div style=" background-color: #EFEFEF; border: 1px #EAEAEA solid; border-radius: 5px; padding: 10px 10px 10px 10px; margin-bottom: 8px;">
+                Número de Parte <label id="lblSerialesNoParte" style="display: inline; font-weight: bold;"></label><br />
+                <label id="lblSerialesContador" style="display: inline; margin: 0px auto 0px auto; font-weight: bold; "></label>
+                <label id="lblSerialesCantidad" style="display: inline; margin: 0px auto 0px auto; "></label>
+                <input id="txtSerial" type="text" value="" style="width: 180px; text-align: center">
+            </div>
+            <div id="divSerialesContainer" style="background-color: #EFEFEF; text-align: center; border: 1px #EAEAEA solid; border-radius: 5px; padding: 10px 10px 10px 10px; margin-bottom: 8px; height: 100px; overflow: auto;">
+
+            </div>
+            <div id="lblSerialesErrors" class="lblErrorWarnings" style="padding: 0px 50px 0px 50px;  background-image: url('img/error.png')"></div>
+            <input type="button" value="agregar" onclick="hideSeriales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; ">
+        </div>
+    </div>
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery.auto-complete.js"></script>
     <script src="js/jquery.numeric.js"></script>
     <script src="js/jquery-barcode.min.js"></script>
+    <script src="js/printThis.js"></script>
     <script src="js/scrapcapture.js"></script>
-    <script>
-        $('#tdBarCode').barcode("000000","code39",{barHeight:33,barWidth:2,showHRI:false,bgColor:'transparent',output:'css'});
-    </script>
 </body>
 </html>
 <?php

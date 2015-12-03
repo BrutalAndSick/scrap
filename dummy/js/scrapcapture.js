@@ -1,19 +1,40 @@
 $("#txtCantidad").numeric({ decimal: false, negative: false }, function() { alert("Positive integers only"); this.value = ""; this.focus(); });
 
 $arrDivs = Array('APD','Area','Tecnologia','Linea','Defecto','Causa','CodigoScrap');
+var objAutosuggest;
+$arrPartes = Array();
 
 function cleanSelect($strSelect){
 
+    $('#tdCosto').html('0.00');
     for($intIx=$.inArray($strSelect,$arrDivs);$intIx<$arrDivs.length;$intIx++){
         $('#div' + $arrDivs[$intIx]).hide();
         $('#sel' + $arrDivs[$intIx])
             .find('option')
             .remove()
             .end();
-//        $('#sel' + $arrDivs[$intIx]).append('<option value="-1">- Seleccione -</option>');
-//        $('#sel' + $arrDivs[$intIx]).val(-1);
         $('#td' + $arrDivs[$intIx]).html('');
     }
+    $('#divPartes').hide();
+    $('#tdPartes').html('');
+    $('#txtCantidad').val(1);
+    $('#txtNumerodeParte').val('');
+    $('#txtNumerodeParte').attr('strParte','');
+    $('#selUbicacion').val($('#selUbicacion option:first').val());
+    $arrPartes = Array();
+
+    $strCleanParts = '<div id="divPartesHeader" >';
+    $strCleanParts += '    <div class="divPartesGrid divPartesCantidad divPartesHeader">Cantidad</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesNoParte divPartesHeader">No. Parte</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesDescripcion divPartesHeader">Descripción</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesCostoU divPartesHeader">Costo U.</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesTipo divPartesHeader">Tipo</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesSubTipo divPartesHeader">SubTipo</div>';
+    //$strCleanParts += '    <div class="divPartesGrid divPartesNoSerial divPartesHeader">No. Serial</div>';
+    $strCleanParts += '    <div class="divPartesGrid divPartesUbicacion divPartesHeader">Ubicación</div>';
+    $strCleanParts += '</div>';
+    $('#divPartesContainer').html($strCleanParts);
+
 };
 
 function getAPD(){
@@ -37,9 +58,13 @@ function getAPD(){
                     $('#selAPD').append('<option value="' + $jsnData.arrData[$intIx].intAPD + '">' + $jsnData.arrData[$intIx].strAPD + '</option>');
                 }
                 $('#divAPD').slideDown('fast',function(){
+                    $('#selAPD').focus();
                     if($jsnData.arrData.length<2) {
                         getArea();
                     }
+                    //###QUITAR!!!###
+                    addParts();
+                    //###QUITAR!!!###
                 });
             }
         });
@@ -66,6 +91,7 @@ function getArea(){
             }
             $('#divArea').slideDown('fast');
             $('#divArea').slideDown('fast',function(){
+                $('#selArea').focus();
                 if($jsnData.arrData.length<2) {
                     getTecnologia();
                 }
@@ -95,6 +121,7 @@ function getTecnologia(){
                 $('#selTecnologia').append('<option value="' + $jsnData.arrData[$intIx].intTecnologia + '">' + $jsnData.arrData[$intIx].strTecnologia + '</option>');
             }
             $('#divTecnologia').slideDown('fast',function(){
+                $('#selTecnologia').focus();
                 if($jsnData.arrData.length<2) {
                     getLinea();
                 }
@@ -123,6 +150,7 @@ function getLinea(){
                 $('#selLinea').append('<option value="' + $jsnData.arrData[$intIx].intLinea + '">' + $jsnData.arrData[$intIx].strLinea + '</option>');
             }
             $('#divLinea').slideDown('fast',function(){
+                $('#selLinea').focus();
                 if($jsnData.arrData.length<2) {
                     getDefecto();
                 }
@@ -152,6 +180,7 @@ function getDefecto(){
                 $('#selDefecto').append('<option value="' + $jsnData.arrData[$intIx].intDefecto + '">' + $jsnData.arrData[$intIx].strDefecto + '</option>');
             }
             $('#divDefecto').slideDown('fast',function(){
+                $('#selDefecto').focus();
                 if($jsnData.arrData.length<2) {
                     getCausa();
                 }
@@ -180,6 +209,7 @@ function getCausa(){
                 $('#selCausa').append('<option value="' + $jsnData.arrData[$intIx].intCausa + '">' + $jsnData.arrData[$intIx].strCausa + '</option>');
             }
             $('#divCausa').slideDown('fast',function(){
+                $('#selCausa').focus();
                 if($jsnData.arrData.length<2) {
                     getCodigoScrap();
                 }
@@ -208,6 +238,7 @@ function getCodigoScrap(){
                 $('#selCodigoScrap').append('<option value="' + $jsnData.arrData[$intIx].intCodigoScrap + '">' + $jsnData.arrData[$intIx].strCodigoScrap + '</option>');
             }
             $('#divCodigoScrap').slideDown('fast',function(){
+                $('#selCodigoScrap').focus();
                 if($jsnData.arrData.length<2) {
                     addParts();
                 }
@@ -222,6 +253,15 @@ function addParts(){
         .find('option')
         .remove()
         .end();
+    $('#txtCantidad').val('1');
+    $('#txtNumerodeParte').val('');
+
+    $('#tdPartes').html('');
+    $('#txtNumerodeParte').attr('strParte','');
+    $('#selUbicacion').val($('#selUbicacion option:first').val());
+    $arrPartes = Array();
+
+
     $intCodigoScrap = $('#CodigoScrap').val();
     $strCodigoScrap = $("#selCodigoScrap option:selected").text();
     $('#tdCodigoScrap').html($strCodigoScrap);
@@ -239,12 +279,14 @@ function addParts(){
             for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
                 $('#selUbicacion').append('<option value="' + $jsnData.arrData[$intIx].intUbicacion + '">' + $jsnData.arrData[$intIx].strUbicacion + '</option>');
             }
-            $('#divPartes').slideDown('fast');
+            $('#divPartes').slideDown('fast',function(){
+                $('#txtNumerodeParte').focus();
+            });
+
         }
     });
 }
 
-var objAutosuggest;
 $(function(){
     $('#txtNumerodeParte').autoComplete({
         minChars : 3,
@@ -257,7 +299,7 @@ $(function(){
         renderItem: function (item, search){
             search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
             var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
-            return '<div class="autocomplete-suggestion" data-numerodeparte="'+item+'" data-val="'+item+'"><img src="img/'+item+'.jpg" style="width:100px;"> '+item.replace(re, "<b>$1</b>")+'</div>';
+            return '<div class="autocomplete-suggestion" style="background-image:url(\'img/' + item[0] + '.jpg\')" data-numerodeparte="' + item[0] + '" data-val="' + item[0] +'">' + item[0].replace(re, "<b>$1</b>") + '<br /><br /><span>' + item[1] + '</span></div>';
         },
         onSelect: function(e, term, item){
             setNumerodeParte();
@@ -280,28 +322,134 @@ function setNumerodeParte(){
 }
 
 function addParte(){
-//    if($('#txtNumerodeParte').attr('strParte')!='' && $('#txtCantidad').val()!='' && $('#selUbicacion').val()!=-1){
     if($('#txtNumerodeParte').attr('strParte')!='' && $('#txtCantidad').val()!=''){
         $.getJSON('getpartes.php', { strNumerodeParte : $('#txtNumerodeParte').attr('strParte'), intProc : 1 }, function(data){
             console.log(data);
+            $arrPartes.push(data[0].intNumerodeParte);
             $strDiv = '<div id="divPartes_' + data[0].intNumerodeParte + '">';
-            $strDiv += '    <div class="divPartesGrid divPartesCantidad">' + $('#txtCantidad').val() + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesNoParte">' + data[0].strNumerodeParte + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesDescripcion">' + data[0].strDescripcionParte + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesTipo">' + data[0].strTipoParte + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesSubTipo">' + ' ' + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesNoSerial">' + $('#txtSerial').val() + '</div>';
-            $strDiv += '    <div class="divPartesGrid divPartesUbicacion">' + $('#selUbicacion option:selected').text(); + '</div>';
+            $strDiv += '    <div id="divPartesCantidad_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesCantidad">' + $('#txtCantidad').val().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</div>';
+            $strDiv += '    <div id="divPartesNoParte_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesNoParte">' + data[0].strNumerodeParte + '</div>';
+            $strDiv += '    <div id="divPartesDescripcion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesDescripcion">' + data[0].strDescripcionParte + '</div>';
+            $strDiv += '    <div id="divPartesCostoU_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesCostoU">' + data[0].decCostoParte + '</div>';
+            $strDiv += '    <div id="divPartesTipo_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesTipo">' + data[0].strTipoParte + '</div>';
+            $strDiv += '    <div id="divPartesSubtipo_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesSubTipo">' + ' ' + '</div>';
+            if($('#selUbicacion').val()==-1){
+                $strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">NA</div>';
+            }else{
+                $strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">' + $('#selUbicacion option:selected').text() + '</div>';
+            }
+
+            $strDiv += '    <div id="divPartesDelete_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesDelete"><img class="imgDeletePart" src="img/delete.png" onclick="removePart(' + data[0].intNumerodeParte + ')" /></div>';
+
             $strDiv += '</div>';
+            $('#divPartesContainer').append($strDiv);
+            $strPartes = '';
+            $decCosto = 0;
+            for($intIx=0;$intIx<$arrPartes.length;$intIx++){
+                if($strPartes!=''){
+                    $strPartes += ' / ';
+                }
+                $strPartes += '<b>' + $('#divPartesNoParte_' + $arrPartes[$intIx]).html() + '</b> (' + $('#divPartesCantidad_' + $arrPartes[$intIx]).html() + ' - ' + $('#divPartesUbicacion_' + $arrPartes[$intIx]).html() + ')';
 
-            $('#divPartes').append($strDiv);
+                $decCosto = $decCosto + ($('#divPartesCantidad_' + $arrPartes[$intIx]).html().replace(',','') * $('#divPartesCostoU_' + $arrPartes[$intIx]).html());
+                $('#tdCosto').html($decCosto.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+            };
 
+            $('#tdPartes').html($strPartes);
             $('#txtCantidad').val(1);
             $('#txtNumerodeParte').val('');
             $('#txtNumerodeParte').attr('strParte','');
-            $('#selUbicacion').val(-1);
+            $('#selUbicacion').val($('#selUbicacion option:first').val());
+            $('#txtNumerodeParte').focus();
+
         });
     }else{
         console.log('no hara nada hasta que se seleccione todo');
     };
 }
+
+function removePart($intNoParte){
+    $('#divPartes_' + $intNoParte).remove();
+    $arrPartes.splice($arrPartes.indexOf($intNoParte),1);
+    $strPartes = '';
+    $decCosto = 0;
+    for($intIx=0;$intIx<$arrPartes.length;$intIx++){
+        if($strPartes!=''){
+            $strPartes += ' / ';
+        }
+        $strPartes += '<b>' + $('#divPartesNoParte_' + $arrPartes[$intIx]).html() + '</b> (' + $('#divPartesCantidad_' + $arrPartes[$intIx]).html() + ' - ' + $('#divPartesUbicacion_' + $arrPartes[$intIx]).html() + ')';
+        $decCosto = $decCosto + ($('#divPartesCantidad_' + $arrPartes[$intIx]).html().replace(',','') * $('#divPartesCostoU_' + $arrPartes[$intIx]).html());
+        $('#tdCosto').html($decCosto.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+    };
+    $('#tdPartes').html($strPartes);
+    $('#txtCantidad').val(1);
+    $('#txtNumerodeParte').val('');
+    $('#txtNumerodeParte').attr('strParte','');
+    $('#selUbicacion').val($('#selUbicacion option:first').val());
+    $('#txtNumerodeParte').focus();
+}
+
+function showSeriales(){
+    $('#lblErrors').hide();
+    $('#lblErrors').html('');
+    if($('#txtNumerodeParte').val()==''){
+        $('#lblErrors').html('Ingresa Número de parte y cantidad');
+        $('#lblErrors').slideDown('fast');
+        $('#txtNumerodeParte').focus();
+    }else{
+        $("body").css('overflow','hidden');
+        $('#lblSerialesContador').html('0');
+        $('#lblSerialesContador').css('color',"#FF0000")
+        $('#lblSerialesCantidad').html(' / ' + $('#txtCantidad').val());
+        $('#lblSerialesNoParte').html($('#txtNumerodeParte').val());
+        $('#divSerialesContainer').html('');
+        $('#divModal').fadeIn('fast',function(){
+            $('#divSeriales').slideDown('slow',function(){
+                $('#txtSerial').focus();
+            });
+        });
+    }
+
+}
+
+function hideSeriales(){
+    $('#lblSerialesErrors').hide();
+    $('#lblSerialesErrors').html('');
+    if($('#lblSerialesContador').css('color')=='rgb(255, 0, 0)'){
+        $('#lblSerialesErrors').html('El total de seriales capturados no coincide con la cantidad indicada, por favor verifica');
+        $('#lblSerialesErrors').slideDown('fast');
+    }else{
+        $('#divSeriales').slideUp('slow',function(){
+            $('#divModal').fadeOut('fast',function(){
+                addParte();
+                $("body").css('overflow','visible');
+            })
+        })
+    }
+}
+
+
+$('document').ready(function(){
+    $('#selProyecto').focus();
+
+    $('#txtSerial').keyup(function (e){
+        if(e.keyCode==13){
+
+            $strDivSerial = '<div style="background-color: #FFFFFF; margin-bottom: 2px; border-radius: 5px; padding: 2px 5px 2px 5px; text-align: left; ">';
+            $strDivSerial += $('#txtSerial').val() + '<img class="imgDeletePart" style="right: 0px; float: right" src="img/delete.png"><br style="clear: both" />';
+            $strDivSerial += '</div>';
+            $('#divSerialesContainer').append($strDivSerial);
+            $('#lblSerialesContador').html(parseInt($('#lblSerialesContador').html()) + 1);
+            $('#txtSerial').val('');
+
+            if(parseInt($('#lblSerialesContador').html())==parseInt($('#lblSerialesCantidad').html().replace(' / ',''))){
+                $('#lblSerialesContador').css('color',"#282828");
+            }else{
+                $('#lblSerialesContador').css('color',"#FF0000");
+            };
+        }
+    })
+
+    $('#tdBarCode').barcode("000000","code39",{barHeight:33,barWidth:2,showHRI:false,bgColor:'transparent',output:'css'});
+
+});

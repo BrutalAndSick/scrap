@@ -6,9 +6,10 @@ mysqli_query($objCon, "SET NAMES 'utf8'");
 
 $jsnData = array('arrData'=>array());
 
-$intProc = $_REQUEST['intProc'];
-switch($intProc){
-    case 0:
+$strProc = $_REQUEST['intProc'];
+
+switch($strProc){
+    case "0":
         $intProyecto = $_REQUEST['intProyecto'];
         $_SESSION['intProyecto'] = $intProyecto;
         $_SESSION['strProyecto'] = $_REQUEST['strProyecto'];
@@ -28,11 +29,15 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 1:
+    case "1":
         $intProyecto = $_SESSION['intProyecto'];
         $_SESSION['intAPD'] = $_REQUEST['intAPD'];
         $_SESSION['strAPD'] = $_REQUEST['strAPD'];
-        $strSql = "SELECT areas.id AS 'intArea', areas.nombre AS 'strArea' FROM areas WHERE id IN (SELECT DISTINCT(id_area) FROM estaciones WHERE id IN (SELECT DISTINCT(id_tecnologia) FROM est_proyecto WHERE id_proyecto = " . $intProyecto . ") AND activo = 1) AND activo = 1 ORDER BY strArea;";
+        if($_SESSION['strAPD']=='WHSE'){
+            $strSql = "SELECT areas.id AS 'intArea', areas.nombre AS 'strArea' FROM areas WHERE id IN (SELECT DISTINCT(id_area) FROM estaciones WHERE id IN (SELECT DISTINCT(id_tecnologia) FROM est_proyecto WHERE id_proyecto = " . $intProyecto . ") AND activo = 1) AND activo = 1 AND areas.nombre = 'WHSE' ORDER BY strArea;";
+        }else{
+            $strSql = "SELECT areas.id AS 'intArea', areas.nombre AS 'strArea' FROM areas WHERE id IN (SELECT DISTINCT(id_area) FROM estaciones WHERE id IN (SELECT DISTINCT(id_tecnologia) FROM est_proyecto WHERE id_proyecto = " . $intProyecto . ") AND activo = 1) AND activo = 1 ORDER BY strArea;";
+        }
         $rstData = mysqli_query($objCon, $strSql);
         while($objData = mysqli_fetch_assoc($rstData)){
             array_push($jsnData['arrData'],array('intArea'=>$objData['intArea'],'strArea'=>$objData['strArea']));
@@ -41,7 +46,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 2:
+    case "2":
         $intArea = $_REQUEST['intArea'];
         $_SESSION['intArea'] = $intArea;
         $_SESSION['strArea'] = $_REQUEST['strArea'];
@@ -60,7 +65,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 3:
+    case "3":
         $intTecnologia = $_REQUEST['intTecnologia'];
         $_SESSION['intTecnologia'] = $intTecnologia;
         $_SESSION['strTecnologia'] = $_REQUEST['strTecnologia'];
@@ -80,7 +85,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 4:
+    case "4":
         $intLinea = $_REQUEST['intLinea'];
         $_SESSION['intLinea'] = $intLinea;
         $_SESSION['strLinea'] = $_REQUEST['strLinea'];
@@ -100,7 +105,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 5:
+    case "5":
         $intDefecto = $_REQUEST['intDefecto'];
         $_SESSION['intDefecto'] = $intDefecto;
         $_SESSION['strDefecto'] = $_REQUEST['strDefecto'];
@@ -118,7 +123,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 6:
+    case "6":
         $intCausa = $_REQUEST['intCausa'];
         $_SESSION['intCausa'] = $intCausa;
         $_SESSION['strCausa'] = $_REQUEST['strCausa'];
@@ -137,7 +142,7 @@ switch($intProc){
         mysqli_free_result($rstData);
         unset($rstData);
         break;
-    case 7:
+    case "7":
         $intCodigoScrap = $_REQUEST['intCodigoScrap'];
         $_SESSION['intCodigoScrap'] = $intCodigoScrap;
         $_SESSION['strCodigoScrap'] = $_REQUEST['strCodigoScrap'];

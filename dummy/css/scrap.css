@@ -7,7 +7,7 @@ body {
     font-size: 11pt;
     font-weight: normal;
     padding: 0px 0px 0px 0px;
-    background-color: #F1F1F1;
+    background-color: #EFEFEF;
     margin: 0px 0px 0px 0px;
     color: #282828;
 }
@@ -17,7 +17,7 @@ body {
     background-color: #282828;
     background-image: url(../img/continental.png);
     background-repeat: no-repeat;
-    background-position: right 20px center;
+    background-position: calc(100% - 20px) center;
     padding: 0px 0px 0px 20px;
     color: #FFA500;
     line-height: 80px;
