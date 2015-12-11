@@ -1,13 +1,7 @@
 <?php
-require_once('connection.php');
-
-if (isset($_GET['controller']) && isset($_GET['action'])) {
-    $controller = $_GET['controller'];
-    $action     = $_GET['action'];
-} else {
-    $controller = 'pages';
-    $action     = 'home';
-}
-
-require_once('views/layout.php');
-?>
+/**
+ * Created by PhpStorm.
+ * User: legion
+ * Date: 12/4/15
+ * Time: 10:07 AM
+ */

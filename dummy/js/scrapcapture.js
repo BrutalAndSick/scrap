@@ -1,6 +1,6 @@
 $("#txtCantidad").numeric({ decimal: false, negative: false }, function() { alert("Positive integers only"); this.value = ""; this.focus(); });
 
-$arrDivs = Array('APD','Area','Tecnologia','Linea','Defecto','Causa','CodigoScrap');
+$arrDivs = Array('APD','Area','Tecnologia','Linea','Defecto','Causa','CodigoScrap','Next');
 var objAutosuggest;
 $arrPartes = Array();
 
@@ -17,22 +17,13 @@ function cleanSelect($strSelect){
     }
     $('#divPartes').hide();
     $('#tdPartes').html('');
+    $('#tdComentario').html('');
     $('#txtCantidad').val(1);
     $('#txtNumerodeParte').val('');
     $('#txtNumerodeParte').attr('strParte','');
     $('#selUbicacion').val($('#selUbicacion option:first').val());
     $arrPartes = Array();
-
-    $strCleanParts = '<div id="divPartesHeader" >';
-    $strCleanParts += '    <div class="divPartesGrid divPartesCantidad divPartesHeader">Cantidad</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesNoParte divPartesHeader">No. Parte</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesDescripcion divPartesHeader">Descripción</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesCostoU divPartesHeader">Costo U.</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesTipo divPartesHeader">Tipo</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesSubTipo divPartesHeader">SubTipo</div>';
-    //$strCleanParts += '    <div class="divPartesGrid divPartesNoSerial divPartesHeader">No. Serial</div>';
-    $strCleanParts += '    <div class="divPartesGrid divPartesUbicacion divPartesHeader">Ubicación</div>';
-    $strCleanParts += '</div>';
+    $strCleanParts = '';
     $('#divPartesContainer').html($strCleanParts);
 
 };
@@ -63,7 +54,7 @@ function getAPD(){
                         getArea();
                     }
                     //###QUITAR!!!###
-                    addParts();
+                    //addParts();
                     //###QUITAR!!!###
                 });
             }
@@ -240,50 +231,61 @@ function getCodigoScrap(){
             $('#divCodigoScrap').slideDown('fast',function(){
                 $('#selCodigoScrap').focus();
                 if($jsnData.arrData.length<2) {
-                    addParts();
+                    showNext();
                 }
             });
         }
     });
 }
 
+function showNext(){
+    $('#divNext').slideDown('fast');
+}
+
+function showGenerales(){
+    $('#divPartes').slideUp('fast',function(){
+        $('#divGenerales').slideDown('slow');
+    });
+}
+
 function addParts(){
-    $('#divPartes').hide();
-    $('#selUbicacion')
-        .find('option')
-        .remove()
-        .end();
-    $('#txtCantidad').val('1');
-    $('#txtNumerodeParte').val('');
+    $('#divGenerales').slideUp('fast',function(){
+        $('#divPartes').hide();
+        $('#selUbicacion')
+            .find('option')
+            .remove()
+            .end();
+        $('#txtCantidad').val('1');
+        $('#txtNumerodeParte').val('');
 
-    $('#tdPartes').html('');
-    $('#txtNumerodeParte').attr('strParte','');
-    $('#selUbicacion').val($('#selUbicacion option:first').val());
-    $arrPartes = Array();
+        $('#tdPartes').html('');
+        $('#txtNumerodeParte').attr('strParte','');
+        $('#selUbicacion').val($('#selUbicacion option:first').val());
+        $arrPartes = Array();
 
+        $intCodigoScrap = $('#CodigoScrap').val();
+        $strCodigoScrap = $("#selCodigoScrap option:selected").text();
+        $('#tdCodigoScrap').html($strCodigoScrap);
+        $strQueryString = "intProc=7&intCodigoScrap=" + $intCodigoScrap + "&strCodigoScrap=" + $strCodigoScrap;
+        $.ajax({
+            data : $strQueryString,
+            type : "POST",
+            dataType : "json",
+            url : "getdata.php",
+            success : function($jsnData){
+                if($jsnData.arrData.length>1){
+                    $('#selUbicacion').append('<option value="-1">- Seleccione -</option>');
+                    $('#selUbicacion').val(-1);
+                };
+                for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
+                    $('#selUbicacion').append('<option value="' + $jsnData.arrData[$intIx].intUbicacion + '">' + $jsnData.arrData[$intIx].strUbicacion + '</option>');
+                }
+                $('#divPartes').slideDown('slow',function(){
+                    $('#txtNumerodeParte').focus();
+                });
 
-    $intCodigoScrap = $('#CodigoScrap').val();
-    $strCodigoScrap = $("#selCodigoScrap option:selected").text();
-    $('#tdCodigoScrap').html($strCodigoScrap);
-    $strQueryString = "intProc=7&intCodigoScrap=" + $intCodigoScrap + "&strCodigoScrap=" + $strCodigoScrap;
-    $.ajax({
-        data : $strQueryString,
-        type : "POST",
-        dataType : "json",
-        url : "getdata.php",
-        success : function($jsnData){
-            if($jsnData.arrData.length>1){
-                $('#selUbicacion').append('<option value="-1">- Seleccione -</option>');
-                $('#selUbicacion').val(-1);
-            };
-            for($intIx=0; $intIx<$jsnData.arrData.length; $intIx++){
-                $('#selUbicacion').append('<option value="' + $jsnData.arrData[$intIx].intUbicacion + '">' + $jsnData.arrData[$intIx].strUbicacion + '</option>');
             }
-            $('#divPartes').slideDown('fast',function(){
-                $('#txtNumerodeParte').focus();
-            });
-
-        }
+        });
     });
 }
 
@@ -303,6 +305,7 @@ $(function(){
         },
         onSelect: function(e, term, item){
             setNumerodeParte();
+            setNumerodeParte();
         }
     });
 
@@ -315,18 +318,24 @@ $(function(){
     });
 });
 
+$('#txtCantidad').blur(function(){
+    if($('#txtCantidad').val()=='' || $('#txtCantidad').val()=='0'){
+        $('#txtCantidad').val(1);
+    }
+});
+
 function setNumerodeParte(){
     if($('#txtNumerodeParte').attr('strParte')==''){
         $('#txtNumerodeParte').attr('strParte',$('#txtNumerodeParte').val());
     };
 }
 
-function addParte(){
+function addParte(){txtCantidad
     if($('#txtNumerodeParte').attr('strParte')!='' && $('#txtCantidad').val()!=''){
         $.getJSON('getpartes.php', { strNumerodeParte : $('#txtNumerodeParte').attr('strParte'), intProc : 1 }, function(data){
             console.log(data);
             $arrPartes.push(data[0].intNumerodeParte);
-            $strDiv = '<div id="divPartes_' + data[0].intNumerodeParte + '">';
+            $strDiv = '<div id="divPartes_' + data[0].intNumerodeParte + '" class="rowParte">';
             $strDiv += '    <div id="divPartesCantidad_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesCantidad">' + $('#txtCantidad').val().toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '</div>';
             $strDiv += '    <div id="divPartesNoParte_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesNoParte">' + data[0].strNumerodeParte + '</div>';
             $strDiv += '    <div id="divPartesDescripcion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesDescripcion">' + data[0].strDescripcionParte + '</div>';
@@ -334,15 +343,18 @@ function addParte(){
             $strDiv += '    <div id="divPartesTipo_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesTipo">' + data[0].strTipoParte + '</div>';
             $strDiv += '    <div id="divPartesSubtipo_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesSubTipo">' + ' ' + '</div>';
             if($('#selUbicacion').val()==-1){
-                $strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">NA</div>';
+                //$strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">NA</div>';
             }else{
-                $strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">' + $('#selUbicacion option:selected').text() + '</div>';
+                //$strDiv += '    <div id="divPartesUbicacion_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesUbicacion">' + $('#selUbicacion option:selected').text() + '</div>';
             }
 
             $strDiv += '    <div id="divPartesDelete_' + data[0].intNumerodeParte + '" class="divPartesGrid divPartesDelete"><img class="imgDeletePart" src="img/delete.png" onclick="removePart(' + data[0].intNumerodeParte + ')" /></div>';
 
             $strDiv += '</div>';
             $('#divPartesContainer').append($strDiv);
+
+            $("#divPartesContainer").animate({ scrollTop: $('#divPartesContainer').prop("scrollHeight")}, 1000);
+
             $strPartes = '';
             $decCosto = 0;
             for($intIx=0;$intIx<$arrPartes.length;$intIx++){
@@ -436,7 +448,7 @@ $('document').ready(function(){
         if(e.keyCode==13){
 
             $strDivSerial = '<div style="background-color: #FFFFFF; margin-bottom: 2px; border-radius: 5px; padding: 2px 5px 2px 5px; text-align: left; ">';
-            $strDivSerial += $('#txtSerial').val() + '<img class="imgDeletePart" style="right: 0px; float: right" src="img/delete.png"><br style="clear: both" />';
+            $strDivSerial += $('#txtSerial').val() + '<img class="imgDeletePart" style="right: 0; float: right" src="img/delete.png"><br style="clear: both" />';
             $strDivSerial += '</div>';
             $('#divSerialesContainer').append($strDivSerial);
             $('#lblSerialesContador').html(parseInt($('#lblSerialesContador').html()) + 1);
@@ -450,6 +462,6 @@ $('document').ready(function(){
         }
     })
 
-    $('#tdBarCode').barcode("000000","code39",{barHeight:33,barWidth:2,showHRI:false,bgColor:'transparent',output:'css'});
+    $('#tdBarCode').barcode("000000","code39",{barHeight:30,barWidth:2,showHRI:false,addQuietZone: false,bgColor:'transparent',output:'css'});
 
 });

@@ -23,6 +23,8 @@ input[type=text] {
     font-weight: bold;
     height: 4mm;
     vertical-align: top;
+    border: 0;
+    padding: 0 1mm 0 1mm;
 }
 
 .tdnormal {
@@ -31,6 +33,7 @@ input[type=text] {
     font-weight: normal;
     height: 4mm;
     vertical-align: top;
+    padding: 0 1mm 0 1mm;
 }
 
 .divclass {
@@ -46,8 +49,8 @@ input[type=text] {
     text-align: left;
     border-radius: 10px;
     border: 1px #EAEAEA solid;
-    box-shadow: 0px 1px 0px #FFFFFF;
-    padding: 5px 5px 0px 5px;
+    box-shadow: 0 1px 0 #FFFFFF;
+    padding: 5px 5px 0 5px;
     display: inline-block;
 }
 
@@ -56,25 +59,37 @@ input[type=text] {
     text-align: left;
     border-radius: 10px;
     border: 1px #EAEAEA solid;
-    box-shadow: 0px 1px 0px #FFFFFF;
-    padding: 5px 5px 0px 5px;
+    box-shadow: 0 1px 0 #FFFFFF;
+    padding: 5px 5px 0 5px;
 }
 
 .divPartesGrid{
     font-size: 8pt;
     display: inline-block;
-    padding: 0px 0px 0px 0px;
-    border: 0px;
+    padding: 0 0 0 0;
+    border: 0;
+}
+
+.rowParte{
+    background-color: #F9F9F9;
+    border-radius: 3px;
+    padding: 2px 0 2px 0;
+    margin: 1px 5px 0 0;
+}
+
+.rowParte:hover {
+    background-color: #EFEFEF;
 }
 
 .divPartesHeader {
     font-weight: bold;
     text-align: center !important;
     background-color: #FFA500;
+    border-radius: 3px;
 }
 
 .divPartesCantidad{
-    width: 70px;
+    width: 45px;
     text-align: right;
 }
 
@@ -122,9 +137,9 @@ input[type=text] {
 .imgDeletePart{
     height: 20px;
     cursor: pointer;
-    display: inline;
-    border: 0px;
-    vertical-align: baseline;
+    display: inline-block;
+    border: 0;
+    vertical-align: bottom;
 }
 
 
@@ -135,10 +150,10 @@ input[type=text] {
     border: 1px solid #EAEAEA;
     border-top: 0;
     background: #EFEFEF;
-    box-shadow: 0px 1px 0px #FFFFFF;
+    box-shadow: 0 1px 0 #FFFFFF;
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
-    border-top-left-radius: 0px;
+    border-top-left-radius: 0;
     position: absolute;
     display: none;
     z-index: 9999;
@@ -149,13 +164,13 @@ input[type=text] {
 }
 .autocomplete-suggestion {
     position: relative;
-    padding: 0px 0px 0px 85px;
+    padding: 0 0 0 85px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 10pt;
     color: #282828;
-    text-shadow: 0px 1px 0px #000000;
+    text-shadow: 0 1px 0 #000000;
     height: 80px;
     background-repeat: no-repeat;
     background-position: left center;
@@ -163,14 +178,14 @@ input[type=text] {
     margin-bottom: 3px;
     border:1px #EAEAEA solid;
     border-radius: 3px;
-    box-shadow: 0px 1px 0px #FFFFFF;
+    box-shadow: 0 1px 0 #FFFFFF;
     background-color: #FFFFFF;
 }
 
 .autocomplete-suggestion b {
     font-weight: bold;
     color: #FFA500;
-    text-shadow: 0px 1px 0px #b95f00;
+    text-shadow: 0 1px 0 #b95f00;
 }
 
 .autocomplete-suggestion span {
@@ -192,7 +207,7 @@ input[type=text] {
     font-size: 9pt;
     font-weight: bold;
     padding: 5px 5px 5px 30px;
-    margin: 0px auto 7px auto;
+    margin: 0 auto 7px auto;
     background-color: #EFEFEF;
     background-position: 5px center;
     background-repeat: no-repeat;
