@@ -240,6 +240,7 @@ function getCodigoScrap(){
 
 function showNext(){
     $('#divNext').slideDown('fast');
+    $('#btnNext').focus();
 }
 
 function showGenerales(){

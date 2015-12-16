@@ -43,7 +43,7 @@ $strDivision = $_SESSION['strDivision'];
     <table width="100%" style="border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-bottom: 500px;">
         <tr>
             <td style="width: 50%; text-align: left; vertical-align: top; padding: 10px 10px 10px 10px; ">
-                <div class="divother" id="divGenerales">
+                <div class="divother" id="divGenerales" style="">
                     <div class="divclass"><label for="selProyecto">Proyecto</label><select id="selProyecto" onchange="getAPD();" tabindex="1">
                             <option value="-1" selected="selected">- Seleccione -</option>
                             <?php
@@ -75,10 +75,10 @@ $strDivision = $_SESSION['strDivision'];
                     <div class="divclass" style="display: none;" id="divDefecto"><label for="selDefecto">Defecto</label><select id="selDefecto" onchange="getCausa();" tabindex="6"></select></div>
                     <div class="divclass" style="display: none;" id="divCausa"><label for="lblCausa">Relacionado a</label><select id="selCausa" onchange="getCodigoScrap();" tabindex="7"></select></div>
                     <div class="divclass" style="display: none;" id="divCodigoScrap"><label for="selCodigoScrap">Código Scrap</label><select id="selCodigoScrap" onchange="showNext();" tabindex="8"></select></div>
-                    <div class="divclass" style="display: none; text-align: right;" id="divNext"><input type="button" value="siguiente&rarr;" onclick="addParts();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; "></div>
+                    <div class="divclass" style="display: none; text-align: right;" id="divNext"><input type="button" value="siguiente&rarr;" id="btnNext" onclick="addParts();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; "></div>
                 </div>
 
-                <div id="divPartes" class="divother2" style="margin: 0 auto 0 0; display: none; width: 715px;">
+                <div id="divPartes" class="divother2" style="margin: 0 auto 0 0; display: none; width: 710px;">
                     <div class="divclass" style="font-size: 9pt">
                         <label for="txtNumerodeParte" style="width: auto; padding-right: 20px;">Número de Parte</label><input id="txtNumerodeParte" type="text" style="width: 160px; text-align: center" value="" strParte="">
                         <label for="txtCantidad" style="width: auto; padding-right: 20px; padding-left: 23px;">Cantidad</label><input type="text" id="txtCantidad" value="" style="width: 50px; text-align: center">
@@ -97,9 +97,7 @@ $strDivision = $_SESSION['strDivision'];
                         <div class="divPartesGrid divPartesTipo divPartesHeader">Tipo</div>
                         <div class="divPartesGrid divPartesSubTipo divPartesHeader">SubTipo</div>
                     </div>
-                    <div id="divPartesContainer" style=" height: 145px; overflow-x: hidden; overflow-y: scroll; margin-bottom: 7px; " >
-
-                    </div>
+                    <div id="divPartesContainer" style=" height: 148px; overflow-x: hidden; overflow-y: scroll; margin-bottom: 7px; " ></div>
                     <div class="divclass" style="" id="divNext">
                         <input type="button" value="&larr;anterior" onclick="showGenerales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
                         <input type="button" value="siguiente&rarr;" onclick="addParts();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; float:right; ">
@@ -107,6 +105,33 @@ $strDivision = $_SESSION['strDivision'];
                     </div>
                 </div>
 
+                <div id="divPartes" class="divother2" style="margin: 0 auto 0 0;  width: 710px; display: none;">
+                    <div class="divclass" style="">¿Por qué?</div>
+                    <div>
+                        <div style="margin-bottom: 2px;"><label style="width: 20px;">1</label><input type="text" value="" style="width: 500px"></div>
+                        <div style="margin-bottom: 2px;"><label style="width: 20px;">2</label><input type="text" value=""></div>
+                        <div style="margin-bottom: 2px;"><label style="width: 20px;">3</label><input type="text" value=""></div>
+                        <div style="margin-bottom: 2px;"><label style="width: 20px;">4</label><input type="text" value=""></div>
+                        <div style="margin-bottom: 2px;"><label style="width: 20px;">5</label><input type="text" value=""></div>
+                    </div>
+                    <table style="border: 0; border-collapse: collapse; border-spacing: 0; background-color: #0000CC; margin-top: 7px">
+                        <tr style="border: 0; border-spacing: 0">
+                            <td style="border: 0; border-spacing: 0; width: 351px; padding-right: 4px;">
+                                <div class="divclass" style="">Comentarios</div>
+                                <div>
+                                    <textarea style="resize: none"></textarea>
+                                </div>
+                            </td>
+                            <td style="border: 0; border-spacing: 0; width: 351px; padding-left: 4px;">
+                                <div class="divclass" style="">Acciones Correctivas</div>
+                                <div>
+                                    <textarea style="resize: none"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
             </td>
             <td style="width: 50%; text-align: right; padding: 10px 10px 10px 10px; vertical-align: top; ">
                 <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 130mm; height: 75.4mm; background-color:#ff4646; border-radius: 5px">

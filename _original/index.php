@@ -304,11 +304,13 @@ if(faltan>0) {
 		<div style="margin-left:130px; margin-top:75px;">
 		<table align="center" border="0" cellpadding="0" cellspacing="0">
 		<tr height="30">
-			<td><input type="text" name="user_" value="<?php echo $user_;?>" class="texto"></td>
+			<!--td><input type="text" name="user_" value="<?php echo $user_;?>" class="texto"></td-->
+			<td><input type="text" name="user_" value="735443" class="texto"></td>
 			<td class="gris">&nbsp;&nbsp;&nbsp;Usuario</td>
 		</tr>
 		<tr height="30">
-			<td><input type="password" name="pass_" class="texto"></td>
+			<!--td><input type="password" name="pass_" class="texto"></td-->
+			<td><input type="password" name="pass_" value="123" class="texto"></td>
 			<td class="gris">&nbsp;&nbsp;&nbsp;Contraseña</td>
 		</tr>
 		<tr height="30">

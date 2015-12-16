@@ -157,7 +157,7 @@ input[type=text] {
     position: absolute;
     display: none;
     z-index: 9999;
-    max-height: 300px;
+    max-height: 400px;
     overflow: hidden;
     overflow-y: auto;
     box-sizing: border-box;
