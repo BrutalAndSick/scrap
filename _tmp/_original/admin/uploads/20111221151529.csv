@@ -1,0 +1,294 @@
+area,tecnologia,defecto,causa,division,proyecto
+Backend/Ensamble Final,Atornillado Automatico,Carcasa Dañada,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Carcasa Dañada,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Carcasa Dañada,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Carcasa Dañada,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Cobre Expuesto,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Cobre Expuesto,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Componente Dañado/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Componente Dañado/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Set Up De Equipo,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Subensamble Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Subensamble Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Tapa Dañada,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Tapa Dañada,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Tapa Dañada,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Tapa Dañada,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Atornillado Automatico,Unidad Caida Al Piso,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Componente Dañado/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Componente Dañado/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Conector Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Conector Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Conector Dañado,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Conector Manchado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Conector Manchado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Mal Diseño,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Muestra De Oro Obsoleta,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Pines De Conector Sumidos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Set Up De Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Dta,Unidad Caida Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Componente Dañado/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Componente Dañado/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Serial Duplicado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Unidad Golpeada/Dañada,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Unidad Golpeada/Dañada,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Unidad Golpeada/Dañada,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Empaque,Unidad Golpeada/Dañada,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Componentes Arrancados,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Componentes Arrancados,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Componentes Dañados/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Componentes Dañados/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Exceso De Pruebas,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Sin Prueba Anterior,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Sin Prueba Anterior,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Unidad Caída Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Unidad Caída Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Ict,Unidad Dañada Por Equipo -Eos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Componente Dañado/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Componente Dañado/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Conector Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Conector Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Conector Dañado,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Conector Manchado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Conector Manchado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Mal Diseño,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Muestra De Oro Obsoleta,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Pines De Conector Sumidos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Set Up De Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,MiniDTA,Unidad Caida Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Componentes Arrancados,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Componentes Arrancados,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Componentes Dañados/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Componentes Dañados/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Contaminación,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Contaminación,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Falla De Prensa,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Pcb Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Pcb Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Pines Doblados Del Conector,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Pines Doblados Del Conector,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Pines Doblados Del Conector,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Unidad Caída Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Pressfit,Unidad Caída Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Conector Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Conector Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Conector Dañado,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Muestra De Oro Obsoleta,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Pines De Conector Sumidos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Set Up De Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Prueba Final,Unidad Caida Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Conector Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Conector Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Conector Dañado,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Muestra De Oro Obsoleta,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Pines De Conector Sumidos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Set Up De Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Roll Over,Unidad Caida Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Componente Dañado/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Componente Dañado/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Conector Dañado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Conector Dañado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Conector Dañado,Proveedor,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Conector Manchado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Conector Manchado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Mal Diseño,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Muestra De Oro Obsoleta,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Pines De Conector Sumidos,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Pines De Conector Sumidos,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Set Up De Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Run-In,Unidad Caida Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Componentes Arrancados,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Componentes Arrancados,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Componentes Dañados/Golpeado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Componentes Dañados/Golpeado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Pcb Mal Cortado,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Pcb Mal Cortado,MAQUINA,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Unidad Caída Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Backend/Ensamble Final,Sawing,Unidad Caída Al Piso,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Aoi,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aoi,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Aoi,Componente Dañado (Golpeado),Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aoi,Componente Dañado (Golpeado),MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Aoi,Exceso De Pruebas,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aoi,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Aoi,Pcb Abortado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Aoi,Pruebas De Ingeniería,METODO,PSAD,DAIMLER STAR 2
+Smd,Aoi,Sin Prueba Anterior,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aoi,Unidad Caida Al Piso,Equipo,PSAD,DAIMLER STAR 2
+Smd,Aoi,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aspi,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Aspi,Pánel Barrido,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Aspi,Pcb Abortado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Aspi,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Smd,Aspi,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Asys,Desplazado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Asys,Desplazado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Asys,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Asys,Panel Atorado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Asys,Panel Atorado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Asys,Panel Atorado,METODO,PSAD,DAIMLER STAR 2
+Smd,Asys,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Smd,Asys,Set Up Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Asys,Set Up Equipo,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Asys,Unidad Caida Al Piso,Equipo,PSAD,DAIMLER STAR 2
+Smd,Asys,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Dañado (Golpeado),Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Dañado (Golpeado),MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente De Canto (De Lado),MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente De Canto (De Lado),METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Faltante,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Componente Faltante,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Contaminación,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Contaminación,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Contaminación,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Contaminación,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Horno,Cortos /Puente De Soldadura,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Cortos /Puente De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Cortos /Puente De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Desplazado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Insuficiencia De Soldadura Lado A ,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Insuficiencia De Soldadura Lado A ,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Insuficiencia De Soldadura Lado B ,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Insuficiencia De Soldadura Lado B ,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Panel Atorado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Panel Atorado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Panel Atorado,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Pcb Abortado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Perlas De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Perlas De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Sin Prueba Anterior,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Horno,Soldadura Porosa,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Soldadura Porosa,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Soldadura Porosa,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Horno,Tombstone,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Horno,Tombstone,METODO,PSAD,DAIMLER STAR 2
+Smd,Horno,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Contaminación,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Contaminación,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Contaminación,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Contaminación,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Cortos /Puente De Soldadura,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Cortos /Puente De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Cortos /Puente De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Exceso De Soldadura,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Exceso De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Exceso De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Insuficiencia De Soldadura Lado A ,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Insuficiencia De Soldadura Lado A ,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Insuficiencia De Soldadura Lado B ,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Insuficiencia De Soldadura Lado B ,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Panel Atorado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Panel Atorado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Panel Atorado,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Pcb Abortado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Pcb Defectuoso,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Perlas De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Perlas De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Set Up Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Set Up Equipo,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Soldadura Porosa,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Soldadura Porosa,METODO,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Soldadura Porosa,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Impresion De Pasta,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Laser,Cobre Expuesto,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Laser,Cobre Expuesto,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Laser,Cobre Expuesto,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Cobre Expuesto,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Duplicado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Duplicado,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Ilegible,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Ilegible,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Incorrecto,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Laser,Data Matrix Incorrecto,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Material Obsoleto,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Panel Atorado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Laser,Panel Atorado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Laser,Panel Atorado,METODO,PSAD,DAIMLER STAR 2
+Smd,Laser,Sin Impresión De Data Matrix,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Adicional,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Arrancado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Arrancado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Boca Bajo,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Boca Bajo,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Con Polaridad Invertida,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Con Polaridad Invertida,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Dañado (Golpeado),Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Dañado (Golpeado),MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Dañado (Golpeado),METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Dañado (Golpeado),Proveedor,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente De Canto (De Lado),MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente De Canto (De Lado),METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Equivocado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Equivocado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Equivocado,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Equivocado,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Faltante,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Componente Faltante,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Cortos /Puente De Soldadura,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Cortos /Puente De Soldadura,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Cortos /Puente De Soldadura,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Desplazado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Desplazado,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Liberación De Equipo,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Material Obsoleto,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Panel Atorado,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Panel Atorado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Panel Atorado,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Pcb Abortado,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Pin Elevado ,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Pin Elevado ,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Pin Elevado ,Proveedor,PSAD,DAIMLER STAR 2
+Smd,Siplace,Pruebas De Ingenieria,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Set Up Equipo,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Set Up Equipo,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Sin Prueba Anterior,Mano De Obra,PSAD,DAIMLER STAR 2
+Smd,Siplace,Tombstone,MAQUINA,PSAD,DAIMLER STAR 2
+Smd,Siplace,Tombstone,METODO,PSAD,DAIMLER STAR 2
+Smd,Siplace,Unidad Caida Al Piso,Mano De Obra,PSAD,DAIMLER STAR 2
