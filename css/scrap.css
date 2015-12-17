@@ -1,0 +1,76 @@
+/*#####
+DARK GREY #282828
+CONTINENTAL ORANGE #FFA500
+#####*/
+body {
+    font-family: Arial;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 0 0 0 0;
+    background-color: #EFEFEF;
+    margin: 0 0 0 0;
+    color: #282828;
+}
+
+#divHeader {
+    height: 80px;
+    background-color: #282828;
+    background-image: url(../img/continental.png);
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    padding: 0 0 0 20px;
+    color: #FFA500;
+    line-height: 80px;
+    font-weight: bold;
+    font-size: 16pt;
+    box-shadow: 0 1px 0 #b95f00;
+    text-shadow: 0 1px 0 #b95f00;
+}
+
+#divMenubar {
+    margin: 1px 0 0 0;
+    padding: 0 10px 0 10px;
+    background-color: #FFA500;
+    color: #282828;
+    font-weight: normal;
+    font-size: 10pt;
+    box-shadow: 0 1px 0 #000000;
+    text-shadow: 0 1px 0 #000000;
+    height: 20px;
+}
+
+#divWorkarea {
+    margin: 1px 0 0 0;
+    padding: 30px 10px 10px 10px;
+    text-align: center;
+}
+
+#divSeparator {
+    height: 1px;
+    background-color: #FFA500;
+    margin: 15px -10px 20px -10px;
+    box-shadow: 0 1px 0 #B95F00
+}
+
+.divLogin {
+    text-align: center;
+    display: inline-block;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    border: 1px #EAEAEA solid;
+    margin: 0 auto 0 auto;
+    box-shadow: 0 1px 0 #FFFFFF;
+    padding: 20px 20px 20px 20px;
+}
+
+.link {
+    color: #000000;
+    text-shadow: 0 1px 0 #D0D0D0;
+    font-size: 11pt;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
