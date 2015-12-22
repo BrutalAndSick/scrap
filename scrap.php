@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors',1);
+date_default_timezone_set('America/Mexico_City');
 session_start();
 
 if(!isset($_SESSION["intUser"]))
@@ -7,33 +8,8 @@ if(!isset($_SESSION["intUser"]))
 //    header("location: index.php");
 }
 
-date_default_timezone_set('America/Mexico_City');
-
-$objCon = mysqli_connect("localhost","root","","scrap_gdl");
-mysqli_query($objCon, "SET NAMES 'utf8'");
-
-function buildMenu(){
-    $arrWChildren = Array();
-    $arrWOChildren = Array();
-    $strMenu = "";
-    $strSql = "SELECT MNU_MENU.* FROM MNU_MENU WHERE MNU_MENU.MNU_PARENT = 0 AND MNU_MENU.MNU_STATUS = 1 ORDER BY MNU_MENU.MNU_ORDER, MNU_MENU.MNU_NAME;";
-    $rstMenu = mysqli_query($objCon,$strSql);
-    while($objMenu=mysqli_fetch_assoc($rstMenu)){
-        $strSql = "SELECT MNU_MENU.* FROM MNU_MENU WHERE MNU_MENU.MNU_PARENT = " . $objMenu['MNU_ID']  . " ORDER BY MNU_MENU.MNU_ORDER, MNU_MENU.MNU_NAME;";
-        $rstChildren = mysqli_query($objCon, $rstChildren);
-        if(mysqli_num_rows($rstChildren)>0){
-            $arrWChildren;
-        }else{
-
-        }
-        mysqli_free_result($rstChildren);
-        unset($rstChildren);
-    };
-    unset($objMenu);
-    mysqli_free_result($rstMenu);
-    unset($rstMenu);
-};
-
+require_once('lib/scrap.php');
+$objScrap = new clsScrap();
 ?>
     <!DOCTYPE html>
     <html>
@@ -51,51 +27,41 @@ function buildMenu(){
         <tr>
             <td id="tdMenu">
                 <div class=" divMenuMain ">
+                    <?php
+                    $strMenu = "";
+                    $intTotalCategories = 0;
+                    $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = 0 AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                    $rstCategories = $objScrap->dbQuery($strSql);
+                    if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+                        foreach($rstCategories as $objCategories){
+                            $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategories['MNU_ID'] . " AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                            $rstMenus = $objScrap->dbQuery($strSql);
+                            if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+                                $strMenu .= '<div class=" divMenuCategory " id="divCat_' . $objCategories['MNU_ID'] . '" onclick="collapseCategory(\'' . $objCategories['MNU_ID'] . '\')">' . $objCategories['MNU_NAME'] . '</div>';
+                                $strMenu .= '<div class=" divMenuContentContainer " style=" height: calc( 100% - #####px );" id="divCont_' . $objCategories['MNU_ID'] . '">';
+                                foreach($rstMenus as $objMenus){
+                                    $strMenu .= '<div class=" divMenuOption " onclick="handleTab(\'' . $objMenus['MNU_ID'] . '\',\'' . $objMenus['MNU_NAME'] . '\',\'' . $objMenus['MNU_URL'] . '\')">' . $objMenus['MNU_NAME'] . '</div>';
+                                }
+                                unset($objMenus);
+                                $intTotalCategories++;
+                                $strMenu .= '</div>';
+                            }
+                            unset($rstMenus);
+                        }
+                        unset($objCategories);
+                        $strMenu .= '<div id="divEmpty" style="height: calc( 100% - #####px);"></div>';
+                        $strMenu = str_replace("#####",intval(($intTotalCategories * 27) + 8),$strMenu);
+                    }
+                    unset($rstCategories);
+                    echo $strMenu;
+                    ?>
 
-
-
-                    <div class=" divMenuCategory " id="divCat_Administracion" onclick="collapseCategory('Administracion')">Administración</div>
-                    <div class=" divMenuContentContainer " id="divCont_Administracion">
-                        <div class=" divMenuOption ">Usuarios</div>
-                        <div class=" divMenuOption ">Vendors</div>
-                        <div class=" divMenuOption ">Plantas</div>
-                        <div class=" divMenuOption ">Divisiones</div>
-                        <div class=" divMenuOption ">Segmentos</div>
-                        <div class=" divMenuOption ">C. de Costos</div>
-                        <div class=" divMenuOption ">APD</div>
-                        <div class=" divMenuOption ">Proyectos</div>
-                    </div>
-                    <div class=" divMenuCategory " id="divCat_Sap" onclick="collapseCategory('Sap')">SAP</div>
-                    <div class=" divMenuContentContainer " id="divCont_Sap">
-                        <div class=" divMenuOption ">Opcion 1</div>
-                        <div class=" divMenuOption ">Opcion 2</div>
-                        <div class=" divMenuOption ">Opcion 3</div>
-                        <div class=" divMenuOption ">Opcion 4</div>
-                    </div>
-                    <div class=" divMenuCategory " id="divCat_Materiales" onclick="collapseCategory('Materiales')">Materiales</div>
-                    <div class=" divMenuContentContainer " id="divCont_Materiales">
-                        <div class=" divMenuOption ">Opcion 1</div>
-                        <div class=" divMenuOption ">Opcion 2</div>
-                        <div class=" divMenuOption ">Opcion 3</div>
-                        <div class=" divMenuOption ">Opcion 4</div>
-                    </div>
-                    <div class=" divMenuCategory " id="divCat_Captura" onclick="collapseCategory('Captura')">Captura</div>
-                    <div class=" divMenuContentContainer " id="divCont_Captura">
-                        <div class=" divMenuOption ">Opcion 1</div>
-                        <div class=" divMenuOption ">Opcion 2</div>
-                        <div class=" divMenuOption ">Opcion 3</div>
-                        <div class=" divMenuOption ">Opcion 4</div>
-                    </div>
-                    <div class=" divMenuCategory " id="divCat_Reportes" onclick="collapseCategory('Reportes')">Reportes</div>
-                    <div class=" divMenuContentContainer " id="divCont_Reportes">
-                        <div class=" divMenuOption ">Reportes</div>
-                    </div>
-                    <div id="divEmpty"></div>
                 </div>
             </td>
             <td id="tdCollapse" onclick="collapseMenu();">&#8810;</td>
-            <td id="tdWorkArea">
-                1
+            <td id="tdWorkArea" style="vertical-align: top">
+                <div id="divTabs" class=" divTabs "></div>
+                <div id="divSheets" class=" divSheets "></div>
             </td>
         </tr>
         </tbody>
@@ -103,25 +69,25 @@ function buildMenu(){
     <script src="js/jquery-1.11.3.min.js"></script>
     <script>
 
-        $arrCategories= Array('Administracion','Sap','Materiales','Captura','Reportes');
-        $strCurrentCategory = "";
-
-        function collapseCategory($strCategory){
-            if($strCurrentCategory==$strCategory){
-                $('#divCont_' + $strCategory).slideUp('fast',function(){
+        $intCurrentCategory = "";
+        $arrTabs = Array();
+        $intCurrentTab = "";
+        function collapseCategory($intCategory){
+            if($intCurrentCategory==$intCategory){
+                $('#divCont_' + $intCategory).slideUp('fast',function(){
                     $('#divEmpty').show();
                 })
-                $strCurrentCategory="";
+                $intCurrentCategory="";
             }else{
-                if($strCurrentCategory==''){
+                if($intCurrentCategory==''){
                     $('#divEmpty').hide('fast',function(){
-                        $('#divCont_' + $strCategory).slideDown('fast');
-                        $strCurrentCategory = $strCategory;
+                        $('#divCont_' + $intCategory).slideDown('fast');
+                        $intCurrentCategory = $intCategory;
                     })
                 }else{
-                    $('#divCont_' + $strCurrentCategory).slideUp('fast',function(){
-                        $('#divCont_' + $strCategory).slideDown('fast');
-                        $strCurrentCategory = $strCategory;
+                    $('#divCont_' + $intCurrentCategory).slideUp('fast',function(){
+                        $('#divCont_' + $intCategory).slideDown('fast');
+                        $intCurrentCategory = $intCategory;
                     })
                 }
 
@@ -138,10 +104,58 @@ function buildMenu(){
             }
         };
 
+        function handleTab($intTab, $strName, $strUrl){
+            $strDivToAppend = "";
+            $strIframeToAppend = "";
+            if($arrTabs.indexOf($intTab)==-1){
+                $arrTabs.push($intTab);
+                $('#divTab_' + $intCurrentTab).removeClass('divTabSelected');
+                $('#divCloseTab_' + $intCurrentTab).removeClass('divCloseTabSelected');
+                $('#iframeTab_' + $intCurrentTab).hide();
+
+                $strDivToAppend += '<div id="divTab_' + $intTab + '" class=" divTab " onclick="handleTab(\'' + $intTab + '\')">' + $strName + '</div>';
+                $strDivToAppend += '<div id="divCloseTab_' + $intTab + '" class=" divCloseTab " onclick="closeTab(\'' + $intTab + '\');">&#10005;</div>';
+                $('#divTabs').append($strDivToAppend);
+                $strIframeToAppend = '<iframe id="iframeTab_' + $intTab + '" class=" iframeSheets " src="' + $strUrl + '"></iframe>';
+                $('#divSheets').append($strIframeToAppend);
+                $intCurrentTab = $intTab;
+                $('#divTab_' + $intTab).addClass('divTabSelected');
+                $('#divCloseTab_' + $intTab).addClass('divCloseTabSelected');
+            }else{
+                if($intCurrentTab!=$intTab){
+                    $('#divTab_' + $intCurrentTab).removeClass('divTabSelected');
+                    $('#divCloseTab_' + $intCurrentTab).removeClass('divCloseTabSelected');
+                    $('#iframeTab_' + $intCurrentTab).hide();
+                    $intCurrentTab = $intTab;
+                    $('#divTab_' + $intTab).addClass('divTabSelected');
+                    $('#divCloseTab_' + $intTab).addClass('divCloseTabSelected');
+                    $('#iframeTab_' + $intTab).show();
+
+                }
+            }
+        }
+
+        function closeTab($intTab){
+            $('#divTab_' + $intTab).remove();
+            $('#divCloseTab_' + $intTab).remove();
+            $('#iframeTab_' + $intTab).remove();
+            if($intCurrentTab==$intTab){
+                if($arrTabs.indexOf($intTab)!=0){
+                    handleTab($arrTabs[$arrTabs.indexOf($intTab) - 1]);
+                }else{
+                    if(typeof $arrTabs[$arrTabs.indexOf($intTab) + 1]!='undefined'){
+                        handleTab($arrTabs[$arrTabs.indexOf($intTab) + 1]);
+                    }else{
+                        $intCurrentTab = "";
+                    }
+                }
+            }
+            $arrTabs.splice($arrTabs.indexOf($intTab),1);
+        }
+
     </script>
     </body>
     </html>
 <?php
-mysqli_close($objCon);
-unset($objCon);
+unset($objScrap);
 ?>

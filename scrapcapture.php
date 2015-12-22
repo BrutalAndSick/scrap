@@ -57,6 +57,7 @@ $strDivision = $_SESSION['strDivision'];
                             $strSql .= "AND proyectos.id_pc = profit_center.id ";
                             $strSql .= "AND profit_center.activo = 1 ";
                             $strSql .= "ORDER BY proyectos.nombre; ";
+
                             $rstData = mysqli_query($objCon, $strSql);
                             while($objData = mysqli_fetch_assoc($rstData)){
                                 ?>
@@ -75,7 +76,7 @@ $strDivision = $_SESSION['strDivision'];
                     <div class="divclass" style="display: none;" id="divDefecto"><label for="selDefecto">Defecto</label><select id="selDefecto" onchange="getCausa();" tabindex="6"></select></div>
                     <div class="divclass" style="display: none;" id="divCausa"><label for="lblCausa">Relacionado a</label><select id="selCausa" onchange="getCodigoScrap();" tabindex="7"></select></div>
                     <div class="divclass" style="display: none;" id="divCodigoScrap"><label for="selCodigoScrap">Código Scrap</label><select id="selCodigoScrap" onchange="showNext();" tabindex="8"></select></div>
-                    <div class="divclass" style="display: none; text-align: right;" id="divNext"><input type="button" value="siguiente&rarr;" id="btnNext" onclick="addParts();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; "></div>
+                    <div class="divclass" style="display: none; text-align: right;" id="divNext"><input type="button" value="siguiente&rarr;" id="btnNext" onclick="addParts();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; "></div>
                 </div>
 
                 <div id="divPartes" class="divother2" style="margin: 0 auto 0 0; display: none; width: 710px;">
@@ -85,8 +86,8 @@ $strDivision = $_SESSION['strDivision'];
                         <label for="selUbicacion" style="width: auto; padding-right: 20px; padding-left: 23px;">Ubicación</label><select id="selUbicacion" style="width: 150px;"></select>
                     </div>
                     <div class="divclass" style="font-size: 9pt; text-align: center;">
-                        <input type="button" value="seriales" onclick="showSeriales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; ">
-                        <input type="button" value="agregar" onclick="addParte();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
+                        <input type="button" value="seriales" onclick="showSeriales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; ">
+                        <input type="button" value="agregar" onclick="addParte();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
                     </div>
                     <div id="lblErrors" class="lblErrorWarnings" style="  background-image: url('img/error.png')"></div>
                     <div id="divPartesHeader" >
@@ -99,8 +100,8 @@ $strDivision = $_SESSION['strDivision'];
                     </div>
                     <div id="divPartesContainer" style=" height: 148px; overflow-x: hidden; overflow-y: scroll; margin-bottom: 7px; " ></div>
                     <div class="divclass" style="" id="divNext">
-                        <input type="button" value="&larr;anterior" onclick="showGenerales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
-                        <input type="button" value="siguiente&rarr;" onclick="addParts();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; float:right; ">
+                        <input type="button" value="&larr;anterior" onclick="showGenerales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
+                        <input type="button" value="siguiente&rarr;" onclick="addParts();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; float:right; ">
                         <br style="clear: both;"/>
                     </div>
                 </div>
@@ -233,7 +234,7 @@ $strDivision = $_SESSION['strDivision'];
 
             </div>
             <div id="lblSerialesErrors" class="lblErrorWarnings" style="padding: 0 50px 0 50px;  background-image: url('img/error.png')"></div>
-            <input type="button" value="agregar" onclick="hideSeriales();" style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #B95F00; border-radius: 11px; padding: 2px 20px 0 20px; ">
+            <input type="button" value="agregar" onclick="hideSeriales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; ">
         </div>
     </div>
     <script src="js/jquery-1.11.3.min.js"></script>

@@ -1,8 +1,8 @@
 /*#####
 DARK GREY #282828
-CONTINENTAL ORANGE #FFA500
+CONTINENTAL ORANGE #F9A11B
 #####*/
-body {
+html, body {
     font-family: Arial;
     font-size: 11pt;
     font-weight: normal;
@@ -10,27 +10,160 @@ body {
     background-color: #EFEFEF;
     margin: 0 0 0 0;
     color: #282828;
+    height: 100%;
+    width: 100%;
+}
+
+.body_index {
+    background-color: #282828;
+}
+
+.body_index table {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.body_index table #trContent {
+    height: calc( 100% - 25px );
+}
+
+.body_index table #tdLogo {
+    width: 50%;
+    text-align: center;
+    vertical-align: middle;
+    padding: 50px 0 50px 50px;
+    color: #F9A11B;
+    font-size: 40pt;
+    text-shadow: 0 1px 0 #E58D07;
+}
+
+.body_index table #tdForms {
+    width: 50%;
+    text-align: right;
+    vertical-align: top;
+    padding: 50px 50px 50px 0;
+}
+
+.body_index table #trFooter {
+    height: 25px;
+    background-color: #F9A11B;
+}
+
+.body_index table #tdFooter {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12pt;
+    text-shadow: 0 1px 0 #E58D07;
+}
+
+.body_index .logo {
+    width: 100%;
+    display: inline-block;
+}
+
+.divLogin {
+    text-align: center;
+    display: inline-block;
+    background-color: #EAEAEA;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0 1px 0 #E58D07;
+    padding: 35px 35px 35px 35px;
+}
+
+.divLogin .divTitle {
+    background-color: #F9A11B;
+    box-shadow: 0 1px 0 #E58D07;
+    color:#282828;
+    text-shadow: 0 1px 0 #E58D07;
+
+    padding: 8px 0 8px 0;
+    border-radius: 5px;
+    font-size: 13pt;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.divLogin .lblLogin {
+    width: 150px;
+    height: 32px;
+    line-height: 30px;
+    vertical-align: text-bottom;
+    display: inline-block;
+    text-align: left;
+    color: #282828;
+}
+
+.divLogin .txtLogin {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: text-bottom;
+    font-size: 14pt;
+    padding: 0 5px 0 5px;
+    cursor: pointer;
+    border: 1px #282828 solid;
+    color: #282828;
+}
+
+.divLoginError {
+    background-color: #EAEAEA;
+    text-align: left;
+    margin-top: 15px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    width: 326px;
+    display: inline-block;
+    border: 2px #FF0000 solid;
+    color:#FF0000;
+    display:none;
+}
+
+.buttons {
+    font-size: 11pt;
+    border: 0;
+    border-radius: 0;
+    padding: 0 20px 0 20px;
+    height: 25px;
+    line-height: 25px;
+    cursor: pointer;
+}
+
+.button_orange {
+    background-color: #F9A11B;
+    color:#282828;
+    text-shadow: 0   1px 0 #E58D07;
+}
+
+.button_orange:hover {
+    box-shadow: inset 0 -5px 0 #E58D07;
 }
 
 #divHeader {
     height: 80px;
     background-color: #282828;
-    background-image: url(../img/continental.png);
+    background-image: url(../images/continental.png);
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     padding: 0 0 0 20px;
-    color: #FFA500;
+    color: #F9A11B;
     line-height: 80px;
     font-weight: bold;
     font-size: 16pt;
-    box-shadow: 0 1px 0 #b95f00;
-    text-shadow: 0 1px 0 #b95f00;
+    box-shadow: 0 1px 0 #E58D07;
+    text-shadow: 0 1px 0 #E58D07;
 }
 
 #divMenubar {
     margin: 1px 0 0 0;
     padding: 0 10px 0 10px;
-    background-color: #FFA500;
+    background-color: #F9A11B;
     color: #282828;
     font-weight: normal;
     font-size: 10pt;
@@ -47,24 +180,13 @@ body {
 
 #divSeparator {
     height: 1px;
-    background-color: #FFA500;
+    background-color: #F9A11B;
     margin: 15px -10px 20px -10px;
-    box-shadow: 0 1px 0 #B95F00
-}
-
-.divLogin {
-    text-align: center;
-    display: inline-block;
-    background-color: #FFFFFF;
-    border-radius: 10px;
-    border: 1px #EAEAEA solid;
-    margin: 0 auto 0 auto;
-    box-shadow: 0 1px 0 #FFFFFF;
-    padding: 20px 20px 20px 20px;
+    box-shadow: 0 1px 0 #E58D07
 }
 
 .link {
-    color: #000000;
+    color: #282828;
     text-shadow: 0 1px 0 #D0D0D0;
     font-size: 11pt;
     font-weight: normal;
@@ -73,4 +195,134 @@ body {
 
 .link:hover {
     text-decoration: underline;
+}
+
+.divTitles {
+    font-size: 15pt;
+    text-shadow: 0 1px 0 #C8C8C8;
+    padding: 2px 10px 2px 10px;
+    margin: 0 5px 8px 5px;
+    border-bottom: 3px #F9A11B solid;
+    box-shadow: 0 1px 0 #E58D07;
+}
+
+.divGridMain {
+    text-shadow: 0 1px 0 #C8C8C8;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    margin: 0 5px 0 5px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.divGridMain div {
+    display: inline-block;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.divGridMain div table {
+    margin: 0 25px 0 0;
+    border: 0;
+    border-collapse: separate;
+    border-spacing: 1px 5px;
+    text-align: left;
+}
+
+.divGridMain div table tbody tr:hover {
+    background-color: #E0E0E0 !important;
+}
+
+.divGridMain div table tbody tr:nth-child(even) {
+    background-color: #EFEFEF;
+}
+
+.divGridMain div table tbody tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+.divGridMain div table tbody tr th {
+    border: 0;
+    background-color: #F9A11B;
+    color: #282828;
+    text-shadow: 0 1px 0 #E58D07;
+    font-weight: normal;
+    border-spacing: 1px;
+    padding: 1px 5px 2px 5px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+
+.divGridMain div table tbody tr td {
+    border: 0;
+    padding: 1px 5px 2px 5px;
+    font-size: 9pt;
+    white-space: nowrap;
+    border-radius: 3px;
+}
+
+.divTabs {
+    height: 35px;
+}
+
+.divTabs .divTab {
+    background-color: #282828;
+    color: #EAEAEA;
+    display: inline-block;
+    height: 27px;
+    line-height: 30px;
+    margin: 5px 0 0 2px;
+    padding: 0 0 0 5px;
+    border: 3px #282828 solid;
+    border-bottom: 0;
+    border-left: 0;
+    cursor: pointer;
+}
+
+.divTabs .divCloseTab {
+    border-top-right-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    font-weight: bold;
+    background-color: #282828;
+    color: #EAEAEA;
+    display: inline-block;
+    height: 27px;
+    line-height: 30px;
+    margin: 5px 2px 0 0;
+    border: 3px #282828 solid;
+    border-bottom: 0;
+    border-left: 0;
+    cursor: pointer;
+
+}
+
+.divTabs .divCloseTab:hover {
+    color: #F9A11B;
+}
+
+.divTabs .divTabSelected {
+    border: 3px #F9A11B solid;
+    border-bottom: 0;
+    border-right: 0;
+}
+
+.divTabs .divCloseTabSelected {
+    border: 3px #F9A11B solid;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+.divSheets {
+    height: calc( 100% - 35px );
+    border-top: 1px #282828 solid;
+}
+
+.iframeSheets {
+    border: 0;
+    width: 100%;
+    height: calc( 100% - 10px );
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }

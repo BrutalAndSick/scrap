@@ -1,5 +1,5 @@
 <?php
-class scrap
+class clsScrap
 {
     private $objCon;
 
@@ -22,6 +22,7 @@ class scrap
 
     function __destruct(){
         oci_close($this->objCon);
+        unset($this->objCon);
     }
 
     function dbInsert($strSql){

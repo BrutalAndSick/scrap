@@ -1,6 +1,6 @@
 /*#####
 DARK GREY #282828
-CONTINENTAL ORANGE #FFA500
+CONTINENTAL ORANGE #F9A11B
 #####*/
 body {
     font-family: Arial;
@@ -19,18 +19,18 @@ body {
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
     padding: 0 0 0 20px;
-    color: #FFA500;
+    color: #F9A11B;
     line-height: 80px;
     font-weight: bold;
     font-size: 16pt;
-    box-shadow: 0 1px 0 #b95f00;
-    text-shadow: 0 1px 0 #b95f00;
+    box-shadow: 0 1px 0 #E58D07;
+    text-shadow: 0 1px 0 #E58D07;
 }
 
 #divMenubar {
     margin: 1px 0 0 0;
     padding: 0 10px 0 10px;
-    background-color: #FFA500;
+    background-color: #F9A11B;
     color: #282828;
     font-weight: normal;
     font-size: 10pt;
@@ -47,9 +47,9 @@ body {
 
 #divSeparator {
     height: 1px;
-    background-color: #FFA500;
+    background-color: #F9A11B;
     margin: 15px -10px 20px -10px;
-    box-shadow: 0 1px 0 #B95F00
+    box-shadow: 0 1px 0 #E58D07
 }
 
 .divLogin {

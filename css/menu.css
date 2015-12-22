@@ -40,7 +40,7 @@ table tr td {
     color: #EFEFEF;
 }
 
-#tdtdWorkArea {
+#tdWorkArea {
     width: calc( 100% - 213px );
 }
 
@@ -52,19 +52,19 @@ table tr td {
 }
 
 .divMenuCategory {
-    background-color: #FFA500;
+    background-color: #F9A11B;
     margin: 3px 3px 0 3px;
     padding: 2px 3px 2px 3px;
     font-weight: bold;
     font-size: 12pt;
-    box-shadow: 0 1px 0 #b95f00;
+    box-shadow: 0 1px 0 #E58D07;
     border-radius: 3px;
-    text-shadow: 0 1px 0 #b95f00;
+    text-shadow: 0 1px 0 #E58D07;
     cursor: pointer;
 }
 
 .divMenuCategory:hover {
-    background-color: #b95f00;
+    background-color: #E58D07;
 }
 
 .divMenuOption {

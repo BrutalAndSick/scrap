@@ -1,14 +1,10 @@
 <?php
 ini_set("display_errors",1);
+
 ini_set('session.cookie_httponly',1);
-
-
-
 session_regenerate_id();
 session_start();
-
 session_destroy();
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,47 +12,75 @@ session_destroy();
     <meta charset="UTF-8">
     <title>:: CONTINENTAL :: SCRAP ::</title>
     <link rel="stylesheet" type="text/css" href="css/scrap.css">
-    <script src="js/jquery-1.11.3.min.js"></script>
 </head>
-<body>
-<?php include_once('inc/header.php'); ?>
-<div id="divMenubar">
-    Bienvenido - Welcome - Willkommen
-</div>
-<div id="divWorkarea">
-    <div id="divLoginbypersonal" class=" divLogin ">
-        <div style=" background-color: #F1F1F1; padding: 8px 0px 8px 0px; border-radius: 5px; color:#FFA500; text-shadow: 0px 1px 0px #B95F00; font-size: 13pt; font-weight: normal; margin-bottom: 10px; text-align: center;">Captura de Scrap</div>
-        <div style=" color:#282828; text-shadow: 0px 1px 0px #D0D0D0; font-size: 11pt; font-weight: normal; margin-bottom: 10px; text-align: center;">Número de Personal</div>
-        <input style=" display: block; margin: 0px auto 0px auto; width: 100px; font-size: 16pt; text-align: center; padding: 8px 0px 4px 0px; margin-bottom: 10px; cursor: pointer;" type="text" value="" id="txtPersonal" />
-        <input style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; " id="btnLoginpersonal" type="button" value="ingresar" onclick="goToCapture();" />
-        <div id="divSeparator" style="width: 300px;"></div>
-        <div style="text-align: right;">
-            <a onclick="loginSwitch('bycredentials');" class="link">&rarr;acceso a sistema</a>
-        </div>
-    </div>
-    <div id="divLoginbycredentials" class=" divLogin " style="display: none">
-        <div style=" background-color: #F1F1F1; padding: 8px 0px 8px 0px; border-radius: 5px; color:#FFA500; text-shadow: 0px 1px 0px #B95F00; font-size: 13pt; font-weight: normal; margin-bottom: 10px; text-align: center;">Ingreso a Sistema</div>
-        <label style="width: 90px; display: inline-block;" for="txtUsr">Usuario</label>
-        <input style=" margin: 0px auto 0px auto; width: 100px; font-size: 11pt; text-align: center; padding: 4px 0px 2px 0px; margin-bottom: 10px; cursor: pointer;" type="text" id="txtUsr" value="" />
-        <br />
-        <label style="width: 90px; display: inline-block;" for="txtPwd">Contraseña</label>
-        <input style=" margin: 0px auto 0px auto; width: 100px; font-size: 11pt; text-align: center; padding: 4px 0px 2px 0px; margin-bottom: 10px; cursor: pointer;" type="password" id="txtPwd" value="" />
-        <br />
-        <input style=" font-size: 9pt; background-color: #FFA500; border: 1px #000000 solid; color:#000000; box-shadow: 0px 1px 0px #B95F00; border-radius: 11px; padding: 2px 20px 0px 20px; " id="btnLogincredentials" type="button" value="ingresar" />
-        <div id="divSeparator" style="width: 300px;"></div>
-        <div style="text-align: right;">
-            <a onclick="loginSwitch('bypersonal');" class="link">&rarr;captura de scrap</a>
-        </div>
-    </div>
-</div>
+<body class="body_index">
+<table>
+    <tr id="trContent">
+        <td id="tdLogo">
+            <img src="images/continental.png" class="logo" />
+            <br /><br />
+            SCRAP
+        </td>
+        <td id="tdForms">
+            <div style="display: inline-block;">
+            <div id="divLoginbypersonal" class="divLogin">
+                <div class="divTitle">Captura de Scrap</div>
+                <label class="lblLogin" for="txtPersonal">Número de Personal</label>
+                <input class="txtLogin" type="text" value="" id="txtPersonal" />
+                <br /><br />
+                <input class=" buttons button_orange " id="btnLoginpersonal" type="button" value="ingresar" onclick="goToCapture();" />
+                <div id="divSeparator" style="width: 300px;"></div>
+                <div style="text-align: right;">
+                    <a onclick="loginSwitch('bycredentials');" class="link">&#9632; acceso a sistema</a>
+                </div>
+            </div>
+            <div id="divLoginbycredentials" class="divLogin" style=" display: none">
+                <div class="divTitle"">Ingreso a Sistema</div>
+                <label class="lblLogin" for="txtUsr">Usuario</label>
+                <input class="txtLogin" type="text" id="txtUsr" value="" />
+                <br /><br />
+                <label class="lblLogin" for="txtPwd">Contraseña</label>
+                <input class="txtLogin" type="password" id="txtPwd" value="" />
+                <br /><br />
+                <input class=" buttons button_orange " id="btnLogincredentials" type="button" value="ingresar" />
+                <div id="divSeparator" style="width: 300px;"></div>
+                <div style="text-align: right;">
+                    <a onclick="loginSwitch('bypersonal');" class="link">&#9632; captura de scrap</a>
+                </div>
+            </div>
+            <div id="divLoginerror" class="divLoginError"></div>
+            </div>
+        </td>
+    </tr>
+    <tr id="trFooter">
+        <td colspan="2" id="tdFooter">
+            Continental Automotive Guadalajara México, S.A. de C.V.
+        </td>
+    </tr>
+</table>
+<script src="js/jquery-1.11.3.min.js"></script>
 <script>
 
     $("#txtPersonal").keyup(function(e) {
         console.log("Handler for .keypress() called." + e.which);
     });
 
+    function loginSwitch($strScreen){
+        //$arrDivs = ['bypersonal', 'bycredentials', 'error'];
+        $arrDivs = ['bypersonal', 'bycredentials'];
+        for($intIx=0;$intIx<$arrDivs.length;$intIx++){
+            $('#divLogin' + $arrDivs[$intIx]).hide();
+        }
+        $('#txtPersonal').val('');
+        $('#txtUsr').val('');
+        $('#txtPwd').val('');
+        $('#divLogin' + $strScreen).slideDown('slow');
+    }
+
     function goToCapture(){
-        if($('#txtPersonal').val()!=''){
+        $('#divLoginerror').hide();
+        $('#divLoginerror').html('');
+        if($('#txtPersonal').val().trim()!=''){
             $strQueryString = "strUser=" + $('#txtPersonal').val() + "&intProc=0";
             $.ajax({
                 data : $strQueryString,
@@ -65,22 +89,15 @@ session_destroy();
                 url : "getuser.php",
                 success : function($jsnData){
                     console.log($jsnData);
-                    window.location = 'scrapcapture.php';
+//                    window.location = 'scrapcapture.php';
                 }
             });
+        }else{
+            $('#divLoginerror').html('Ingresa tu número de personal');
+            $('#divLoginerror').show();
         }
     }
 
-    function loginSwitch($strScreen){
-        $('#divLoginbypersonal').hide();
-        $('#txtPersonal').val('');
-        $('#divLoginbycredentials').hide();
-        $('#txtUsr').val('');
-        $('#txtPwd').val('');
-
-        $('#divLogin' + $strScreen).slideDown('slow');
-        return false;
-    }
 
 </script>
 </body>
