@@ -1,51 +1,40 @@
 <?php
 session_start();
 date_default_timezone_set('America/Mexico_City');
-$objCon = mysqli_connect("localhost","root","","scrap_gdl");
-mysqli_query($objCon, "SET NAMES 'utf8'");
-
-$jsnEmpleado = array('blnGo'=>'false','strError'=>'');
-
+require_once('lib/scrap.php');
+$objScrap = new clsScrap();
+$jsnEmpleado = array('blnGo'=>'true','strError'=>'');
 $intProc = $_REQUEST['intProc'];
-if($intProc==0){
-    $strUser = $_REQUEST['strUser'];
-    $strSql = "SELECT * FROM empleados WHERE usuario = '" . $strUser . "';";
-    $rstEmpleado = mysqli_query($objCon, $strSql);
-    if(mysqli_num_rows($rstEmpleado)!=0){
-        while($objEmpleado=mysqli_fetch_assoc($rstEmpleado)){
-            if($objEmpleado['activo']==1){
-                if($objEmpleado['capturista']==1){
-                    $strSql = "SELECT divisiones.id AS 'intDivision', divisiones.nombre AS 'strDivision', plantas.id AS 'intPlanta', plantas.nombre AS 'strPlanta' FROM capturistas, divisiones, plantas WHERE capturistas.id_emp = " . $objEmpleado['id'] . " AND capturistas.id_division = divisiones.id AND divisiones.id_planta = plantas.id;";
-                    $rstData = mysqli_query($objCon,$strSql);
-                    while($objData=mysqli_fetch_assoc($rstData)){
-                        $_SESSION['intUser']=$objEmpleado['id'];
-                        $_SESSION['strUser']=$objEmpleado['usuario'];
-                        $_SESSION['strUName']=trim($objEmpleado['nombre']) . " " . trim($objEmpleado['apellidos']);
-                        $_SESSION['intPlanta']=$objData['intPlanta'];
-                        $_SESSION['strPlanta']=$objData['strPlanta'];
-                        $_SESSION['intDivision']=$objData['intDivision'];
-                        $_SESSION['strDivision']=$objData['strDivision'];
-                        $jsnEmpleado['blnGo'] = true;
-                    }
-                    mysqli_free_result($rstData);
-                    unset($rstData);
-                }else{
-                    $jsnEmpleado['strError'] = "El usuario " . $strUser . " no cuenta con el privilegio de captura";
-                }
-            }else{
-                $jsnEmpleado['strError'] = "El usuario " . $strUser . " no se encuentra activo";
-            }
-        };
-        unset($objEmpleado);
-    }else{
-        $jsnEmpleado['strError'] = "El numero de personal " . $strUser . " no se encuentra registrado en la Base de Datos";
-    }
-    mysqli_free_result($objEmpleado);
-    unset($objEmpleado);
+switch ($intProc){
+    case 0:
+        $strUser = $_REQUEST['strUser'];
+        $strSql = "SELECT * ";
+        $strSql .= "FROM USR_USER ";
+        $strSql .= "LEFT JOIN CNT_COUNTRY ON CNT_COUNTRY.CNT_ID = USR_USER.USR_COUNTRY ";
+        $strSql .= "WHERE USR_USER.USR_STAFF_NUMBER = '" . $strUser . "' ";
+        $strSql .= "AND USR_USER.USR_STATUS = 1";
+        $rstEmployee = $objScrap->dbQuery($strSql);
+        if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+            foreach($rstEmployee as $objEmployee){
+                $_SESSION['intUser']=$objEmployee['USR_ID'];
+                $_SESSION['strUser']=$objEmployee['USR_STAFF_NUMBER'];
+                $_SESSION['strUName']=trim($objEmployee['USR_NAME']) . " " . trim($objEmployee['USR_LAST_NAME']);
+                $_SESSION['intCountry']=$objEmployee['CNT_ID'];
+                $_SESSION['strCountry']=$objEmployee['CNT_NAME'];
+                $_SESSION['strCountryCode']=$objEmployee['CNT_CODE'];
+                $_SESSION['intPlanta']=$objEmployee['USR_PLANT'];
+                $_SESSION['strPlanta']='';//$objEmployee['USR_PLANT'];
+                $_SESSION['intDivision']=$objEmployee['USR_DIVISION'];
+                $_SESSION['strDivision']='';//$objEmployee['strDivision'];
+            };
+            unset($objEmployee);
+        }else{
+            $jsnEmpleado['blnGo'] = 'false';
+            $jsnEmpleado['strError'] = "El numero de personal <b>" . $strUser . "</b> no se encuentra registrado en la Base de Datos";
+        }
+        unset($rstEmployee);
+        break;
 };
-
+unset($objScrap);
 echo json_encode($jsnEmpleado);
-
-mysqli_close($objCon);
-unset($objCon);
 ?>

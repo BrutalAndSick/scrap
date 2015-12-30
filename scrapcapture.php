@@ -42,7 +42,7 @@ $strDivision = $_SESSION['strDivision'];
     <?php include_once('inc/menu.php'); ?>
     <table width="100%" style="border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-bottom: 500px;">
         <tr>
-            <td style="width: 50%; text-align: left; vertical-align: top; padding: 10px 10px 10px 10px; ">
+            <td style="width: 50%; text-align: center; vertical-align: top; padding: 10px 10px 10px 10px; ">
                 <div class="divother" id="divGenerales" style="">
                     <div class="divclass"><label for="selProyecto">Proyecto</label><select id="selProyecto" onchange="getAPD();" tabindex="1">
                             <option value="-1" selected="selected">- Seleccione -</option>
@@ -79,7 +79,7 @@ $strDivision = $_SESSION['strDivision'];
                     <div class="divclass" style="display: none; text-align: right;" id="divNext"><input type="button" value="siguiente&rarr;" id="btnNext" onclick="addParts();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; "></div>
                 </div>
 
-                <div id="divPartes" class="divother2" style="margin: 0 auto 0 0; display: none; width: 710px;">
+                <div id="divPartes" class="divother2" style="margin: 0 auto 0 auto; display: none; width: 710px;">
                     <div class="divclass" style="font-size: 9pt">
                         <label for="txtNumerodeParte" style="width: auto; padding-right: 20px;">Número de Parte</label><input id="txtNumerodeParte" type="text" style="width: 160px; text-align: center" value="" strParte="">
                         <label for="txtCantidad" style="width: auto; padding-right: 20px; padding-left: 23px;">Cantidad</label><input type="text" id="txtCantidad" value="" style="width: 50px; text-align: center">
@@ -134,11 +134,11 @@ $strDivision = $_SESSION['strDivision'];
 
                 </div>
             </td>
-            <td style="width: 50%; text-align: right; padding: 10px 10px 10px 10px; vertical-align: top; ">
+            <td style="width: 50%; text-align: center; padding: 10px 10px 10px 10px; vertical-align: top; ">
                 <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 130mm; height: 75.4mm; background-color:#ff4646; border-radius: 5px">
                     <table style="border-spacing: 0; border: 0; border-collapse: collapse;">
                         <tr style="height: 4mm;">
-                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="/scrap/dummy/img/continental_black.png" style="height: 8mm" /></td>
+                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="images/continental_black.png" style="height: 8mm" /></td>
                             <td style=" height: 4mm; font-size: 8pt; padding: 0 0 0 0; color:#000000; width: 38mm; font-weight: bold; text-align: center;">Scrap</td>
                             <td rowspan="2" style="width: 54mm; padding: 1mm 1mm 0 1mm; text-align: center; " align="center">
                                 <div id="tdBarCode" style="display: inline-block;" ></div>

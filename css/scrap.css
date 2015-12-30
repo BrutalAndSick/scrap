@@ -70,7 +70,7 @@ html, body {
     background-color: #EAEAEA;
     border-radius: 5px;
     border: 0;
-    box-shadow: 0 1px 0 #E58D07;
+    box-shadow: 0 1px 0 #000000;
     padding: 35px 35px 35px 35px;
 }
 
@@ -79,7 +79,6 @@ html, body {
     box-shadow: 0 1px 0 #E58D07;
     color:#282828;
     text-shadow: 0 1px 0 #E58D07;
-
     padding: 8px 0 8px 0;
     border-radius: 5px;
     font-size: 13pt;
@@ -129,21 +128,33 @@ html, body {
     font-size: 11pt;
     border: 0;
     border-radius: 0;
-    padding: 0 20px 0 20px;
-    height: 25px;
-    line-height: 25px;
+    padding: 5px 20px 5px 20px;
     cursor: pointer;
+    outline: none;
+    margin: 0 2px 0 2px;
 }
 
 .button_orange {
     background-color: #F9A11B;
     color:#282828;
     text-shadow: 0   1px 0 #E58D07;
+    box-shadow: inset 0 -3px 0 #E58D07;
 }
 
-.button_orange:hover {
-    box-shadow: inset 0 -5px 0 #E58D07;
+.button_green {
+    background-color: #28B428;
+    color:#FFFFFF;
+    text-shadow: 0   1px 0 #14A014;
+    box-shadow: inset 0 -3px 0 #14A014;
 }
+
+.button_red {
+    background-color: #FF2828;
+    color:#FFFFFF;
+    text-shadow: 0   1px 0 #EB1414;
+    box-shadow: inset 0 -3px 0 #EB1414;
+}
+
 
 #divHeader {
     height: 80px;
@@ -151,6 +162,7 @@ html, body {
     background-image: url(../images/continental.png);
     background-repeat: no-repeat;
     background-position: calc(100% - 20px) center;
+    background-size: auto 90%;
     padding: 0 0 0 20px;
     color: #F9A11B;
     line-height: 80px;
@@ -315,14 +327,18 @@ html, body {
 }
 
 .divSheets {
-    height: calc( 100% - 35px );
+    border: 0;
     border-top: 1px #282828 solid;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+    width: 100%;
+    height: calc( 100% - 35px );
 }
 
 .iframeSheets {
     border: 0;
     width: 100%;
-    height: calc( 100% - 10px );
     padding: 0 0 0 0;
     margin: 0 0 0 0;
+    height: calc( 100% - 3px);
 }

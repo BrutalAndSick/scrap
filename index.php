@@ -61,10 +61,6 @@ session_destroy();
 <script src="js/jquery-1.11.3.min.js"></script>
 <script>
 
-    $("#txtPersonal").keyup(function(e) {
-        console.log("Handler for .keypress() called." + e.which);
-    });
-
     function loginSwitch($strScreen){
         //$arrDivs = ['bypersonal', 'bycredentials', 'error'];
         $arrDivs = ['bypersonal', 'bycredentials'];
@@ -82,18 +78,23 @@ session_destroy();
         $('#divLoginerror').html('');
         if($('#txtPersonal').val().trim()!=''){
             $strQueryString = "strUser=" + $('#txtPersonal').val() + "&intProc=0";
+            console.log('getuser.php?' + $strQueryString);
             $.ajax({
                 data : $strQueryString,
                 type : "POST",
                 dataType : "json",
                 url : "getuser.php",
                 success : function($jsnData){
-                    console.log($jsnData);
-//                    window.location = 'scrapcapture.php';
+                    if($jsnData.blnGo=='false'){
+                        $('#divLoginerror').html("&#8854; " + $jsnData.strError);
+                        $('#divLoginerror').show();
+                    }else{
+                        window.location = 'scrapcapture.php';
+                    }
                 }
             });
         }else{
-            $('#divLoginerror').html('Ingresa tu número de personal');
+            $('#divLoginerror').html('&#8854; Ingresa tu número de personal');
             $('#divLoginerror').show();
         }
     }

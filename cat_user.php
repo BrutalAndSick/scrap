@@ -3,11 +3,12 @@ require_once('lib/scrap.php');
 $objScrap = new clsScrap();
 ?>
 <!DOCTYPE html>
-<html lang="es-MX">
+<html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/scrap.css">
     </head>
+    <body>
         <div class=" divTitles ">
             Catálogo de Usuarios
         </div>

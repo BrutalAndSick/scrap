@@ -5,7 +5,7 @@ require_once('lib/scrap.class');
 
 $objScrap = new scrap();
 
-$strSQL = "INSERT INTO USR_USER (USR_USER,USR_AD,USR_NAME,USR_LAST_NAME,USR_STATUS) VALUES ('73544999',0,'GONZALO','MORALES RAMIREZ',1) RETURNING USR_ID INTO :intInsertedID, USR_NAME INTO :strNameNuevo";
+$strSQL = "INSERT INTO USR_USER (USR_USER,USR_AD,USR_NAME,USR_LAST_NAME,USR_STATUS) VALUES ('73544999',0,'GONZALO','MORALES RAMIREZ',1) RETURNING USR_ID INTO :intInsertedID";
 $objScrap->dbInsert($strSQL);
 if($objScrap->getProperty('strDBError')==''){
     echo "Lines: " . $objScrap->getProperty('intLastInsertId');
@@ -27,7 +27,6 @@ if($objScrap->getProperty('strDBError')==''){
     echo "Error: " . $objScrap->getProperty('strDBError');
 };
 unset($rstData);
-
 
 unset($objScrap);
 
