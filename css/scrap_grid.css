@@ -35,3 +35,25 @@
     border-radius: 3px;
     padding: 2px 5px 2px 5px;
 }
+
+.labelActions {
+    font-size: 14pt;
+    font-weight: normal;
+    margin: 0 5px 0 5px;
+    cursor: pointer;
+}
+
+.labelActionsGreen {
+    color: #28B428;
+    text-shadow: 0 1px 0 #14A014;
+}
+
+.labelActionsRed {
+    color: #FF2828;
+    text-shadow: 0 1px 0 #EB1414;
+}
+
+.labelActionsOrange {
+    color: #F9A11B;
+    text-shadow: 0 1px 0 #E58D07;
+}

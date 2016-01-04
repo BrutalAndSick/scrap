@@ -1,5 +1,7 @@
 <?php
-require_once('lib/scrap.php');
+session_start();
+date_default_timezone_set('America/Mexico_City');
+require_once('../../lib/scrap.php');
 $objScrap = new clsScrap();
 ?>
 <!DOCTYPE html>
@@ -27,23 +29,42 @@ $objScrap = new clsScrap();
                 <tr>
                     <th>Id</th>
                     <th>Perfil</th>
-                    <th>Estatus</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 <?php
-                $strSql = "SELECT * FROM PRF_PROFILE ORDER BY PRF_ID";
+                $strSql = "SELECT * FROM PRF_PROFILE WHERE PRF_STATUS IN (0,1) ORDER BY PRF_ID";
                 $rstProfile = $objScrap->dbQuery($strSql);
                 if($objScrap->getProperty('intAffectedRows')!=0){
                     foreach($rstProfile as $objProfile){
                         ?>
-                        <tr id="tdGrid_<?php echo $objProfile['PRF_ID'] ?>"><td><?php echo $objProfile['PRF_ID']; ?></td><td><?php echo $objProfile['PRF_NAME']; ?></td><td><?php echo $objProfile['PRF_STATUS']; ?></td></tr>
+                        <tr id="tdGrid_<?php echo $objProfile['PRF_ID'] ?>">
+                            <td style="text-align: right;"><?php echo $objProfile['PRF_ID']; ?></td>
+                            <td style="text-align: left"><?php echo $objProfile['PRF_NAME']; ?></td>
+                            <td style="padding: 0 5px 0 5px;">
+                                <?php
+                                if($objProfile['PRF_STATUS']==1){
+                                    ?>
+                                    <label id="lblDeactivateProfile_<?php echo $objProfile['PRF_ID']; ?>" currentValue="<?php echo $objProfile['PRF_STATUS']; ?>" onclick="deactivateProfile(<?php echo $objProfile['PRF_ID']; ?>);" class="labelActions labelActionsGreen" onclick="">&#10004;</label>
+                                    <?php
+                                }else{
+                                ?>
+                                    <label id="lblDeactivateProfile_<?php echo $objProfile['PRF_ID']; ?>" currentValue="<?php echo $objProfile['PRF_STATUS']; ?>" onclick="deactivateProfile(<?php echo $objProfile['PRF_ID']; ?>);" class="labelActions labelActionsRed">&#10006;</label>
+                                <?php
+                                }
+                                ?>
+
+                                <label id="lblEditProfile_<?php echo $objProfile['PRF_ID']; ?>" onclick="editProfile(<?php echo $objProfile['PRF_ID']; ?>);" class="labelActions labelActionsOrange">&#9998;</label>
+                            </td>
+
+                        </tr>
                         <?php
                     };
                     unset($objProfile);
                 }else{
                     ?>
-                    <tr><td colspan="3">No hay registros</td></tr>
+                    <tr><td colspan="4">No hay registros</td></tr>
                     <?php
                 }
                 unset($rstProfile);
@@ -56,15 +77,13 @@ $objScrap = new clsScrap();
         </div>
 
         <div id="divModalBackground">
-            <div id="divModalMain">
+            <div id="divModalMain" style="width: 300px;">
                 <div id="divModalClose"><label id="lblModalClose" onclick="closeModal();">&#10006</label></div>
                 <div id="divModalTitle">Crear Perfil</div>
                 <div id="divModalForm">
-                    <!-- #### DATOS Y CONTROLES DEL FORMULARIO DENTRO DE LA MODAL -->
                     <label for="txtName" class="form_label">Nombre</label><input type="text" id="txtName" class="form_input_text" style="width: 150px;" value="" /><br />
                     <label for="tblMenu" class="form_label">Menus</label>
                     <table id="tblMenu"></table>
-                    <!-- #### DATOS Y CONTROLES DEL FORMULARIO DENTRO DE LA MODAL -->
                 </div>
                 <div id="divModalError"></div>
                 <div id="divModalButtons">
@@ -77,107 +96,15 @@ $objScrap = new clsScrap();
             </div>
         </div>
 
+        <div id="divWorkingBackground">
+            <div id="divWorking">
+                <img src="../../images/wait_64.gif" />
+            </div>
+        </div>
+
+
         <script src="../../js/jquery-1.11.3.min.js"></script>
-        <script>
-
-            $arrMenu = [];
-
-            function showModal() {
-                $("body").css('overflow', 'hidden');
-                showModalError('');
-                $('#divModalBackground').fadeIn('fast', function(){
-                    $('#tblMenu tr').remove();
-                    $('#txtName').val('');
-                    $strQueryString = "intProcess=0";
-                    $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
-                        success : function($objJson){
-                            $arrMenu = [];
-                            for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
-                                $('#tblMenu').append('<tr><td colspan="2">' + $objJson[$intIndex].name + '</td></tr>');
-                                for($intSubIndex=0;$intSubIndex<$objJson[$intIndex].menu.length;$intSubIndex++){
-                                    $arrMenu.push($objJson[$intIndex].menu[$intSubIndex].id);
-                                    $('#tblMenu').append('<tr><td id="tdMenu_' + $objJson[$intIndex].menu[$intSubIndex].id + '" class="tdNonActive" onclick="switchSelected(' + $objJson[$intIndex].menu[$intSubIndex].id + ')">&#10006</td><td>' + $objJson[$intIndex].menu[$intSubIndex].name + '</td></tr>');
-                                }
-                            }
-                            $('#divModalMain').slideDown('fast', function(){
-                                $('#txtName').focus();
-                            });
-                        }
-                    });
-                });
-            }
-
-            function closeModal(){
-                $('#divModalMain').slideUp('fast',function(){
-                    $('#divModalBackground').fadeOut('fast', function(){
-                        $("body").css('overflow', 'auto');
-                    })
-                })
-            }
-
-            function switchSelected($intMenu){
-                if($('#tdMenu_' + $intMenu).attr('class')=='tdNonActive'){
-                    $('#tdMenu_' + $intMenu).removeClass('tdNonActive');
-                    $('#tdMenu_' + $intMenu).addClass('tdActive');
-                    $('#tdMenu_' + $intMenu).html('&#10004');
-                }else{
-                    $('#tdMenu_' + $intMenu).removeClass('tdActive');
-                    $('#tdMenu_' + $intMenu).addClass('tdNonActive');
-                    $('#tdMenu_' + $intMenu).html('&#10006');
-                }
-            }
-
-            function addProfile(){
-                showModalError('');
-                $('#divModalButtons').hide();
-                $('#divModalWorking').show();
-                if($('#txtName').val().trim()==''){
-                    $('#txtName').focus();
-                    showModalError('Ingresa el nombre del perfil');
-                    $('#divModalWorking').hide();
-                    $('#divModalButtons').show();
-                }else{
-                    $blnSelectedMenu = false;
-                    $strSelectedMenu = '';
-                    for($intIndex=0;$intIndex<$arrMenu.length;$intIndex++){
-                        if($('#tdMenu_' + $arrMenu[$intIndex]).attr('class')=='tdActive'){
-                            $blnSelectedMenu = true;
-                            $strSelectedMenu += $arrMenu[$intIndex] + "|";
-                        }
-                    }
-                    if(!$blnSelectedMenu){
-                        showModalError('Selecciona al menos un menu');
-                        $('#divModalWorking').hide();
-                        $('#divModalButtons').show();
-                    }else{
-                        $strQueryString = "intProcess=0&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
-                        $.ajax({url : "getprofile.php", data : $strQueryString, type : "POST", dataType : "json",
-                            success : function($objJson){
-                                $('#divModalWorking').hide();
-                                $('#divModalButtons').show();
-                                closeModal();
-                                console.log($objJson);
-                            }
-                        });
-                    }
-                }
-            }
-
-            function showModalError($strError){
-                if($strError==''){
-                    $('#divModalError').hide();
-                    $('#divModalError').html('');
-                }else{
-                    $('#divModalError').html('&#8854; ' + $strError);
-                    $('#divModalError').slideDown('fast',function(){});
-                }
-            };
-
-            $('document').ready(function(){
-                $('#divModalMain').css('height',($('body').css('height').replace('px','').replace(' ','') - 100) + "px");
-                $('#divModalForm').css('height',($('#divModalMain').css('height').replace('px','').replace(' ','') - 170) + "px");
-            })
-        </script>
+        <script src="js/profile.js"></script>
     </body>
 </html>
 <?php

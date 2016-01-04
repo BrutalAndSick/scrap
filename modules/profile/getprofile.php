@@ -1,8 +1,7 @@
 <?php
-ini_set("display_errors",1);
 session_start();
 date_default_timezone_set('America/Mexico_City');
-require_once('lib/scrap.php');
+require_once('../../lib/scrap.php');
 $objScrap = new clsScrap();
 $jsnProfile = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
 $intProcess = $_POST['intProcess'];
@@ -38,6 +37,9 @@ switch ($intProcess){
             $jsnProfile['strError'] = $objScrap->getProperty('strDBError');
         }
         unset($rstProfileCount);
+        break;
+    case 1:
+
         break;
 };
 unset($objScrap);
