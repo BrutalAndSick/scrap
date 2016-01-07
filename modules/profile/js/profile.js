@@ -1,27 +1,53 @@
 $arrMenu = [];
 
-function showModal() {
+function showModal($intProfileId) {
     $("body").css('overflow', 'hidden');
     showModalError('');
     $('#divModalBackground').fadeIn('fast', function(){
         $('#tblMenu tr').remove();
-        $('#txtName').val('');
-        $strQueryString = "intProcess=0";
-        $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
-            success : function($objJson){
-                $arrMenu = [];
-                for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
-                    $('#tblMenu').append('<tr><td colspan="2">' + $objJson[$intIndex].name + '</td></tr>');
-                    for($intSubIndex=0;$intSubIndex<$objJson[$intIndex].menu.length;$intSubIndex++){
-                        $arrMenu.push($objJson[$intIndex].menu[$intSubIndex].id);
-                        $('#tblMenu').append('<tr><td id="tdMenu_' + $objJson[$intIndex].menu[$intSubIndex].id + '" class="tdNonActive" onclick="switchSelected(' + $objJson[$intIndex].menu[$intSubIndex].id + ')">&#10006</td><td>' + $objJson[$intIndex].menu[$intSubIndex].name + '</td></tr>');
+        if($intProfileId==0){
+            $('#divModalTitle').html('Crear perfil');
+            $('#txtName').val('');
+            $('#btnModalEdit').hide();
+            $('#btnModalAdd').show();
+            $strQueryString = "intProcess=0";
+            $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
+                success : function($objJson){
+                    $arrMenu = [];
+                    for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
+                        $('#tblMenu').append('<tr><td colspan="2">' + $objJson[$intIndex].name + '</td></tr>');
+                        for($intSubIndex=0;$intSubIndex<$objJson[$intIndex].menu.length;$intSubIndex++){
+                            $arrMenu.push($objJson[$intIndex].menu[$intSubIndex].id);
+                            $('#tblMenu').append('<tr><td id="tdMenu_' + $objJson[$intIndex].menu[$intSubIndex].id + '" class="tdNonActive" onclick="switchSelected(' + $objJson[$intIndex].menu[$intSubIndex].id + ')">&#10006</td><td>' + $objJson[$intIndex].menu[$intSubIndex].name + '</td></tr>');
+                        }
                     }
+                    $('#divModalMain').slideDown('fast', function(){
+                        $('#txtName').focus();
+                    });
                 }
-                $('#divModalMain').slideDown('fast', function(){
-                    $('#txtName').focus();
-                });
-            }
-        });
+            });
+        }else{
+            $('#divModalTitle').html('Editar perfil');
+            $('#txtName').val($('#lblEditProfile_' + $intProfileId).attr('profilename'));
+            $('#btnModalAdd').hide();
+            $('#btnModalEdit').show();
+            $strQueryString = "intProcess=1";
+            $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
+                success : function($objJson){
+                    $arrMenu = [];
+                    for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
+                        $('#tblMenu').append('<tr><td colspan="2">' + $objJson[$intIndex].name + '</td></tr>');
+                        for($intSubIndex=0;$intSubIndex<$objJson[$intIndex].menu.length;$intSubIndex++){
+                            $arrMenu.push($objJson[$intIndex].menu[$intSubIndex].id);
+                            $('#tblMenu').append('<tr><td id="tdMenu_' + $objJson[$intIndex].menu[$intSubIndex].id + '" class="tdNonActive" onclick="switchSelected(' + $objJson[$intIndex].menu[$intSubIndex].id + ')">&#10006</td><td>' + $objJson[$intIndex].menu[$intSubIndex].name + '</td></tr>');
+                        }
+                    }
+                    $('#divModalMain').slideDown('fast', function(){
+                        $('#txtName').focus();
+                    });
+                }
+            });
+        };
     });
 }
 
@@ -74,7 +100,7 @@ function addProfile(){
                     $('#divModalWorking').hide();
                     $('#divModalButtons').show();
                     closeModal();
-                    console.log($objJson);
+                    gridUpdate();
                 }
             });
         }
@@ -101,40 +127,45 @@ function deactivateProfile($intProfileId){
     if(confirm($strQuestion)){
         $("body").css('overflow', 'hidden');
         $('#divWorkingBackground').fadeIn('fast',function(){
-            $strQueryString = "intProcess=1&intProfileId=" + $intProfileId;
+            $strQueryString = "intProcess=1&intProfileId=" + $intProfileId + "&intStatus=";
+            if($('#lblDeactivateProfile_' + $intProfileId).attr('currentValue')==0){
+                $strQueryString += 1;
+            }else{
+                $strQueryString += 0;
+            }
             $.ajax({url : "getprofile.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
-                    $('#divModalWorking').hide();
-                    $('#divModalButtons').show();
-                    closeModal();
-                    console.log($objJson);
+                    if($('#lblDeactivateProfile_' + $intProfileId).attr('currentValue')==0){
+                        $('#lblDeactivateProfile_' + $intProfileId).removeClass('labelActionsRed');
+                        $('#lblDeactivateProfile_' + $intProfileId).addClass('labelActionsGreen');
+                        $('#lblDeactivateProfile_' + $intProfileId).attr('currentValue',1);
+                        $('#lblDeactivateProfile_' + $intProfileId).html('&#10004;');
+                    }else{
+                        $('#lblDeactivateProfile_' + $intProfileId).removeClass('labelActionsGreen');
+                        $('#lblDeactivateProfile_' + $intProfileId).addClass('labelActionsRed');
+                        $('#lblDeactivateProfile_' + $intProfileId).attr('currentValue',0);
+                        $('#lblDeactivateProfile_' + $intProfileId).html('&#10006');
+                    }
+                    $('#divWorkingBackground').fadeOut();
+                    $("body").css('overflow', 'auto');
                 }
             });
-
-
-
-
-            if($('#lblDeactivateProfile_' + $intProfileId).attr('currentValue')==0){
-                $('#lblDeactivateProfile_' + $intProfileId).removeClass('labelActionsRed');
-                $('#lblDeactivateProfile_' + $intProfileId).addClass('labelActionsGreen');
-                $('#lblDeactivateProfile_' + $intProfileId).attr('currentValue',1);
-                $('#lblDeactivateProfile_' + $intProfileId).html('&#10004;');
-            }else{
-                $('#lblDeactivateProfile_' + $intProfileId).removeClass('labelActionsGreen');
-                $('#lblDeactivateProfile_' + $intProfileId).addClass('labelActionsRed');
-                $('#lblDeactivateProfile_' + $intProfileId).attr('currentValue',0);
-                $('#lblDeactivateProfile_' + $intProfileId).html('&#10006');
-            }
-            $('#divWorkingBackground').fadeOut();
         });
     }
 };
 
-function editProfile($intProfileId){
+function editProfile(){
 
 };
 
 $('document').ready(function(){
     $('#divModalMain').css('height',($('body').css('height').replace('px','').replace(' ','') - 100) + "px");
     $('#divModalForm').css('height',($('#divModalMain').css('height').replace('px','').replace(' ','') - 170) + "px");
+    $('#tbodyGrid').css('height',($('#divGrid').css('height').replace('px','').replace(' ','') - 40) + "px");
+    $jsnGridData.strSql = "SELECT PRF_ID, PRF_NAME, PRF_STATUS FROM PRF_PROFILE WHERE PRF_STATUS IN (0,1) ORDER BY ";
+    $jsnGridData.strSqlOrder = "PRF_ID DESC";
+    $jsnGridData.intSqlNumberOfColumns = $('#theadGrid tr th').length;
+    $jsnGridData.strAjaxUrl = "getprofile.php";
+    $jsnGridData.strAjaxProcess = 2;
+    gridUpdate();
 })

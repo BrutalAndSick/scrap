@@ -78,14 +78,27 @@
 
 #divModalButtons {
     display: block;
+    height: 27px;
 }
 
 #divModalWorking {
     display: none;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    border:1px #F9A11B solid;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 #E58D07;
+    background-color: #282828;
+}
+
+#divModalWorking img {
+    border: 0;
+    vertical-align: bottom;
+    display: inline-block;
 }
 
 #divWorkingBackground {
-    z-index: 10000000;
+    z-index: 10000001;
     background-color: rgba(0,0,0,.6);
     position: fixed;
     width: 100%;

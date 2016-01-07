@@ -3,10 +3,10 @@ session_start();
 date_default_timezone_set('America/Mexico_City');
 require_once('../../lib/scrap.php');
 $objScrap = new clsScrap();
-$jsnProfile = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
 $intProcess = $_POST['intProcess'];
 switch ($intProcess){
     case 0:
+        $jsnProfile = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
         $strProfile = $_POST['strProfile'];
         $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM PRF_PROFILE WHERE PRF_NAME = '" . $strProfile . "'";
         $rstProfileCount = $objScrap->dbQuery($strSql);
@@ -39,7 +39,63 @@ switch ($intProcess){
         unset($rstProfileCount);
         break;
     case 1:
-
+        $jsnProfile = array('blnGo'=>'true','strError'=>'');
+        $intProfileId = $_POST['intProfileId'];
+        $intStatus = $_POST['intStatus'];
+        $strSql = "UPDATE PRF_PROFILE SET PRF_STATUS = " . $intStatus . " WHERE PRF_ID = " . $intProfileId;
+        $objScrap->dbUpdate($strSql);
+        if($objScrap->getProperty('strDBError')!=''){
+            $jsnProfile['blnGo'] = 'false';
+            $jsnProfile['strError'] = $objScrap->getProperty('strDBError');
+        }
+        break;
+    case 2:
+        $jsnProfile = array('grid'=>'','pagination'=>'','intSqlNumberOfRecords'=>0);
+        $strSql = $_POST['strSql'];
+        $strSqlOrder = $_POST['strSqlOrder'];
+        $intSqlPage = $_POST['intSqlPage'];
+        $intSqlLimit = $_POST['intSqlLimit'];
+        $intSqlNumberOfColumns = $_POST['intSqlNumberOfColumns'];
+        $rstProfile = $objScrap->dbQuery($strSql . $strSqlOrder);
+        $intSqlNumberOfRecords = $objScrap->getProperty('intAffectedRows');
+        $jsnProfile['intSqlNumberOfRecords'] = $intSqlNumberOfRecords;
+        if($intSqlNumberOfRecords!=0){
+            $intPages = ceil($intSqlNumberOfRecords / $intSqlLimit);
+        }else{
+            $intPages = 1;
+        }
+        $intFirstRecord = ($intSqlLimit * $intSqlPage) - $intSqlLimit;
+        $intLastRecord = $intFirstRecord + $intSqlLimit - 1;
+        $strGrid = '';
+        if($intSqlNumberOfRecords!=0){
+            for ($intIndex = $intFirstRecord; $intIndex <= $intLastRecord; $intIndex++) {
+                $strGrid .= '<tr id="trGrid_' . $rstProfile[$intIndex]['PRF_ID'] . '">';
+                $strGrid .= '<td class="tdGrid" style="text-align: right;">' . $rstProfile[$intIndex]['PRF_ID'] . '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: left">' . $rstProfile[$intIndex]['PRF_NAME'] . '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: center;">';
+                if ($rstProfile[$intIndex]['PRF_STATUS'] == 1) {
+                    $strGrid .= '<label id="lblDeactivateProfile_' . $rstProfile[$intIndex]['PRF_ID'] . '" currentValue="' . $rstProfile[$intIndex]['PRF_STATUS'] . '" onclick="deactivateProfile(' . $rstProfile[$intIndex]['PRF_ID'] . ');" class="labelActions labelActionsGreen">&#10004;</label>';
+                } else {
+                    $strGrid .= '<label id="lblDeactivateProfile_' . $rstProfile[$intIndex]['PRF_ID'] . '" currentValue="' . $rstProfile[$intIndex]['PRF_STATUS'] . '" onclick="deactivateProfile(' . $rstProfile[$intIndex]['PRF_ID'] . ');" class="labelActions labelActionsRed">&#10006;</label>';
+                }
+                $strGrid .= '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: center;">';
+                $strGrid .= '<label id="lblEditProfile_' . $rstProfile[$intIndex]['PRF_ID'] . '" profilename="' . $rstProfile[$intIndex]['PRF_NAME'] . '" onclick="showModal(' . $rstProfile[$intIndex]['PRF_ID'] . ');" class="labelActions labelActionsOrange">&#9998;</label>';
+                $strGrid .= '</td>';
+                $strGrid .= '</tr>';
+                if ($intIndex == ($intSqlNumberOfRecords - 1)) {
+                    break;
+                }
+            };
+        }else{
+            $strGrid .= '<tr><td class="tdGrid" style="text-align: center" colspan="' . $intSqlNumberOfColumns . '">No existen registros</td></tr>';
+        }
+        unset($rstProfile);
+        $jsnProfile['grid'] = $strGrid;
+        require_once('../../lib/scrap_grid/scrap_grid.php');
+        $objGrid = new clsGrid();
+        $jsnProfile['pagination'] = $objGrid->gridPagination($intSqlPage,$intPages,$intSqlNumberOfRecords,$intSqlLimit);
+        unset($objGrid);
         break;
 };
 unset($objScrap);
