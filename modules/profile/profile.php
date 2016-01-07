@@ -3,9 +3,9 @@ session_start();
 date_default_timezone_set('America/Mexico_City');
 require_once('../../lib/scrap.php');
 $objScrap = new clsScrap();
-$intProcess = $_POST['intProcess'];
-switch ($intProcess){
-    case 0:
+$strProcess = $_POST['strProcess'];
+switch ($strProcess){
+    case 'insertProfile':
         $jsnProfile = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
         $strProfile = $_POST['strProfile'];
         $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM PRF_PROFILE WHERE PRF_NAME = '" . $strProfile . "'";
@@ -38,7 +38,7 @@ switch ($intProcess){
         }
         unset($rstProfileCount);
         break;
-    case 1:
+    case 'deactivateProfile':
         $jsnProfile = array('blnGo'=>'true','strError'=>'');
         $intProfileId = $_POST['intProfileId'];
         $intStatus = $_POST['intStatus'];
@@ -49,7 +49,7 @@ switch ($intProcess){
             $jsnProfile['strError'] = $objScrap->getProperty('strDBError');
         }
         break;
-    case 2:
+    case 'updateGrid':
         $jsnProfile = array('grid'=>'','pagination'=>'','intSqlNumberOfRecords'=>0);
         $strSql = $_POST['strSql'];
         $strSqlOrder = $_POST['strSqlOrder'];
@@ -96,6 +96,50 @@ switch ($intProcess){
         $objGrid = new clsGrid();
         $jsnProfile['pagination'] = $objGrid->gridPagination($intSqlPage,$intPages,$intSqlNumberOfRecords,$intSqlLimit);
         unset($objGrid);
+        break;
+    case 'getMenu':
+        $jsnProfile = array();
+        $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = 0 AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+        $rstCategory = $objScrap->dbQuery($strSql);
+        if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+            foreach($rstCategory as $objCategory){
+                $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategory['MNU_ID'] . " AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                $rstMenu = $objScrap->dbQuery($strSql);
+                if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+                    $arrMenu = array();
+                    foreach($rstMenu as $objMenu){
+                        array_push($arrMenu,array('id'=>$objMenu['MNU_ID'],'name'=>$objMenu['MNU_NAME']));
+                    }
+                    array_push($jsnProfile,array('id'=>$objCategory['MNU_ID'],'name'=>$objCategory['MNU_NAME'],'menu'=>$arrMenu));
+                    unset($objMenu);
+                }
+                unset($rstMenu);
+            };
+            unset($objCategory);
+        }
+        unset($rstCategory);
+        break;
+    case 'getMenuProfile':
+        $jsnProfile = array();
+        $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = 0 AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+        $rstCategory = $objScrap->dbQuery($strSql);
+        if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+            foreach($rstCategory as $objCategory){
+                $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategory['MNU_ID'] . " AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                $rstMenu = $objScrap->dbQuery($strSql);
+                if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
+                    $arrMenu = array();
+                    foreach($rstMenu as $objMenu){
+                        array_push($arrMenu,array('id'=>$objMenu['MNU_ID'],'name'=>$objMenu['MNU_NAME']));
+                    }
+                    array_push($jsnProfile,array('id'=>$objCategory['MNU_ID'],'name'=>$objCategory['MNU_NAME'],'menu'=>$arrMenu));
+                    unset($objMenu);
+                }
+                unset($rstMenu);
+            };
+            unset($objCategory);
+        }
+        unset($rstCategory);
         break;
 };
 unset($objScrap);

@@ -12,7 +12,7 @@ $objScrap = new clsScrap();
         <link rel="stylesheet" type="text/css" href="../../lib/scrap_grid/scrap_grid.css">
         <link rel="stylesheet" type="text/css" href="../../lib/scrap_modal/scrap_modal.css">
         <link rel="stylesheet" type="text/css" href="../../css/scrap_form.css">
-        <link rel="stylesheet" type="text/css" href="css/cat_profile.css">
+        <link rel="stylesheet" type="text/css" href="css/profile.css">
     </head>
     <body>
         <div class=" divTitles ">

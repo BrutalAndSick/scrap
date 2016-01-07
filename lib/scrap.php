@@ -7,7 +7,7 @@ class clsScrap
     private $strDBPwd = "Scrap8956";
     private $strDBHost = "localhost/XE";
 
-    private $intAffectedRows;
+    private $intAffectedRows = 0;
     private $intLastInsertId;
     private $strDBError;
 

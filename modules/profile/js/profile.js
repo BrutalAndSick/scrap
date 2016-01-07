@@ -10,8 +10,8 @@ function showModal($intProfileId) {
             $('#txtName').val('');
             $('#btnModalEdit').hide();
             $('#btnModalAdd').show();
-            $strQueryString = "intProcess=0";
-            $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
+            $strQueryString = "strProcess=getMenu";
+            $.ajax({url : "profile.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $arrMenu = [];
                     for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
@@ -31,8 +31,8 @@ function showModal($intProfileId) {
             $('#txtName').val($('#lblEditProfile_' + $intProfileId).attr('profilename'));
             $('#btnModalAdd').hide();
             $('#btnModalEdit').show();
-            $strQueryString = "intProcess=1";
-            $.ajax({url : "getmenu.php", data : $strQueryString, type : "POST", dataType : "json",
+            $strQueryString = "strProcess=getMenuProfile";
+            $.ajax({url : "profile.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $arrMenu = [];
                     for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
@@ -94,8 +94,8 @@ function addProfile(){
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
         }else{
-            $strQueryString = "intProcess=0&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
-            $.ajax({url : "getprofile.php", data : $strQueryString, type : "POST", dataType : "json",
+            $strQueryString = "strProcess=insertProfile&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
+            $.ajax({url : "profile.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $('#divModalWorking').hide();
                     $('#divModalButtons').show();
@@ -127,13 +127,13 @@ function deactivateProfile($intProfileId){
     if(confirm($strQuestion)){
         $("body").css('overflow', 'hidden');
         $('#divWorkingBackground').fadeIn('fast',function(){
-            $strQueryString = "intProcess=1&intProfileId=" + $intProfileId + "&intStatus=";
+            $strQueryString = "strProcess=deactivateProfile&intProfileId=" + $intProfileId + "&intStatus=";
             if($('#lblDeactivateProfile_' + $intProfileId).attr('currentValue')==0){
                 $strQueryString += 1;
             }else{
                 $strQueryString += 0;
             }
-            $.ajax({url : "getprofile.php", data : $strQueryString, type : "POST", dataType : "json",
+            $.ajax({url : "profile.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     if($('#lblDeactivateProfile_' + $intProfileId).attr('currentValue')==0){
                         $('#lblDeactivateProfile_' + $intProfileId).removeClass('labelActionsRed');
@@ -165,7 +165,7 @@ $('document').ready(function(){
     $jsnGridData.strSql = "SELECT PRF_ID, PRF_NAME, PRF_STATUS FROM PRF_PROFILE WHERE PRF_STATUS IN (0,1) ORDER BY ";
     $jsnGridData.strSqlOrder = "PRF_ID DESC";
     $jsnGridData.intSqlNumberOfColumns = $('#theadGrid tr th').length;
-    $jsnGridData.strAjaxUrl = "getprofile.php";
-    $jsnGridData.strAjaxProcess = 2;
+    $jsnGridData.strAjaxUrl = "profile.php";
+    $jsnGridData.strAjaxProcess = "updateGrid";
     gridUpdate();
 })
