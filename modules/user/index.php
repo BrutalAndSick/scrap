@@ -16,7 +16,7 @@ $objScrap = new clsScrap();
     </head>
     <body>
         <div class=" divTitles ">
-            Catálogo de Perfiles
+            Catálogo de Usuarios
         </div>
         <div class="divActions">
             <input id="btnProfile" type="button" class="buttons button_orange" value="nuevo perfil" onclick="showModal(0);">
