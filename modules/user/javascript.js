@@ -6,7 +6,7 @@ function showModal($intProfileId) {
     $('#divModalBackground').fadeIn('fast', function(){
         $('#tblMenu tr').remove();
         if($intProfileId==0){
-            $('#divModalTitle').html('Crear perfil');
+            $('#divModalTitle').html('Insertar');
             $('#txtName').val('');
             $('#btnModalEdit').hide();
             $('#btnModalAdd').show();
@@ -27,9 +27,9 @@ function showModal($intProfileId) {
                 }
             });
         }else{
-            $('#divModalTitle').html('Editar perfil');
+            $('#divModalTitle').html('Editar');
             $('#txtName').val($('#lblEditProfile_' + $intProfileId).attr('profilename'));
-            $('#txtName').attr('profileid',$intProfileId);
+            $('#txtName').attr('intUserId',$intUserId);
             $('#btnModalAdd').hide();
             $('#btnModalEdit').show();
             $strQueryString = "strProcess=getMenuProfile&intProfileId=" + $intProfileId;
@@ -186,7 +186,7 @@ function editProfile(){
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
         }else{
-            $strQueryString = "strProcess=updateProfile&intProfileId=" + $('#txtName').attr('profileid') + "&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
+            $strQueryString = "strProcess=updateProfile&intProfileId=" + $('#txtName').attr('intUserId') + "&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $('#divModalWorking').hide();

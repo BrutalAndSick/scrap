@@ -16,7 +16,7 @@ $objScrap = new clsScrap();
     </head>
     <body>
         <div class=" divTitles ">
-            Catálogo de Usuarios
+            Catálogo de Divisiones
         </div>
         <div class="divActions">
             <input id="btnProfile" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
@@ -29,15 +29,9 @@ $objScrap = new clsScrap();
                 require_once('../../lib/scrap_grid/class.php');
                 $objGrid = new clsGrid();
                 $arrHeaders = array();
-                array_push($arrHeaders,array('strLabel'=>'Id','strSortColumn'=>'USR_ID'));
-                array_push($arrHeaders,array('strLabel'=>'Número Personal','strSortColumn'=>'USR_STAFF_NUMBER'));
-                array_push($arrHeaders,array('strLabel'=>'UID','strSortColumn'=>'USR_AD_USER'));
-                array_push($arrHeaders,array('strLabel'=>'Nombre(s)','strSortColumn'=>'USR_NAME'));
-                array_push($arrHeaders,array('strLabel'=>'Apellido(s)','strSortColumn'=>'USR_LAST_NAME'));
-                array_push($arrHeaders,array('strLabel'=>'País','strSortColumn'=>'USR_COUNTRY'));
-                array_push($arrHeaders,array('strLabel'=>'Planta','strSortColumn'=>'USR_PLANT'));
-                array_push($arrHeaders,array('strLabel'=>'División','strSortColumn'=>'USR_DIVISION'));
-                array_push($arrHeaders,array('strLabel'=>'Estatus','strSortColumn'=>'USR_STATUS'));
+                array_push($arrHeaders,array('strLabel'=>'Id','strSortColumn'=>'DVS_ID'));
+                array_push($arrHeaders,array('strLabel'=>'Division','strSortColumn'=>'DVS_NAME'));
+                array_push($arrHeaders,array('strLabel'=>'Estatus','strSortColumn'=>'DVS_STATUS'));
                 array_push($arrHeaders,array('strLabel'=>'Editar','strSortColumn'=>''));
                 echo $objGrid->gridHeaders($arrHeaders);
                 unset($objGrid);
@@ -57,14 +51,14 @@ $objScrap = new clsScrap();
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalForm">
                     <label for="txtName" class="form_label">Nombre</label><input type="text" id="txtName" class="form_input_text" style="width: 150px;" value="" /><br />
-                    <label for="tblMenu" class="form_label">Menus</label>
-                    <table id="tblMenu"></table>
+                    <label for="tblPlant" class="form_label">Plantas</label>
+                    <table id="tblPlant"></table>
                 </div>
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalError"></div>
                 <div id="divModalButtons">
-                    <input id="btnModalAdd" type="button" value="insertar" onclick="addProfile();" class="buttons button_green">
-                    <input id="btnModalEdit" type="button" value="editar" onclick="editProfile();" class="buttons button_green">
+                    <input id="btnModalAdd" type="button" value="insertar" onclick="addDivision();" class="buttons button_green">
+                    <input id="btnModalEdit" type="button" value="editar" onclick="editDivision();" class="buttons button_green">
                     <input type="button" value="cancelar" onclick="closeModal();" class="buttons button_red">
                 </div>
                 <div id="divModalWorking">

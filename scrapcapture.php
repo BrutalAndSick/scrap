@@ -4,13 +4,17 @@ session_start();
 
 if(!isset($_SESSION["intUser"]))
 {
-    header("location: index.php");
+//    header("location: index.php");
 }
+
+if(isset($_GET['flg'])){
+}
+
 
 date_default_timezone_set('America/Mexico_City');
 $objCon = mysqli_connect("localhost","root","","scrap_gdl");
 mysqli_query($objCon, "SET NAMES 'utf8'");
-
+/*
 $intUser = $_SESSION['intUser'];
 $strUser = $_SESSION['strUser'];
 $strUName = $_SESSION['strUName'];
@@ -18,6 +22,22 @@ $intPlanta = $_SESSION['intPlanta'];
 $strPlanta = $_SESSION['strPlanta'];
 $intDivision = $_SESSION['intDivision'];
 $strDivision = $_SESSION['strDivision'];
+*/
+$intUser = 2085;
+$strUser = '718601';
+$strUName = 'GUADALUPE LAMBARENA';
+$intPlanta = 1;
+$strPlanta = 'Tijera';
+$intDivision = 15;
+$strDivision = 'B&S 3';
+
+$_SESSION['intUser'] = $intUser;
+$_SESSION['strUser'] = $strUser;
+$_SESSION['strUName'] = $strUName;
+$_SESSION['intPlanta'] = $intPlanta;
+$_SESSION['strPlanta'] = $strPlanta;
+$_SESSION['intDivision'] = $intDivision;
+$_SESSION['strDivision'] = $strDivision;
 
 ?>
     <!DOCTYPE html>
@@ -38,8 +58,12 @@ $strDivision = $_SESSION['strDivision'];
         </style>
     </head>
     <body>
-    <?php include_once('inc/header.php'); ?>
-    <?php include_once('inc/menu.php'); ?>
+    <?php
+    if(!isset($_GET['source'])) {
+        include_once('inc/header.php');
+        include_once('inc/menu.php');
+    }
+    ?>
     <table width="100%" style="border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-bottom: 500px;">
         <tr>
             <td style="width: 50%; text-align: center; vertical-align: top; padding: 10px 10px 10px 10px; ">
@@ -87,7 +111,7 @@ $strDivision = $_SESSION['strDivision'];
                     </div>
                     <div class="divclass" style="font-size: 9pt; text-align: center;">
                         <input type="button" value="seriales" onclick="showSeriales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-right: 5px; ">
-                        <input type="button" value="agregar" onclick="addParte();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
+                        <input type="button" value="insertar" onclick="addParte();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; margin-left: 5px; ">
                     </div>
                     <div id="lblErrors" class="lblErrorWarnings" style="  background-image: url('img/error.png')"></div>
                     <div id="divPartesHeader" >
@@ -234,7 +258,7 @@ $strDivision = $_SESSION['strDivision'];
 
             </div>
             <div id="lblSerialesErrors" class="lblErrorWarnings" style="padding: 0 50px 0 50px;  background-image: url('img/error.png')"></div>
-            <input type="button" value="agregar" onclick="hideSeriales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; ">
+            <input type="button" value="insertar" onclick="hideSeriales();" style=" font-size: 9pt; background-color: #F9A11B; border: 1px #000000 solid; color:#000000; cursor: pointer; box-shadow: 0 1px 0 #E58D07; border-radius: 11px; padding: 2px 20px 0 20px; ">
         </div>
     </div>
     <script src="js/jquery-1.11.3.min.js"></script>

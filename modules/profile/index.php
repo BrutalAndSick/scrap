@@ -19,7 +19,7 @@ $objScrap = new clsScrap();
             Catálogo de Perfiles
         </div>
         <div class="divActions">
-            <input id="btnProfile" type="button" class="buttons button_orange" value="nuevo perfil" onclick="showModal(0);">
+            <input id="btnProfile" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
         </div>
         <div class="divGrid" id="divGrid">
             <table class="tblGrid">
@@ -50,14 +50,14 @@ $objScrap = new clsScrap();
                 <div id="divModalTitle"></div>
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalForm">
-                    <label for="txtName" class="form_label">Nombre</label><input type="text" id="txtName" profileid="" class="form_input_text" style="width: 150px;" value="" /><br />
+                    <label for="txtName" class="form_label">Nombre</label><input type="text" id="txtName" class="form_input_text" style="width: 150px;" value="" /><br />
                     <label for="tblMenu" class="form_label">Menus</label>
                     <table id="tblMenu"></table>
                 </div>
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalError"></div>
                 <div id="divModalButtons">
-                    <input id="btnModalAdd" type="button" value="agregar" onclick="addProfile();" class="buttons button_green">
+                    <input id="btnModalAdd" type="button" value="insertar" onclick="addProfile();" class="buttons button_green">
                     <input id="btnModalEdit" type="button" value="editar" onclick="editProfile();" class="buttons button_green">
                     <input type="button" value="cancelar" onclick="closeModal();" class="buttons button_red">
                 </div>

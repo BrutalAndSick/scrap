@@ -58,7 +58,7 @@ $objScrap = new clsScrap();
 
                 </div>
             </td>
-            <td id="tdCollapse" onclick="collapseMenu();">&#8810;</td>
+            <td id="tdCollapse" onclick="collapseMenu();">&#9668;</td>
             <td id="tdWorkArea" style="vertical-align: top">
                 <div id="divTabs" class=" divTabs "></div>
                 <div id="divSheets" class=" divSheets "></div>
@@ -97,10 +97,10 @@ $objScrap = new clsScrap();
         function collapseMenu(){
             if($('#tdMenu').is(":visible")){
                 $('#tdMenu').hide();
-                $('#tdCollapse').html("&#8811;");
+                $('#tdCollapse').html("&#9658;");
             }else{
                 $('#tdMenu').show();
-                $('#tdCollapse').html("&#8810;");
+                $('#tdCollapse').html("&#9668;");
             }
         };
 

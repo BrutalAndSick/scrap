@@ -17,3 +17,11 @@
     font-size: 11pt;
     padding: 0 5px 0 5px;
 }
+
+.form_input_select {
+    border: 1px #282828 solid;
+    vertical-align: bottom;
+    height: 22px;
+    font-size: 11pt;
+    padding: 0 5px 0 5px;
+}

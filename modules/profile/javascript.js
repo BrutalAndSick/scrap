@@ -6,7 +6,7 @@ function showModal($intProfileId) {
     $('#divModalBackground').fadeIn('fast', function(){
         $('#tblMenu tr').remove();
         if($intProfileId==0){
-            $('#divModalTitle').html('Crear perfil');
+            $('#divModalTitle').html('Insertar');
             $('#txtName').val('');
             $('#btnModalEdit').hide();
             $('#btnModalAdd').show();
@@ -27,9 +27,9 @@ function showModal($intProfileId) {
                 }
             });
         }else{
-            $('#divModalTitle').html('Editar perfil');
+            $('#divModalTitle').html('Editar');
             $('#txtName').val($('#lblEditProfile_' + $intProfileId).attr('profilename'));
-            $('#txtName').attr('profileid',$intProfileId);
+            $('#txtName').attr('intProfileId',$intProfileId);
             $('#btnModalAdd').hide();
             $('#btnModalEdit').show();
             $strQueryString = "strProcess=getMenuProfile&intProfileId=" + $intProfileId;
@@ -186,7 +186,7 @@ function editProfile(){
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
         }else{
-            $strQueryString = "strProcess=updateProfile&intProfileId=" + $('#txtName').attr('profileid') + "&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
+            $strQueryString = "strProcess=updateProfile&intProfileId=" + $('#txtName').attr('intProfileId') + "&strProfile=" + $('#txtName').val().trim().toUpperCase() + "&strSelectedMenu=" + $strSelectedMenu;
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $('#divModalWorking').hide();
@@ -204,7 +204,9 @@ function editProfile(){
 };
 
 $('document').ready(function(){
-    gridFormatPage();
+    $('#divModalMain').css('height',($('body').css('height').replace('px','').replace(' ','') - 100) + "px");
+    $('#divModalForm').css('height',($('#divModalMain').css('height').replace('px','').replace(' ','') - 170) + "px");
+    $('#tbodyGrid').css('height',($('#divGrid').css('height').replace('px','').replace(' ','') - 40) + "px");
     $jsnGridData.strSql = "SELECT PRF_ID, PRF_NAME, PRF_STATUS FROM PRF_PROFILE WHERE PRF_STATUS IN (0,1) ORDER BY ";
     $jsnGridData.strSqlOrder = "PRF_ID DESC";
     $jsnGridData.intSqlNumberOfColumns = $('#theadGrid tr th').length;

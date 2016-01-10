@@ -53,7 +53,7 @@ class clsGrid
         }
         $strPagination .= ' - ';
         $strPagination .= '<b>' . $intPages . '</b> Página';
-        if($intSqlNumberOfRecords>1){
+        if($intPages>1){
             $strPagination .= 's';
         }
         $strPagination .= ' - ';
@@ -68,7 +68,7 @@ class clsGrid
             }
             $strPagination .= '</select>';
         }else{
-            $strPagination .= '<select">';
+            $strPagination .= '<select>';
             $strPagination .= '<option value="0">0</option>';
             $strPagination .= '</select>';
         }

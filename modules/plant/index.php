@@ -16,7 +16,7 @@ $objScrap = new clsScrap();
     </head>
     <body>
         <div class=" divTitles ">
-            Catálogo de Usuarios
+            Catálogo de Plantas
         </div>
         <div class="divActions">
             <input id="btnProfile" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
@@ -29,15 +29,11 @@ $objScrap = new clsScrap();
                 require_once('../../lib/scrap_grid/class.php');
                 $objGrid = new clsGrid();
                 $arrHeaders = array();
-                array_push($arrHeaders,array('strLabel'=>'Id','strSortColumn'=>'USR_ID'));
-                array_push($arrHeaders,array('strLabel'=>'Número Personal','strSortColumn'=>'USR_STAFF_NUMBER'));
-                array_push($arrHeaders,array('strLabel'=>'UID','strSortColumn'=>'USR_AD_USER'));
-                array_push($arrHeaders,array('strLabel'=>'Nombre(s)','strSortColumn'=>'USR_NAME'));
-                array_push($arrHeaders,array('strLabel'=>'Apellido(s)','strSortColumn'=>'USR_LAST_NAME'));
-                array_push($arrHeaders,array('strLabel'=>'País','strSortColumn'=>'USR_COUNTRY'));
-                array_push($arrHeaders,array('strLabel'=>'Planta','strSortColumn'=>'USR_PLANT'));
-                array_push($arrHeaders,array('strLabel'=>'División','strSortColumn'=>'USR_DIVISION'));
-                array_push($arrHeaders,array('strLabel'=>'Estatus','strSortColumn'=>'USR_STATUS'));
+                array_push($arrHeaders,array('strLabel'=>'Id','strSortColumn'=>'PLN_ID'));
+                array_push($arrHeaders,array('strLabel'=>'Planta','strSortColumn'=>'PLN_NAME'));
+                array_push($arrHeaders,array('strLabel'=>'Pais','strSortColumn'=>'PLN_COUNTRY'));
+                array_push($arrHeaders,array('strLabel'=>'Número','strSortColumn'=>'PLN_NUMBER'));
+                array_push($arrHeaders,array('strLabel'=>'Estatus','strSortColumn'=>'PLN_STATUS'));
                 array_push($arrHeaders,array('strLabel'=>'Editar','strSortColumn'=>''));
                 echo $objGrid->gridHeaders($arrHeaders);
                 unset($objGrid);
@@ -56,15 +52,28 @@ $objScrap = new clsScrap();
                 <div id="divModalTitle"></div>
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalForm">
-                    <label for="txtName" class="form_label">Nombre</label><input type="text" id="txtName" class="form_input_text" style="width: 150px;" value="" /><br />
-                    <label for="tblMenu" class="form_label">Menus</label>
-                    <table id="tblMenu"></table>
+                    <table>
+                        <tr>
+                            <td><label for="txtName" class="form_label" style="width: 88px;">Planta</label></td>
+                            <td><input type="text" id="txtName" class="form_input_text" style="width: 150px;" value="" /></td>
+                        </tr>
+                        <tr>
+                            <td><label for="selCountry" class="form_label" style="width: 88px;">Pais</label></td>
+                            <td>
+                                <select id="selCountry" class="form_input_select" style="width: 150px;"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="numNumber" class="form_label" style="width: 88px;">Número</label></td>
+                            <td><input type="number" id="numNumber" min="1" max="99" class="form_input_text" size="2" /></td>
+                        </tr>
+                    </table>
                 </div>
                 <!-- ##### FORMULARIO A APLICAR ##### -->
                 <div id="divModalError"></div>
                 <div id="divModalButtons">
-                    <input id="btnModalAdd" type="button" value="insertar" onclick="addProfile();" class="buttons button_green">
-                    <input id="btnModalEdit" type="button" value="editar" onclick="editProfile();" class="buttons button_green">
+                    <input id="btnModalAdd" type="button" value="insertar" onclick="addPlant();" class="buttons button_green">
+                    <input id="btnModalEdit" type="button" value="editar" onclick="updatePlant();" class="buttons button_green">
                     <input type="button" value="cancelar" onclick="closeModal();" class="buttons button_red">
                 </div>
                 <div id="divModalWorking">

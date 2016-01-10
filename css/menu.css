@@ -37,7 +37,8 @@ table tr td {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-    color: #EFEFEF;
+    color: #F9A11B;
+    text-shadow: 0 1px 0 #E58D07;
 }
 
 #tdWorkArea {
