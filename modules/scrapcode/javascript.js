@@ -13,6 +13,7 @@ function showModal($intScrapCodeId) {
             $strQueryString = "strProcess=getCause";
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
+                    console.log($objJson);
                     $arrCause = [];
                     for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
                         $arrCause.push($objJson[$intIndex].intCause);
@@ -25,13 +26,15 @@ function showModal($intScrapCodeId) {
             });
         }else{
             $('#divModalTitle').html('Editar');
-            $('#txtName').val($('#lblEdit_' + $intScrapCodeId).attr('segmentname'));
+            $('#txtName').val($('#lblEdit_' + $intScrapCodeId).attr('divisionname'));
             $('#txtName').attr('intScrapCodeId',$intScrapCodeId);
             $('#btnModalAdd').hide();
             $('#btnModalEdit').show();
-            $strQueryString = "strProcess=getCauseSegment&intSegmentId=" + $intScrapCodeId;
+            $strQueryString = "strProcess=getScrapCodeCause&intScrapCodeId=" + $intScrapCodeId;
+            console.log("ajax.php?" + $strQueryString);
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
+                    console.log($objJson);
                     $arrCause = [];
                     for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
                         $arrCause.push($objJson[$intIndex].intCause);
@@ -76,13 +79,13 @@ function switchSelected($intCause){
     }
 }
 
-function addSegment(){
+function addScrapCode(){
     showModalError('');
     $('#divModalButtons').hide();
     $('#divModalWorking').show();
     if($('#txtName').val().trim()==''){
         $('#txtName').focus();
-        showModalError('Ingresa el nombre del segmento');
+        showModalError('Ingresa la descripción del código de scrap');
         $('#divModalWorking').hide();
         $('#divModalButtons').show();
     }else{
@@ -95,11 +98,11 @@ function addSegment(){
             }
         }
         if(!$blnSelectedCause){
-            showModalError('Selecciona al menos una división');
+            showModalError('Selecciona al menos una causa');
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
         }else{
-            $strQueryString = "strProcess=insertSegment&strSegment=" + encodeURIComponent($('#txtName').val().trim().toUpperCase()) + "&strSelectedCause=" + $strSelectedCause;
+            $strQueryString = "strProcess=insertScrapCode&strScrapCode=" + encodeURIComponent($('#txtName').val().trim().toUpperCase()) + "&strSelectedCause=" + $strSelectedCause;
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $('#divModalWorking').hide();
@@ -116,17 +119,17 @@ function addSegment(){
     }
 }
 
-function deactivateSegment($intScrapCodeId){
+function deactivateScrapCode($intScrapCodeId){
     $strQuestion = "";
     if($('#lblDeactivate_' + $intScrapCodeId).attr('currentValue')==0){
-        $strQuestion = "¿Deseas activar el segmento?";
+        $strQuestion = "¿Deseas activar el registro?";
     }else{
-        $strQuestion = "¿Deseas desactivar el segmento?";
+        $strQuestion = "¿Deseas desactivar el registro?";
     }
     if(confirm($strQuestion)){
         $("body").css('overflow', 'hidden');
         $('#divWorkingBackground').fadeIn('fast',function(){
-            $strQueryString = "strProcess=deactivateSegment&intSegmentId=" + $intScrapCodeId + "&intStatus=";
+            $strQueryString = "strProcess=deactivateScrapCode&intScrapCodeId=" + $intScrapCodeId + "&intStatus=";
             if($('#lblDeactivate_' + $intScrapCodeId).attr('currentValue')==0){
                 $strQueryString += 1;
             }else{
@@ -153,13 +156,13 @@ function deactivateSegment($intScrapCodeId){
     }
 };
 
-function editSegment(){
+function editScrapCode(){
     showModalError('');
     $('#divModalButtons').hide();
     $('#divModalWorking').show();
     if($('#txtName').val().trim()==''){
         $('#txtName').focus();
-        showModalError('Ingresa el nombre del segmento');
+        showModalError('Ingresa la descripción del código de scrap');
         $('#divModalWorking').hide();
         $('#divModalButtons').show();
     }else{
@@ -172,11 +175,11 @@ function editSegment(){
             }
         }
         if(!$blnSelectedCause){
-            showModalError('Selecciona al menos una division');
+            showModalError('Selecciona al menos una causa');
             $('#divModalWorking').hide();
             $('#divModalButtons').show();
         }else{
-            $strQueryString = "strProcess=updateSegment&intSegmentId=" + $('#txtName').attr('intScrapCodeId') + "&strSegment=" + encodeURIComponent($('#txtName').val().trim().toUpperCase()) + "&strSelectedCause=" + $strSelectedCause;
+            $strQueryString = "strProcess=updateScrapCode&intScrapCodeId=" + $('#txtName').attr('intScrapCodeId') + "&strScrapCode=" + encodeURIComponent($('#txtName').val().trim().toUpperCase()) + "&strSelectedCause=" + $strSelectedCause;
             $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
                 success : function($objJson){
                     $('#divModalWorking').hide();
@@ -197,8 +200,8 @@ $('document').ready(function(){
     $('#divModalMain').css('height',($('body').css('height').replace('px','').replace(' ','') - 100) + "px");
     $('#divModalForm').css('height',($('#divModalMain').css('height').replace('px','').replace(' ','') - 170) + "px");
     $('#tbodyGrid').css('height',($('#divGrid').css('height').replace('px','').replace(' ','') - 40) + "px");
-    $jsnGridData.strSql = "SELECT SGM_ID, SGM_NAME, SGM_STATUS FROM SGM_SEGMENT WHERE SGM_STATUS IN (0,1) ORDER BY ";
-    $jsnGridData.strSqlOrder = "SGM_ID DESC";
+    $jsnGridData.strSql = "SELECT SCD_ID, SCD_NAME, SCD_CODE, SCD_REASON_CODE, SCD_STATUS FROM SCD_SCRAP_CODE WHERE SCD_STATUS IN (0,1) ORDER BY ";
+    $jsnGridData.strSqlOrder = "SCD_ID DESC";
     $jsnGridData.intSqlNumberOfColumns = $('#theadGrid tr th').length;
     $jsnGridData.strAjaxProcess = "updateGrid";
     gridUpdate();

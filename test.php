@@ -31,3 +31,73 @@ unset($rstData);
 unset($objScrap);
 
 ?>
+
+<html>
+<body>
+
+<tr id="trGrid_5">
+    <td class="tdGrid" style="text-align: right;">5</td>
+    <td class="tdGrid" style="text-align: left;">PROVEEDOR</td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="1" onclick="deactivateRecord(5);" class="labelActions labelActionsGreen">✔</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal(5);" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_4">
+    <td class="tdGrid" style="text-align: right;">4</td>
+    <td class="tdGrid" style="text-align: left;">METODO</td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="1" onclick="deactivateRecord(4);" class="labelActions labelActionsGreen">✔</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal(4);" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_3">
+    <td class="tdGrid" style="text-align: right;">3</td>
+    <td class="tdGrid" style="text-align: left;">MAQUINA</td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="1" onclick="deactivateRecord(3);" class="labelActions labelActionsGreen">✔</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal(3);" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_2">
+    <td class="tdGrid" style="text-align: right;">2</td>
+    <td class="tdGrid" style="text-align: left;">MANO DE OBRA</td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="1" onclick="deactivateRecord(2);" class="labelActions labelActionsGreen">✔</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal(2);" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_1">
+    <td class="tdGrid" style="text-align: right;">1</td>
+    <td class="tdGrid" style="text-align: left;">INTRODUCCION</td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="1" onclick="deactivateRecord(1);" class="labelActions labelActionsGreen">✔</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal(1);" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_">
+    <td class="tdGrid" style="text-align: right;"></td>
+    <td class="tdGrid" style="text-align: left;"></td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="" onclick="deactivateCause();" class="labelActions labelActionsRed">✖</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal();" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_">
+    <td class="tdGrid" style="text-align: right;"></td>
+    <td class="tdGrid" style="text-align: left;"></td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="" onclick="deactivateCause();" class="labelActions labelActionsRed">✖</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal();" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_">
+    <td class="tdGrid" style="text-align: right;"></td>
+    <td class="tdGrid" style="text-align: left;"></td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="" onclick="deactivateCause();" class="labelActions labelActionsRed">✖</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal();" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_">
+    <td class="tdGrid" style="text-align: right;"></td>
+    <td class="tdGrid" style="text-align: left;"></td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="" onclick="deactivateCause();" class="labelActions labelActionsRed">✖</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal();" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+<tr id="trGrid_">
+    <td class="tdGrid" style="text-align: right;"></td>
+    <td class="tdGrid" style="text-align: left;"></td>
+    <td class="tdGrid" style="text-align: center;"><label currentValue="" onclick="deactivateCause();" class="labelActions labelActionsRed">✖</label></td>
+    <td class="tdGrid" style="text-align: center;"><label onclick="showModal();" class="labelActions labelActionsOrange">✎</label></td>
+</tr>
+
+
+</body>
+
+</html>
+

@@ -25,6 +25,7 @@
     margin: auto auto auto auto;
     position: absolute;
     display: none;
+    height: calc( 100% - 60px );
 }
 
 #divModalClose {
@@ -60,6 +61,7 @@
     padding: 10px 10px 10px 10px;
     margin-bottom: 8px;
     overflow: auto;
+    height: calc( 100% - 170px );
 }
 
 #divModalError {

@@ -159,29 +159,30 @@ $_SESSION['strDivision'] = $strDivision;
                 </div>
             </td>
             <td style="width: 50%; text-align: center; padding: 10px 10px 10px 10px; vertical-align: top; ">
-                <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 130mm; height: 75.4mm; background-color:#ff4646; border-radius: 5px">
+                <!--div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 130mm; height: 75.4mm; background-color:#ff4646; border-radius: 5px"-->
+                <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 100mm; height: 60mm; background-color:#ff4646; border-radius: 5px; ">
                     <table style="border-spacing: 0; border: 0; border-collapse: collapse;">
                         <tr style="height: 4mm;">
-                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="images/continental_black.png" style="height: 8mm" /></td>
-                            <td style=" height: 4mm; font-size: 8pt; padding: 0 0 0 0; color:#000000; width: 38mm; font-weight: bold; text-align: center;">Scrap</td>
+                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="images/continental_black.png" style="height: 5mm" /></td>
+                            <td style=" height: 4mm; font-size: 7pt; padding: 0 0 0 0; color:#000000; width: 38mm; font-weight: bold; text-align: center;">Scrap</td>
                             <td rowspan="2" style="width: 54mm; padding: 1mm 1mm 0 1mm; text-align: center; " align="center">
                                 <div id="tdBarCode" style="display: inline-block;" ></div>
                             </td>
                         </tr>
                         <tr style="height: 4mm;">
-                            <td style="height: 4mm; font-size: 8pt; padding: 0 0 0 0; color:#000000; text-align: center"><b>Folio</b><span style="margin-left: 5mm; ">000000</span></td>
+                            <td style="height: 4mm; font-size: 7pt; padding: 0 0 0 0; color:#000000; text-align: center"><b>Folio</b><span style="margin-left: 5mm; ">000000</span></td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border: 0; border-collapse: collapse;">
                         <tr style="height: 4mm;border: 0;">
-                            <td style="width: 8mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: bold; ">Costo</td>
-                            <td style="width: 31mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: normal; text-align: right; " id="tdCosto">0.00</td>
-                            <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: bold; ">MXN</td>
-                            <td style="width: 29mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: bold;">Fecha&nbsp;de&nbsp;captura</td>
-                            <td style="width: 19mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: normal; "><?php echo date("d/m/Y") ?></td>
-                            <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: bold;">Hora</td>
-                            <td style="width: 7mm; border: 0; padding:0 1mm 0 1mm; font-size: 8pt; color:#000000; font-weight: normal; "><?php echo date("H:i") ?></td>
+                            <td style=" width: 8mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; ">Costo</td>
+                            <td style="width: 31mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; text-align: right; " id="tdCosto">0.00</td>
+                            <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; ">MXN</td>
+                            <td style="width: 29mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold;">Fecha&nbsp;de&nbsp;captura</td>
+                            <td style="width: 19mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; "><?php echo date("d/m/Y") ?></td>
+                            <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold;">Hora</td>
+                            <td style="width: 7mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; "><?php echo date("H:i") ?></td>
                         </tr>
                         <tr style="height: 1mm;">
                             <td colspan="7" style="background-color: #000000; height: 1mm; border: 0; padding: 0 0 0 0;"></td>
@@ -189,11 +190,11 @@ $_SESSION['strDivision'] = $strDivision;
                     </table>
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
-                        <tr style="height: 4mm">
-                            <td class="tdbold" style=" width: 13mm; ">Operador</td>
-                            <td class="tdnormal" style="width: 65mm;  " ><?php echo $strUser . ' ' . $strUName; ?></td>
-                            <td class="tdbold" style=" width: 7mm;">Área</td>
-                            <td class="tdnormal" style="width: 37mm;" id="tdArea"></td>
+                        <tr style="height: 4mm; font-size: 7pt;">
+                            <td class="tdbold" style=" font-size: 7pt; width: 13mm; ">Operador</td>
+                            <td class="tdnormal" style=" font-size: 7pt;width: 65mm;  " ><?php echo $strUser . ' ' . $strUName; ?></td>
+                            <td class="tdbold" style="  font-size: 7pt;width: 7mm;">Área</td>
+                            <td class="tdnormal" style=" font-size: 7pt;width: 37mm;" id="tdArea"></td>
                         </tr>
                     </table>
 

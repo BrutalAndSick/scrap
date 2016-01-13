@@ -9,22 +9,23 @@
 
 .divGrid {
     margin: 0 5px 0 5px;
-    background-color: #FFFFFF;
     padding: 8px 8px 8px 8px;
     text-align: center;
     border-radius: 5px;
-    background-color: #FFFFFF;
     height: calc(100% - 186px);
+    background-color: #FFFFFF;
 }
 
 .tblGrid {
     margin: 0 auto 0 auto;
     border-spacing: 2px;
     border-collapse: separate;
+    height: calc(100% - 30px);
 }
 
 .theadGrid {
     display: block;
+    height: 32px;
 }
 
 .thGrid {
@@ -68,6 +69,7 @@
     display: block;
     overflow-x: hidden;
     overflow-y: auto;
+    height: 100%;
 }
 
 .tbodyGrid tr:nth-child(even) {

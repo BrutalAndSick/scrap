@@ -12,7 +12,7 @@ switch ($strProcess){
         $intSqlPage = $_REQUEST['intSqlPage'];
         $intSqlLimit = $_REQUEST['intSqlLimit'];
         $intSqlNumberOfColumns = $_REQUEST['intSqlNumberOfColumns'];
-        $rstSegment = $objScrap->dbQuery($strSql . $strSqlOrder);
+        $rstScrapCode = $objScrap->dbQuery($strSql . $strSqlOrder);
         $intSqlNumberOfRecords = $objScrap->getProperty('intAffectedRows');
         $jsnData['intSqlNumberOfRecords'] = $intSqlNumberOfRecords;
         if($intSqlNumberOfRecords!=0){
@@ -25,18 +25,20 @@ switch ($strProcess){
         $strGrid = '';
         if($intSqlNumberOfRecords!=0){
             for ($intIndex = $intFirstRecord; $intIndex <= $intLastRecord; $intIndex++) {
-                $strGrid .= '<tr id="trGrid_' . $rstSegment[$intIndex]['SGM_ID'] . '">';
-                $strGrid .= '<td class="tdGrid" style="text-align: right;">' . $rstSegment[$intIndex]['SGM_ID'] . '</td>';
-                $strGrid .= '<td class="tdGrid" style="text-align: left">' . $rstSegment[$intIndex]['SGM_NAME'] . '</td>';
+                $strGrid .= '<tr id="trGrid_' . $rstScrapCode[$intIndex]['SCD_ID'] . '">';
+                $strGrid .= '<td class="tdGrid" style="text-align: right;">' . $rstScrapCode[$intIndex]['SCD_ID'] . '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: left">' . $rstScrapCode[$intIndex]['SCD_NAME'] . '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: left">' . $rstScrapCode[$intIndex]['SCD_CODE'] . '</td>';
+                $strGrid .= '<td class="tdGrid" style="text-align: left">' . $rstScrapCode[$intIndex]['SCD_REASON_CODE'] . '</td>';
                 $strGrid .= '<td class="tdGrid" style="text-align: center;">';
-                if ($rstSegment[$intIndex]['SGM_STATUS'] == 1) {
-                    $strGrid .= '<label id="lblDeactivate_' . $rstSegment[$intIndex]['SGM_ID'] . '" currentValue="' . $rstSegment[$intIndex]['SGM_STATUS'] . '" onclick="deactivateSegment(' . $rstSegment[$intIndex]['SGM_ID'] . ');" class="labelActions labelActionsGreen">&#10004;</label>';
+                if ($rstScrapCode[$intIndex]['SCD_STATUS'] == 1) {
+                    $strGrid .= '<label id="lblDeactivate_' . $rstScrapCode[$intIndex]['SCD_ID'] . '" currentValue="' . $rstScrapCode[$intIndex]['SCD_STATUS'] . '" onclick="deactivateScrapCode(' . $rstScrapCode[$intIndex]['SCD_ID'] . ');" class="labelActions labelActionsGreen">&#10004;</label>';
                 } else {
-                    $strGrid .= '<label id="lblDeactivate_' . $rstSegment[$intIndex]['SGM_ID'] . '" currentValue="' . $rstSegment[$intIndex]['SGM_STATUS'] . '" onclick="deactivateSegment(' . $rstSegment[$intIndex]['SGM_ID'] . ');" class="labelActions labelActionsRed">&#10006;</label>';
+                    $strGrid .= '<label id="lblDeactivate_' . $rstScrapCode[$intIndex]['SCD_ID'] . '" currentValue="' . $rstScrapCode[$intIndex]['SCD_STATUS'] . '" onclick="deactivateScrapCode(' . $rstScrapCode[$intIndex]['SCD_ID'] . ');" class="labelActions labelActionsRed">&#10006;</label>';
                 }
                 $strGrid .= '</td>';
                 $strGrid .= '<td class="tdGrid" style="text-align: center;">';
-                $strGrid .= '<label id="lblEdit_' . $rstSegment[$intIndex]['SGM_ID'] . '" segmentname="' . $rstSegment[$intIndex]['SGM_NAME'] . '" onclick="showModal(' . $rstSegment[$intIndex]['SGM_ID'] . ');" class="labelActions labelActionsOrange">&#9998;</label>';
+                $strGrid .= '<label id="lblEdit_' . $rstScrapCode[$intIndex]['SCD_ID'] . '" scrapcodename="' . $rstScrapCode[$intIndex]['SCD_NAME'] . '" onclick="showModal(' . $rstScrapCode[$intIndex]['SCD_ID'] . ');" class="labelActions labelActionsOrange">&#9998;</label>';
                 $strGrid .= '</td>';
                 $strGrid .= '</tr>';
                 if ($intIndex == ($intSqlNumberOfRecords - 1)) {
@@ -46,33 +48,33 @@ switch ($strProcess){
         }else{
             $strGrid .= '<tr><td class="tdGrid" style="text-align: center" colspan="' . $intSqlNumberOfColumns . '">No existen registros</td></tr>';
         }
-        unset($rstSegment);
+        unset($rstScrapCode);
         $jsnData['grid'] = $strGrid;
         require_once('../../lib/scrap_grid/class.php');
         $objGrid = new clsGrid();
         $jsnData['pagination'] = $objGrid->gridPagination($intSqlPage,$intPages,$intSqlNumberOfRecords,$intSqlLimit);
         unset($objGrid);
         break;
-    case 'insertSegment':
+    case 'insertScrapCode':
         $jsnData = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
-        $strSegment = $_REQUEST['strSegment'];
-        $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM SGM_SEGMENT WHERE SGM_NAME = '" . $strSegment . "'";
-        $rstSegmentCount = $objScrap->dbQuery($strSql);
+        $strScrapCode = $_REQUEST['strScrapCode'];
+        $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM SCD_DIVISION WHERE SCD_NAME = '" . $strScrapCode . "'";
+        $rstScrapCodeCount = $objScrap->dbQuery($strSql);
         if($objScrap->getProperty('strDBError')==''){
-            if($rstSegmentCount[0]['COUNT']!=0){
+            if($rstScrapCodeCount[0]['COUNT']!=0){
                 $jsnData['blnGo'] = 'false';
-                $jsnData['intCount'] = $rstSegmentCount[0]['COUNT'];
-                $jsnData['strError'] = "El segmento " . $strSegment . " ya existe";
+                $jsnData['intCount'] = $rstScrapCodeCount[0]['COUNT'];
+                $jsnData['strError'] = "La división " . $strScrapCode . " ya existe";
             }else{
-                $strDivision = $_REQUEST['strSelectedDivision'];
-                $arrDivision = explode("|",$strDivision);
-                array_splice($arrDivision,count($arrDivision)-1);
-                $strSql = "INSERT INTO SGM_SEGMENT (SGM_NAME, SGM_STATUS) VALUES ('" . $strSegment . "',1) RETURNING SGM_ID INTO :intInsertedID";
+                $strPlant = $_REQUEST['strSelectedPlant'];
+                $arrPlant = explode("|",$strPlant);
+                array_splice($arrPlant,count($arrPlant)-1);
+                $strSql = "INSERT INTO SCD_DIVISION (SCD_NAME, SCD_STATUS) VALUES ('" . $strScrapCode . "',1) RETURNING SCD_ID INTO :intInsertedID";
                 $objScrap->dbInsert($strSql);
                 if($objScrap->getProperty('strDBError')==''){
-                    $intSegmentId = $objScrap->getProperty('intLastInsertId');
-                    for($intIndex=0;$intIndex<count($arrDivision);$intIndex++){
-                        $strSql = "INSERT INTO SGM_SEGMENT_DIVISION (SGM_SEGMENT,SGM_DIVISION) VALUES (" . $intSegmentId . "," . $arrDivision[$intIndex] . ") RETURNING SGM_ID INTO :intInsertedID";
+                    $intScrapCodeId = $objScrap->getProperty('intLastInsertId');
+                    for($intIndex=0;$intIndex<count($arrPlant);$intIndex++){
+                        $strSql = "INSERT INTO SCD_DIVISION_PLANT (SCD_DIVISION,SCD_PLANT) VALUES (" . $intScrapCodeId . "," . $arrPlant[$intIndex] . ") RETURNING SCD_ID INTO :intInsertedID";
                         $objScrap->dbInsert($strSql);
                     }
                 }else{
@@ -84,31 +86,31 @@ switch ($strProcess){
             $jsnData['blnGo'] = 'false';
             $jsnData['strError'] = $objScrap->getProperty('strDBError');
         }
-        unset($rstSegmentCount);
+        unset($rstScrapCodeCount);
         break;
-    case 'updateSegment':
+    case 'updateScrapCode':
         $jsnData = array('blnGo'=>'true','intCount'=>0,'strError'=>'');
-        $intSegmentId = $_REQUEST['intSegmentId'];
-        $strSegment = $_REQUEST['strSegment'];
-        $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM SGM_SEGMENT WHERE SGM_NAME = '" . $strSegment . "' AND SGM_ID <> " . $intSegmentId;
-        $rstSegmentCount = $objScrap->dbQuery($strSql);
+        $intScrapCodeId = $_REQUEST['intScrapCodeId'];
+        $strScrapCode = $_REQUEST['strScrapCode'];
+        $strSql = "SELECT COUNT(*) AS \"COUNT\" FROM SCD_DIVISION WHERE SCD_NAME = '" . $strScrapCode . "' AND SCD_ID <> " . $intScrapCodeId;
+        $rstScrapCodeCount = $objScrap->dbQuery($strSql);
         if($objScrap->getProperty('strDBError')==''){
-            if($rstSegmentCount[0]['COUNT']!=0){
+            if($rstScrapCodeCount[0]['COUNT']!=0){
                 $jsnData['blnGo'] = 'false';
-                $jsnData['intCount'] = $rstSegmentCount[0]['COUNT'];
-                $jsnData['strError'] = "El segmento " . $strSegment . " ya existe";
+                $jsnData['intCount'] = $rstScrapCodeCount[0]['COUNT'];
+                $jsnData['strError'] = "La división " . $strScrapCode . " ya existe";
             }else{
-                $strDivision = $_REQUEST['strSelectedDivision'];
-                $arrDivision = explode("|",$strDivision);
-                array_splice($arrDivision,count($arrDivision)-1);
-                $strSql = "UPDATE SGM_SEGMENT SET SGM_NAME = '" . $strSegment . "' WHERE SGM_ID = " . $intSegmentId;
+                $strPlant = $_REQUEST['strSelectedPlant'];
+                $arrPlant = explode("|",$strPlant);
+                array_splice($arrPlant,count($arrPlant)-1);
+                $strSql = "UPDATE SCD_DIVISION SET SCD_NAME = '" . $strScrapCode . "' WHERE SCD_ID = " . $intScrapCodeId;
                 $objScrap->dbUpdate($strSql);
                 if($objScrap->getProperty('strDBError')==''){
-                    $strSql = "DELETE FROM SGM_SEGMENT_DIVISION WHERE SGM_SEGMENT = " . $intSegmentId;
+                    $strSql = "DELETE FROM SCD_DIVISION_PLANT WHERE SCD_DIVISION = " . $intScrapCodeId;
                     $objScrap->dbUpdate($strSql);
                     if($objScrap->getProperty('strDBError')=='') {
-                        for ($intIndex = 0; $intIndex < count($arrDivision); $intIndex++) {
-                            $strSql = "INSERT INTO SGM_SEGMENT_DIVISION (SGM_SEGMENT,SGM_DIVISION) VALUES (" . $intSegmentId . "," . $arrDivision[$intIndex] . ") RETURNING SGM_ID INTO :intInsertedID";
+                        for ($intIndex = 0; $intIndex < count($arrPlant); $intIndex++) {
+                            $strSql = "INSERT INTO SCD_DIVISION_PLANT (SCD_DIVISION,SCD_PLANT) VALUES (" . $intScrapCodeId . "," . $arrPlant[$intIndex] . ") RETURNING SCD_ID INTO :intInsertedID";
                             $objScrap->dbInsert($strSql);
                         }
                     }else{
@@ -124,51 +126,51 @@ switch ($strProcess){
             $jsnData['blnGo'] = 'false';
             $jsnData['strError'] = $objScrap->getProperty('strDBError');
         }
-        unset($rstSegmentCount);
+        unset($rstScrapCodeCount);
         break;
-    case 'deactivateSegment':
+
+    case 'deactivateScrapCode':
         $jsnData = array('blnGo'=>'true','strError'=>'');
-        $intSegmentId = $_REQUEST['intSegmentId'];
+        $intScrapCodeId = $_REQUEST['intScrapCodeId'];
         $intStatus = $_REQUEST['intStatus'];
-        $strSql = "UPDATE SGM_SEGMENT SET SGM_STATUS = " . $intStatus . " WHERE SGM_ID = " . $intSegmentId;
+        $strSql = "UPDATE SCD_DIVISION SET SCD_STATUS = " . $intStatus . " WHERE SCD_ID = " . $intScrapCodeId;
         $objScrap->dbUpdate($strSql);
         if($objScrap->getProperty('strDBError')!=''){
             $jsnData['blnGo'] = 'false';
             $jsnData['strError'] = $objScrap->getProperty('strDBError');
         }
         break;
-    case 'getDivision':
+    case 'getCause':
         $jsnData = array();
-        $strSql = "SELECT DVS_ID, DVS_NAME  FROM DVS_DIVISION ";
-        $strSql .= "WHERE DVS_STATUS = 1 ";
-        $strSql .= "ORDER BY 2";
-        $rstDivision = $objScrap->dbQuery($strSql);
+        $strSql = "SELECT CAS_ID, CAS_NAME FROM CAS_CAUSE WHERE CAS_STATUS = 1 ORDER BY 2";
+        $rstCause = $objScrap->dbQuery($strSql);
         if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
-            foreach($rstDivision as $objDivision){
-                $strHTML = '<tr><td id="tdDivision_' . $objDivision['DVS_ID'] . '" class="tdNonActive" onclick="switchSelected(' . $objDivision['DVS_ID']. ')">&#10006</td><td>' . $objDivision['DVS_NAME'] . '</td></tr>';
-                array_push($jsnData,array('intDivision'=>$objDivision['DVS_ID'],'strHtml'=>$strHTML));
+            foreach($rstCause as $objCause){
+                $strHTML = '<tr><td id="tdCause_' . $objCause['CAS_ID'] . '" class="tdNonActive" onclick="switchSelected(' . $objCause['CAS_ID']. ')">&#10006</td><td>' . $objCause['CAS_NAME'] . '</td></tr>';
+                array_push($jsnData,array('intCause'=>$objCause['CAS_ID'],'strHtml'=>$strHTML));
             };
         }
-        unset($rstDivision);
+        unset($rstCause);
         break;
-    case 'getDivisionSegment':
+    case 'getPlantScrapCode':
         $jsnData = array();
-        $intSegmentId = $_REQUEST['intSegmentId'];
-        $strSql = "SELECT DVS_ID, DVS_NAME  FROM DVS_DIVISION ";
-        $strSql .= "WHERE DVS_STATUS = 1 ";
+        $intScrapCodeId = $_REQUEST['intScrapCodeId'];
+        $strSql = "SELECT PLN_ID, CNT_CODE||'-'||PLN_NAME \"PLANT\" FROM PLN_PLANT ";
+        $strSql .= "LEFT JOIN CNT_COUNTRY ON CNT_COUNTRY.CNT_ID = PLN_PLANT.PLN_COUNTRY ";
+        $strSql .= "WHERE PLN_STATUS = 1 ";
         $strSql .= "ORDER BY 2";
-        $rstDivision = $objScrap->dbQuery($strSql);
+        $rstPlant = $objScrap->dbQuery($strSql);
         if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
-            foreach($rstDivision as $objDivision){
-                $strSql = 'SELECT COUNT(*) AS "COUNT" FROM SGM_SEGMENT_DIVISION WHERE SGM_SEGMENT = ' . $intSegmentId . ' AND SGM_DIVISION = ' . $objDivision['DVS_ID'];
-                $rstDivisionSegment = $objScrap->dbQuery($strSql);
-                if($rstDivisionSegment[0]['COUNT']!=0){
-                    $strHTML = '<tr><td id="tdDivision_' . $objDivision['DVS_ID'] . '" class="tdActive" onclick="switchSelected(' . $objDivision['DVS_ID']. ')">&#10004</td><td>' . $objDivision['DVS_NAME'] . '</td></tr>';
+            foreach($rstPlant as $objPlant){
+                $strSql = 'SELECT COUNT(*) AS "COUNT" FROM SCD_DIVISION_PLANT WHERE SCD_DIVISION = ' . $intScrapCodeId . ' AND SCD_PLANT = ' . $objPlant['PLN_ID'];
+                $rstScrapCodePlant = $objScrap->dbQuery($strSql);
+                if($rstScrapCodePlant[0]['COUNT']!=0){
+                    $strHTML = '<tr><td id="tdPlant_' . $objPlant['PLN_ID'] . '" class="tdActive" onclick="switchSelected(' . $objPlant['PLN_ID']. ')">&#10004</td><td>' . $objPlant['PLANT'] . '</td></tr>';
                 }else{
-                    $strHTML = '<tr><td id="tdDivision_' . $objDivision['DVS_ID'] . '" class="tdNonActive" onclick="switchSelected(' . $objDivision['DVS_ID']. ')">&#10006</td><td>' . $objDivision['DVS_NAME'] . '</td></tr>';
+                    $strHTML = '<tr><td id="tdPlant_' . $objPlant['PLN_ID'] . '" class="tdNonActive" onclick="switchSelected(' . $objPlant['PLN_ID']. ')">&#10006</td><td>' . $objPlant['PLANT'] . '</td></tr>';
                 }
-                unset($rstDivisionPlant);
-                array_push($jsnData,array('intDivision'=>$objDivision['DVS_ID'],'strHtml'=>$strHTML));
+                unset($rstScrapCodePlant);
+                array_push($jsnData,array('intPlant'=>$objPlant['PLN_ID'],'strHtml'=>$strHTML));
             };
         }
         unset($rstPlant);
