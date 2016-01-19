@@ -40,7 +40,7 @@ table tr td {
     color: #EFEFEF;
 }
 
-#tdtdWorkArea {
+#tdWorkArea {
     width: calc( 100% - 213px );
 }
 
@@ -49,6 +49,7 @@ table tr td {
     overflow-x: hidden;
     overflow-y: auto;
     height: 100%;
+    width: 200px;
 }
 
 .divMenuCategory {

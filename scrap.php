@@ -40,7 +40,12 @@ $objScrap = new clsScrap();
                                 $strMenu .= '<div class=" divMenuCategory " id="divCat_' . $objCategories['MNU_ID'] . '" onclick="collapseCategory(\'' . $objCategories['MNU_ID'] . '\')">' . $objCategories['MNU_NAME'] . '</div>';
                                 $strMenu .= '<div class=" divMenuContentContainer " style=" height: calc( 100% - #####px );" id="divCont_' . $objCategories['MNU_ID'] . '">';
                                 foreach($rstMenus as $objMenus){
-                                    $strMenu .= '<div class=" divMenuOption " onclick="handleTab(\'' . $objMenus['MNU_ID'] . '\',\'' . $objMenus['MNU_NAME'] . '\',\'' . $objMenus['MNU_URL'] . '\')">' . $objMenus['MNU_NAME'] . '</div>';
+                                    if($objMenus['MNU_NAME']=='--separator--'){
+                                        $strMenu .= '<div class=" divMenuSeparator " ></div>';
+                                    }else{
+                                        $strMenu .= '<div class=" divMenuOption " onclick="handleTab(\'' . $objMenus['MNU_ID'] . '\',\'' . $objMenus['MNU_NAME'] . '\',\'' . $objMenus['MNU_URL'] . '\')">' . $objMenus['MNU_NAME'] . '</div>';
+                                    }
+
                                 }
                                 unset($objMenus);
                                 $intTotalCategories++;

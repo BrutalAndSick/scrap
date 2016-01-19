@@ -20,7 +20,7 @@
 <?php
 $intCells = 0;
 for($intIx=0;$intIx<80001;$intIx++){
-    echo '<td>' . $intIx . '</td><td style="text-align: center;">&#' . $intIx . '</td>';
+    echo '<td style="color:#F9A11B">' . $intIx . '</td><td style="text-align: center; ">&#' . $intIx . '</td>';
     $intCells++;
     if($intCells==10){
         echo "</tr><tr>";

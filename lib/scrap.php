@@ -7,13 +7,14 @@ class clsScrap
     private $strDBPwd = "Scrap8956";
     private $strDBHost = "localhost/XE";
 
-    private $intAffectedRows = 0;
-    private $intLastInsertId;
-    private $strDBError;
+    public $intAffectedRows = 0;
+    public $intLastInsertId;
+    public $strDBError;
 
     public $intTableId;
     public $strTableName;
     public $arrTableField = array();
+    public $arrTableRelation = array();
     public $strGrid;
     public $strGridPagination;
     public $strGridTitle;
@@ -34,7 +35,7 @@ class clsScrap
         if(!$this->objCon){
             //TODO "manejador de errores y log"
             $e = oci_error();
-            trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+            header('Location: ./503.php?intError=101&strError=' . htmlentities($e['message'], ENT_QUOTES));
         }
     }
 
@@ -128,7 +129,7 @@ class clsScrap
         $strTableSqlWhere = ' WHERE ';
         $strTableSqlOrder = '';
         $this->strGridHeader = '<tr>';
-        $this->strGridForm = '<table>';
+        $this->strGridForm = '<table class="form_main_table">';
         foreach($rstField as $objField){
             array_push($this->arrTableField,array(
                     'TBL_FIELD'=>$objField['TBL_FIELD'],
@@ -180,8 +181,8 @@ class clsScrap
                             'TBL_TYPE'=>$objField['TBL_TYPE'],
                             'TBL_DUPLICATE'=>$objField['TBL_DUPLICATE']
                         ));
-                        $this->strGridForm .= '<td><label for="txt' . $objField['TBL_FIELD'] . '" class="form_label" style="width: 88px;">' . $objField['TBL_NAME'] . '</label></td>';
-                        $this->strGridForm .= '<td><input type="text" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
+                        $this->strGridForm .= '<td class="form_main_td_title"><label for="txt' . $objField['TBL_FIELD'] . '" class="form_label">' . $objField['TBL_NAME'] . '</label></td>';
+                        $this->strGridForm .= '<td class="form_main_td_data"><input type="number" min="1" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
                         break;
                     case 'T':
                         array_push($this->arrFormField,array(
@@ -190,8 +191,8 @@ class clsScrap
                             'TBL_TYPE'=>$objField['TBL_TYPE'],
                             'TBL_DUPLICATE'=>$objField['TBL_DUPLICATE']
                         ));
-                        $this->strGridForm .= '<td><label for="txt' . $objField['TBL_FIELD'] . '" class="form_label" style="width: 88px;">' . $objField['TBL_NAME'] . '</label></td>';
-                        $this->strGridForm .= '<td><input type="text" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
+                        $this->strGridForm .= '<td class="form_main_td_title"><label for="txt' . $objField['TBL_FIELD'] . '" class="form_label">' . $objField['TBL_NAME'] . '</label></td>';
+                        $this->strGridForm .= '<td class="form_main_td_data"><input type="text" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
                         break;
                     case 'S':
                         break;
@@ -199,15 +200,58 @@ class clsScrap
                 $this->strGridForm .= '</tr>';
             }
         }
+        unset($objField);
+        unset($rstField);
+
+        $strSql = 'SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = ' . $this->intTableId;
+        $rstRelation = $this->dbQuery($strSql);
+        if($this->intAffectedRows!=0){
+            foreach($rstRelation as $objRelation){
+                array_push($this->arrTableRelation,array(
+                    'TBL_ID'=>$objRelation['TBL_ID'],
+                    'TBL_NAME'=>$objRelation['TBL_NAME'],
+                    'TBL_TABLE'=>$objRelation['TBL_TABLE'],
+                    'TBL_TARGET'=>$objRelation['TBL_TARGET'],
+                    'TBL_TARGET_TABLE'=>$objRelation['TBL_TARGET_TABLE'],
+                    'TBL_SOURCE'=>$objRelation['TBL_SOURCE'],
+                    'TBL_SOURCE_TABLE'=>$objRelation['TBL_SOURCE_TABLE'],
+                    'TBL_PARENT'=>$objRelation['TBL_PARENT'],
+                    'TBL_DISPLAY'=>$objRelation['TBL_DISPLAY'],
+                    'TBL_SOURCE_DISPLAY_FIELD'=>$objRelation['TBL_SOURCE_DISPLAY_FIELD'],
+                    'TBL_SOURCE_ID_FIELD'=>$objRelation['TBL_SOURCE_ID_FIELD'],
+                    'TBL_SOURCE_STATUS_FIELD'=>$objRelation['TBL_SOURCE_STATUS_FIELD'],
+                    'TBL_ORDER'=>$objRelation['TBL_ORDER'],
+                    'TBL_RELATION'=>$objRelation['TBL_RELATION']
+                ));
+                $this->strGridForm .= '<tr>';
+                $this->strGridForm .= '<td class="form_main_td_title"><label class="form_label">' . $objRelation['TBL_DISPLAY'] . '</label></td>';
+                $this->strGridForm .= '<td class="form_main_td_data">';
+                switch($objRelation['TBL_MULTIPLE']){
+                    case 0:
+                        $this->strGridForm .= '<select id="selRelation_' . $objRelation['TBL_NAME'] . '" class="form_input_select" style="width: 162px;"></select>';
+                        break;
+                    case 1:
+                        $this->strGridForm .= '<table id="tblRelation_' . $objRelation['TBL_NAME'] . '" class="form_table_relation"></tr></table>';
+                        break;
+                }
+                $this->strGridForm .= '</td>';
+                $this->strGridForm .= '</tr>';
+            }
+            unset($objRelation);
+
+        }
+        unset($rstRelation);
+
         $this->arrFormField = json_encode($this->arrFormField);
+        $this->arrTableRelation = json_encode($this->arrTableRelation);
         $this->strGridHeader .= '<th class="thGrid">Editar</th>';
         $this->strGridHeader .= '</tr>';
         $this->strGridForm .= '</table>';
         $strTableSqlSelect = substr($strTableSqlSelect,0,strlen($strTableSqlSelect)-2);
         $strTableSqlWhere .= " IN (0,1) ";
         $this->strGridSql = $strTableSqlSelect . $strTableSqlFrom . $strTableSqlWhere . " ORDER BY ";
-        $this->strGridSqlOrder = $strTableSqlOrder . " DESC";
-        unset($objField);
+        $this->strGridSqlOrder = $strTableSqlOrder . " ASC";
+
     }
 
     function updateGrid(){
@@ -289,7 +333,7 @@ class clsScrap
         $this->strGridPagination .= ' - ';
         if($this->intGridNumberOfRecords!=0) {
             $this->strGridPagination .= '<select onchange="gridRecords(this.value);">';
-            for ($intPageCount = 10; $intPageCount <= 50; $intPageCount = $intPageCount + 10) {
+            for ($intPageCount = 25; $intPageCount <= 100; $intPageCount = $intPageCount + 25) {
                 $this->strGridPagination .= '<option value="' . $intPageCount . '"';
                 if ($this->intGridSqlLimit == $intPageCount) {
                     $this->strGridPagination .= ' selected="selected"';

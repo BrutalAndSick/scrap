@@ -178,10 +178,12 @@ html, body {
     background-color: #F9A11B;
     color: #282828;
     font-weight: normal;
-    font-size: 10pt;
+    font-size: 16pt;
     box-shadow: 0 1px 0 #000000;
-    text-shadow: 0 1px 0 #000000;
+    text-shadow: 0 1px 0 #E58D07;
     height: 20px;
+    line-height: 20px;
+    text-align: right;
 }
 
 #divWorkarea {
@@ -262,7 +264,6 @@ html, body {
     border-spacing: 1px;
     padding: 1px 5px 2px 5px;
     text-align: center;
-    white-space: nowrap;
     border-radius: 3px;
 }
 

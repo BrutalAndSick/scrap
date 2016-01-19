@@ -1,0 +1,74 @@
+.capture_main_table {
+    width: 100%;
+    height: calc( 100% - 39px );
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.capture_td_workarea {
+    width: calc( 100% - 390px);
+    vertical-align: top;
+    padding: 0 10px 0 10px;
+}
+
+.capture_td_label {
+    width: 390px;
+    vertical-align: top;
+    padding: 0 0 0 0;
+}
+
+.capture_div_container {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-radius: 10px;
+    border: 1px #EAEAEA solid;
+    box-shadow: 0 1px 0 #FFFFFF;
+    padding: 5px 5px 0 5px;
+    display: inline-block;
+    margin: 0 auto 0 auto;
+}
+
+.capture_div_row {
+    background-color: #EFEFEF;
+    padding: 2px 2px 2px 2px;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+.capture_div_buttons {
+    padding: 2px 2px 2px 2px;
+    margin-bottom: 3px;
+    text-align: left;
+}
+
+.capture_label {
+    height: 23px;
+    line-height: 23px;
+    vertical-align: bottom;
+    font-size: 11pt;
+    display: inline-block;
+    border:0;
+    border-bottom: 1px #F9A11B solid;
+    padding: 0 8px 0 0;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.capture_input_text {
+    border: 1px #282828 solid;
+    vertical-align: bottom;
+    height: 22px;
+    font-size: 11pt;
+    padding: 0 5px 0 5px;
+    background-color: #FFFFFF;
+}
+
+.capture_input_select {
+    border: 1px #282828 solid;
+    vertical-align: bottom;
+    height: 24px !important;
+    font-size: 11pt;
+    padding: 0 5px 0 5px;
+    background-color: #FFFFFF;
+    width: 400px;
+}

@@ -18,18 +18,12 @@ input[type=text] {
 }
 
 .tdbold {
-    color: #000000;
-    font-size: 8pt;
-    font-weight: bold;
-    height: 4mm;
-    vertical-align: top;
-    border: 0;
-    padding: 0 1mm 0 1mm;
+    color: #000000; font-size: 6pt; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm;
 }
 
 .tdnormal {
     color: #000000;
-    font-size: 8pt;
+    font-size: 6pt;
     font-weight: normal;
     height: 4mm;
     vertical-align: top;

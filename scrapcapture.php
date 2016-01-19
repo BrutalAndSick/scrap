@@ -45,8 +45,8 @@ $_SESSION['strDivision'] = $strDivision;
     <head>
         <meta charset="utf-8">
         <title>:: CONTINENTAL :: SCRAP ::</title>
-        <link rel="stylesheet" type="text/css" href="css/scrap.css">
-        <link rel="stylesheet" type="text/css" href="css/scrapcapture.css">
+        <link rel="stylesheet" type="text/css" href="../scrap/css/scrap.css">
+        <link rel="stylesheet" type="text/css" href="../scrap/css/scrapcapture.css">
         <style>
             table {
                 border-collapse: collapse;
@@ -57,18 +57,24 @@ $_SESSION['strDivision'] = $strDivision;
             }
         </style>
     </head>
-    <body>
+    <body style="background-color: transparent">
     <?php
     if(!isset($_GET['source'])) {
         include_once('inc/header.php');
         include_once('inc/menu.php');
+    }else{
+        ?>
+        <div class=" divTitles ">Captura de Scrap</div>
+        <?php
     }
     ?>
-    <table width="100%" style="border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-bottom: 500px;">
+    <table width="100%" style="border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-bottom: 0;">
         <tr>
             <td style="width: 50%; text-align: center; vertical-align: top; padding: 10px 10px 10px 10px; ">
                 <div class="divother" id="divGenerales" style="">
-                    <div class="divclass"><label for="selProyecto">Proyecto</label><select id="selProyecto" onchange="getAPD();" tabindex="1">
+                    <div class="divclass">
+                        <label for="selProyecto">Proyecto</label>
+                        <select id="selProyecto" onchange="getAPD();" tabindex="1">
                             <option value="-1" selected="selected">- Seleccione -</option>
                             <?php
                             $strSql = "SELECT proyectos.id AS 'intProyecto', proyectos.nombre AS 'strProyecto', segmentos.id AS 'intSegmento', segmentos.nombre AS 'strSegmento', profit_center.id AS 'intProfitCenter', profit_center.nombre AS 'strProfitCenter' ";
@@ -160,29 +166,29 @@ $_SESSION['strDivision'] = $strDivision;
             </td>
             <td style="width: 50%; text-align: center; padding: 10px 10px 10px 10px; vertical-align: top; ">
                 <!--div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 130mm; height: 75.4mm; background-color:#ff4646; border-radius: 5px"-->
-                <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 100mm; height: 60mm; background-color:#ff4646; border-radius: 5px; ">
+                <div id="LabeltoPrint" style="text-align: left;display: inline-block; width: 100mm; height: 58mm; background-color:#ff4646; border-radius: 5px; ">
                     <table style="border-spacing: 0; border: 0; border-collapse: collapse;">
                         <tr style="height: 4mm;">
-                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="images/continental_black.png" style="height: 5mm" /></td>
+                            <td rowspan="2" style="width: 34mm; padding: 1mm 1mm 0 1mm; "><img src="http://localhost/scrap/images/continental_black.png" style="height: 5mm" /></td>
                             <td style=" height: 4mm; font-size: 7pt; padding: 0 0 0 0; color:#000000; width: 38mm; font-weight: bold; text-align: center;">Scrap</td>
                             <td rowspan="2" style="width: 54mm; padding: 1mm 1mm 0 1mm; text-align: center; " align="center">
                                 <div id="tdBarCode" style="display: inline-block;" ></div>
                             </td>
                         </tr>
                         <tr style="height: 4mm;">
-                            <td style="height: 4mm; font-size: 7pt; padding: 0 0 0 0; color:#000000; text-align: center"><b>Folio</b><span style="margin-left: 5mm; ">000000</span></td>
+                            <td style="height: 4mm; font-size: 7pt; padding: 0 0 0 0; color:#000000; font-weight: bold; text-align: center">Folio<span style="margin-left: 5mm; ">000000</span></td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border: 0; border-collapse: collapse;">
                         <tr style="height: 4mm;border: 0;">
                             <td style=" width: 8mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; ">Costo</td>
-                            <td style="width: 31mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; text-align: right; " id="tdCosto">0.00</td>
+                            <td style="width: 31mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; text-align: right; " id="tdCosto">0.00</td>
                             <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; ">MXN</td>
                             <td style="width: 29mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold;">Fecha&nbsp;de&nbsp;captura</td>
-                            <td style="width: 19mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; "><?php echo date("d/m/Y") ?></td>
+                            <td style="width: 19mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; "><?php echo date("d/m/Y") ?></td>
                             <td style="width: 11mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold;">Hora</td>
-                            <td style="width: 7mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: normal; "><?php echo date("H:i") ?></td>
+                            <td style="width: 7mm; border: 0; padding:0 1mm 0 1mm; font-size: 7pt; color:#000000; font-weight: bold; "><?php echo date("H:i") ?></td>
                         </tr>
                         <tr style="height: 1mm;">
                             <td colspan="7" style="background-color: #000000; height: 1mm; border: 0; padding: 0 0 0 0;"></td>
@@ -191,59 +197,60 @@ $_SESSION['strDivision'] = $strDivision;
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
                         <tr style="height: 4mm; font-size: 7pt;">
-                            <td class="tdbold" style=" font-size: 7pt; width: 13mm; ">Operador</td>
-                            <td class="tdnormal" style=" font-size: 7pt;width: 65mm;  " ><?php echo $strUser . ' ' . $strUName; ?></td>
-                            <td class="tdbold" style="  font-size: 7pt;width: 7mm;">Área</td>
-                            <td class="tdnormal" style=" font-size: 7pt;width: 37mm;" id="tdArea"></td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 13mm; ">Operador</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt;width: 65mm;  " ><?php echo $strUser . ' ' . $strUName; ?></td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt;width: 7mm;">Área</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt;width: 37mm;" id="tdArea">SMD</td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
                         <tr style="height: 4mm">
-                            <td class="tdbold" style="width: 15mm;">Tecnología</td>
-                            <td class="tdnormal" style="width: 57mm;" id="tdTecnologia"></td>
-                            <td class="tdbold" style="width: 8mm">Línea</td>
-                            <td class="tdnormal" style="width: 42mm;" id="tdLinea"></td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 15mm;">Tecnología</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 57mm;" id="tdTecnologia">AOI COMPONENTES</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 8mm">Línea</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 42mm;" id="tdLinea">LINEA D</td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
                         <tr>
-                            <td class="tdbold" style="width: 11mm;">Defecto</td>
-                            <td class="tdnormal" style="width: 115mm;" id="tdDefecto"></td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 11mm;">Defecto</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 115mm;" id="tdDefecto">GOLDEN OBSOLETA</td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
                         <tr>
-                            <td class="tdbold" style="width: 20mm;">Relacionado a</td>
-                            <td class="tdnormal" style="width: 21mm;" id="tdCausa"></td>
-                            <td class="tdbold" style="width: 24mm;">Código de Scrap</td>
-                            <td class="tdnormal" style="width: 57mm" id="tdCodigoScrap"></td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 20mm;">Relacionado a</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 21mm;" id="tdCausa">MANO DE OBRA</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 24mm;">Código de Scrap</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 57mm" id="tdCodigoScrap">064-2 SCRAP POR DAÑO DE ALMACÉN</td>
                         </tr>
                     </table>
 
                     <table style="border-spacing: 0; border:0; border-collapse: collapse;">
                         <tr>
-                            <td class="tdbold" style="width: 128mm">Parte(s) (Cantidad)</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 100mm">Parte(s) (Cantidad)</td>
                         </tr>
                         <tr>
-                            <td class="tdnormal" id="tdPartes" style="width: 128mm; height: 17mm"></td>
+                            <td id="tdPartes" style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 100mm; height: 8mm">9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1), 9094462 (1)</td>
                         </tr>
                         <tr style="height: 1mm;">
                             <td style="background-color: #000000; height: 1mm; border: 0; padding: 0 0 0 0;"></td>
                         </tr>
                         <tr>
-                            <td class="tdbold" style="width: 128mm">Comentarios y/o Acciones correctivas</td>
+                            <td style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 100mm; ">Comentarios y/o Acciones correctivas</td>
                         </tr>
                         <tr>
-                            <td class="tdnormal" id="tdComentario" style="width: 128mm; height: 17mm"></td>
+                            <td id="tdComentario" style="color: #000000; font-weight: bold; height: 4mm; vertical-align: top; border: 0; padding: 0 1mm 0 1mm; font-size: 7pt; width: 100mm; height: 8mm;">COMENTARIOS - ACCIONES - COMENTARIOS - ACCIONES - COMENTARIOS - ACCIONES - COMENTARIOS - ACCIONES - COMENTARIOS - ACCIONES</td>
                         </tr>
                     </table>
                 </div>
             </td>
         </tr>
     </table>
+    <!--input type="button" onclick="printLabel()" value="print"-->
     <div id="divModal" style="background-color: rgba(0,0,0,.8); position: absolute; width: 100%; height: 100%; z-index: 10000000; top: 0; left: 0; display: none ">
         <div id="divSeriales" style=" text-align: center; width: 500px; height: 315px; padding: 10px 10px 10px 10px; border:1px #EAEAEA solid; border-radius: 5px; box-shadow: 0 1px 0 #FFFFFF; background-color: #FFFFFF; top:0; bottom: 0; left: 0; right: 0; margin: auto auto auto auto; position: absolute; display: none ">
             <div style=" background-color: #EFEFEF; text-align: center; border: 1px #EAEAEA solid; border-radius: 5px; padding: 10px 10px 10px 10px; margin-bottom: 8px;">
@@ -268,6 +275,13 @@ $_SESSION['strDivision'] = $strDivision;
     <script src="js/jquery-barcode.min.js"></script>
     <script src="js/printThis.js"></script>
     <script src="js/scrapcapture.js"></script>
+    <script>
+        function printLabel(){
+            $('#LabeltoPrint').css('background-color','#FFFFFF');
+            $('#LabeltoPrint').css('color','#000000');
+            $('#LabeltoPrint').printThis();
+        }
+    </script>
     </body>
     </html>
 <?php
