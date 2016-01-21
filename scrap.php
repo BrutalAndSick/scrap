@@ -55,7 +55,7 @@ $objScrap = new clsScrap();
                         }
                         unset($objCategories);
                         $strMenu .= '<div id="divEmpty" style="height: calc( 100% - #####px);"></div>';
-                        $strMenu = str_replace("#####",intval(($intTotalCategories * 27) + 8),$strMenu);
+                        $strMenu = str_replace("#####",intval(($intTotalCategories * 22) + 0),$strMenu);
                     }
                     unset($rstCategories);
                     echo $strMenu;

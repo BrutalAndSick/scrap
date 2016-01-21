@@ -11,7 +11,7 @@ $jsnGridData = {
     "strAjaxProcess":"updateGrid",
     "arrFormField":"",
     "arrTableRelation":"",
-    "arrRelationIds":""
+    "arrRelation":""
 };
 
 function gridPagination($intPage){
@@ -93,22 +93,19 @@ function showModal($intRecordId) {
         $('#btnModalSubmitRecord').attr('intRecordId',$intRecordId);
         if($jsnGridData.arrTableRelation.length>0) {
             $strQueryString = "intTableId=" + $jsnGridData.intTableId + "&strProcess=getRelation&intRecordId=" + $intRecordId;
+            console.clear();
             console.log($jsnGridData.strAjaxUrl + "?" + $strQueryString);
             $.ajax({
                 url: $jsnGridData.strAjaxUrl, data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($objJson) {
-                    console.log('##########');
+
+                    console.clear();
                     console.log($objJson);
-                    console.log('##########');
-                    switch ($jsnGridData.arrTableRelation[0].TBL_MULTIPLE) {
-                        case '0':
-                            $('#selRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME).find('option').remove().end().append($objJson.strRelation);
-                            break;
-                        case '1':
-                            $jsnGridData.arrRelationIds = $objJson.arrRelation;
-                            $('#tblRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME + ' tr').remove();
-                            $('#tblRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME).append($objJson.strRelation);
-                            break;
+
+                    $jsnGridData.arrRelation = $objJson;
+                    for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
+                        $('#tblRelation_' + $objJson[$intIndex].strTable + ' tr').remove();
+                        $('#tblRelation_' + $objJson[$intIndex].strTable).append($objJson[$intIndex].strRows);
                     }
                     if($intRecordId==0){
                         $('#divModalTitle').html('Insertar');
@@ -193,7 +190,6 @@ function submitRecord(){
     $('#divModalWorking').show();
     $blnFilledForm = true;
     $strQueryString = '';
-    $strSelectedRelation = '&strRelationSelected=';
     for($intIndex=0;$intIndex<$jsnGridData.arrFormField.length;$intIndex++){
         switch($jsnGridData.arrFormField[$intIndex].TBL_TYPE){
             case 'T':
@@ -226,41 +222,42 @@ function submitRecord(){
                 break;
         }
     }
-    if($jsnGridData.arrTableRelation.length>0){
-        switch($jsnGridData.arrTableRelation[0].TBL_MULTIPLE){
-            case '0':
-                if($('#selRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME).val()==-1){
-                    $('#selRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME).focus();
-                    showModalError('El campo <b>' + $jsnGridData.arrTableRelation[0].TBL_DISPLAY + '</b> debe ser seleccionado');
-                    $blnFilledForm = false;
-                    $('#divModalWorking').hide();
-                    $('#divModalButtons').show();
-                }else{
-                    $strQueryString += "&" + $jsnGridData.arrTableRelation[0].TBL_NAME + "=" + encodeURIComponent($('#selRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME).val()) + "|";
+    $strSelectedRelation = '';
+    $intRelationCount = 1;
+    if($jsnGridData.arrRelation.length>0){
+        for($intIndex=0;$intIndex<$jsnGridData.arrRelation.length;$intIndex++){
+            $strSelectedRelation += '&' + $jsnGridData.arrRelation[$intIndex].strTable + '=';
+            $arrIds = $jsnGridData.arrRelation[$intIndex].strIds.split('|');
+            $blnSelected = false;
+            $intSelectedRelation = 0;
+            $arrIds.forEach(function($objIds){
+                if($('#tdRelation_' + $jsnGridData.arrRelation[$intIndex].strTable + '_' + $objIds).attr('class')=='tdActive'){
+                    $blnSelected = true;
+                    $strSelectedRelation += $objIds + "|";
+                    $intSelectedRelation++;
                 }
-                break;
-            case '1':
-                $blnSelected = false;
-                for($intIndex=0;$intIndex<$jsnGridData.arrRelationIds.length;$intIndex++){
-                    if($('#tdRelation_' + $jsnGridData.arrTableRelation[0].TBL_NAME + '_' + $jsnGridData.arrRelationIds[$intIndex]).attr('class')=='tdActive'){
-                        $blnSelected = true;
-                        $strSelectedRelation += $jsnGridData.arrRelationIds[$intIndex] + "|";
-                    }
-                }
-                if(!$blnSelected){
-                    showModalError('El campo <b>' + $jsnGridData.arrTableRelation[0].TBL_DISPLAY + '</b> debe ser seleccionado al menos una vez');
-                    $blnFilledForm = false;
-                    $('#divModalWorking').hide();
-                    $('#divModalButtons').show();
-                }
-                break;
+            });
+            if(!$blnSelected){
+                showModalError('El campo <b>' + $jsnGridData.arrRelation[$intIndex].strDisplay + '</b> debe ser seleccionado al menos una vez');
+                $blnFilledForm = false;
+                $('#divModalWorking').hide();
+                $('#divModalButtons').show();
+                $intIndex = $jsnGridData.arrRelation.length;
+            }else{
+                $intRelationCount = $intRelationCount * $intSelectedRelation;
+            }
         }
     }
+
     if($blnFilledForm){
-        if($strSelectedRelation!='&strRelationSelected='){
-            $strQueryString = $strQueryString + $strSelectedRelation.replace('strRelationSelected',$jsnGridData.arrTableRelation[0].TBL_NAME);
+        if($strSelectedRelation!=''){
+            $strQueryString = $strQueryString + "&intRelationCount=" + $intRelationCount + $strSelectedRelation;
         }
         $strQueryString = "intTableId=" + $jsnGridData.intTableId + "&strProcess=processRecord&intRecordId=" + $intRecordId + $strQueryString;
+
+        console.clear();
+        console.log("ajax.php?" + $strQueryString);
+
         $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
             success : function($objJson){
                 $('#divModalWorking').hide();

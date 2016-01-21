@@ -54,40 +54,54 @@ switch ($strProcess){
                 }
                 $strSql .= substr($strInsertFields,0,strlen($strInsertFields)-1) . ") VALUES(" . substr($strInsertValues,0,strlen($strInsertValues)-1) . ") RETURNING " . $objScrap->strTableIdField . " INTO :intInsertedID";
                 $objScrap->dbInsert($strSql);
+
+//                echo $strSql . "<br /><br />";
+
                 $intRecordId = $objScrap->getProperty('intLastInsertId');
-                $jsnRelation = json_decode($objScrap->arrTableRelation,true);
-                if(count($jsnRelation)!=0){
-                    $arrRelations = explode("|",$_REQUEST[$jsnRelation[0]['TBL_NAME']]);
-                    array_splice($arrRelations,count($arrRelations)-1);
-                    for($intIndex=0;$intIndex<count($arrRelations);$intIndex++){
-                        $strSql = "INSERT INTO " . $jsnRelation[0]['TBL_TABLE'] . "(" . $jsnRelation[0]['TBL_TARGET'] . ", " . $jsnRelation[0]['TBL_SOURCE'] . ") VALUES(" . $intRecordId . "," . $arrRelations[$intIndex] . ")";
-                        $objScrap->dbInsert($strSql);
-                    }
-                }
-                unset($jsnRelation);
-            }else{
+            }else {
+                $intRecordId = $_REQUEST['intRecordId'];
                 $strSql = "UPDATE " . $objScrap->strTableName . " SET ";
-                for($intIndex=0;$intIndex<count($jsnForm);$intIndex++){
+                for ($intIndex = 0; $intIndex < count($jsnForm); $intIndex++) {
                     $strSql .= $jsnForm[$intIndex]['TBL_FIELD'] . " = '" . $_REQUEST[$jsnForm[$intIndex]['TBL_FIELD']] . "', ";
                 }
-                $strSql = substr($strSql,0,strlen($strSql)-2) . " WHERE " . $objScrap->strTableIdField . " = " . $_REQUEST['intRecordId'];
+                $strSql = substr($strSql, 0, strlen($strSql) - 2) . " WHERE " . $objScrap->strTableIdField . " = " . $intRecordId;
                 $objScrap->dbUpdate($strSql);
-                $jsnRelation = json_decode($objScrap->arrTableRelation,true);
-                if(count($jsnRelation)!=0){
-                    $strSql = "DELETE FROM " . $jsnRelation[0]['TBL_TABLE'] . " WHERE " . $jsnRelation[0]['TBL_TARGET'] . " = " . $_REQUEST['intRecordId'];
-                    $objScrap->dbDelete($strSql);
-                    $arrRelations = explode("|",$_REQUEST[$jsnRelation[0]['TBL_NAME']]);
-                    array_splice($arrRelations,count($arrRelations)-1);
-                    for($intIndex=0;$intIndex<count($arrRelations);$intIndex++){
-                        $strSql = "INSERT INTO " . $jsnRelation[0]['TBL_TABLE'] . "(" . $jsnRelation[0]['TBL_TARGET'] . ", " . $jsnRelation[0]['TBL_SOURCE'] . ") VALUES(" . $_REQUEST['intRecordId'] . "," . $arrRelations[$intIndex] . ")";
-                        $objScrap->dbInsert($strSql);
+            };
+            $jsnRelation = json_decode($objScrap->arrTableRelation,true);
+            if(count($jsnRelation)!=0) {
+                $strSql = "DELETE FROM " . $jsnRelation[0]['TBL_TABLE'] . " WHERE " . $jsnRelation[0]['TBL_TARGET'] . " = " . $intRecordId;
+                $objScrap->dbDelete($strSql);
+                $intArrLength = $_REQUEST['intRelationCount'];
+                $strFields = "";
+                $intArrayIndex = 0;
+                $arrRelation = array_fill(0, $intArrLength - 1, array_fill(0, count($jsnRelation), 0));
+                foreach ($jsnRelation as $objRelation) {
+                    $arrIds = explode("|", $_REQUEST[$objRelation['TBL_NAME']]);
+                    array_splice($arrIds, count($arrIds) - 1);
+                    $intIndex = 0;
+                    while ($intIndex < $intArrLength) {
+                        foreach ($arrIds as $objIds) {
+                            $arrRelation[$intIndex][$intArrayIndex] = $objIds;
+                            $intIndex++;
+                        }
                     }
+                    $intArrayIndex++;
+                    unset($arrIds);
+                    $strFields .= $objRelation['TBL_SOURCE'] . ",";
                 }
-                unset($jsnRelation);
-            }
-            if($objScrap->getProperty('strDBError')!=''){
-                $jsnData['blnGo'] = false;
-                $jsnData['strError'] = $objScrap->getProperty('strDBError');
+                unset($objRelation);
+                $strFields = $jsnRelation[0]['TBL_TARGET'] . "," . substr($strFields, 0, strlen($strFields) - 1);
+                $strSql = "INSERT INTO " . $jsnRelation[0]['TBL_TABLE'] . "(" . $strFields . ") VALUES(" . $intRecordId . ",";
+                foreach ($arrRelation as $objRelations) {
+                    $strValues = '';
+                    foreach ($objRelations as $objIds) {
+                        $strValues .= $objIds . ",";
+                    }
+                    unset($objIds);
+                    $strValues = substr($strValues, 0, strlen($strValues) - 1) . ")";
+                    $objScrap->dbInsert($strSql . $strValues);
+                }
+                unset($objRelations);
             }
         }
         break;
@@ -101,58 +115,125 @@ switch ($strProcess){
         }
         break;
     case 'getRelation':
-        $jsnData = array('strRelation'=>'','arrRelation'=>array(),'strSql'=>'');
-        $jsnRelation = json_decode($objScrap->arrTableRelation,true);
-        $strSql = "SELECT " . $jsnRelation[0]['TBL_SOURCE_ID_FIELD'] . ", " . $jsnRelation[0]['TBL_SOURCE_DISPLAY_FIELD'] . " ";
-        $strSql .= "FROM " . $jsnRelation[0]['TBL_SOURCE_TABLE'] . " ";
-        $strSql .= "WHERE " . $jsnRelation[0]['TBL_SOURCE_STATUS_FIELD'] . " = 1 ";
-        $strSql .= "ORDER BY " . $jsnRelation[0]['TBL_SOURCE_DISPLAY_FIELD'] . ", " . $jsnRelation[0]['TBL_SOURCE_ID_FIELD'];
-        $jsnData['strSql'] = $strSql;
+        $jsnData = array();
+        $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = " . $_REQUEST['intTableId'] . " AND TBL_PARENT = 0 ORDER BY TBL_PARENT";
+
+//        echo $strSql . "<br /><br />";
+
         $rstRelation = $objScrap->dbQuery($strSql);
-        $jsnData['strRelation'] = '';
-        if($_REQUEST['intRecordId']==0){
-            if($jsnRelation[0]['TBL_MULTIPLE']==0){
-                $jsnData['strRelation'] .= '<option value="-1" selected="selected">- Selecciona -</option>';
-            }
-        }
-        if($objScrap->getProperty('intAffectedRows')!=0){
-            foreach($rstRelation as $objRelation){
-                $blnSelected = false;
-                if($_REQUEST['intRecordId']!=0){
-                    $strSql = 'SELECT COUNT(*) AS "COUNT" FROM ' . $jsnRelation[0]['TBL_TABLE'] . ' WHERE ' . $jsnRelation[0]['TBL_TARGET'] . ' = ' . $_REQUEST['intRecordId'] . ' AND ' . $jsnRelation[0]['TBL_SOURCE'] . ' = ' . $objRelation[$jsnRelation[0]['TBL_SOURCE_ID_FIELD']];
-                    $rstCount = $objScrap->dbQuery($strSql);
-                    if($rstCount[0]['COUNT']!=0){
-                        $blnSelected = true;
+        foreach($rstRelation as $objRelation){
+            $strSql = "SELECT " . $objRelation['TBL_SOURCE_ID_FIELD'] . ", " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . " ";
+            $strSql .= "FROM " . $objRelation['TBL_SOURCE_TABLE'] . " ";
+            $strSql .= "WHERE " . $objRelation['TBL_SOURCE_STATUS_FIELD'] . " = 1 ";
+            $strSql .= "ORDER BY " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . ", " . $objRelation['TBL_SOURCE_ID_FIELD'];
+
+//            echo $strSql . "<br /><br />";
+
+            $rstRelationData = $objScrap->dbQuery($strSql);
+            $numRows = $objScrap->intAffectedRows;
+            $strRelationIds = "";
+            $strRelationRows = "";
+            if($objScrap->intAffectedRows!=0){
+                foreach($rstRelationData as $objRelationData){
+                    $strRelationIds .= $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ",";
+                    $blnSelected = false;
+                    if($_REQUEST['intRecordId']!=0){
+                        $strSql = 'SELECT COUNT(*) AS "COUNT" FROM ' . $objRelation['TBL_TABLE'] . ' WHERE ' . $objRelation['TBL_TARGET'] . ' = ' . $_REQUEST['intRecordId'] . ' AND ' . $objRelation['TBL_SOURCE'] . ' = ' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']];
+                        $rstCount = $objScrap->dbQuery($strSql);
+                        if($rstCount[0]['COUNT']!=0){
+                            $blnSelected = true;
+                        }
+                        unset($rstCount);
+                    }else{
+                        if($numRows = $objScrap->intAffectedRows==1){
+                            $blnSelected = true;
+                        }
                     }
-                    unset($rstCount);
+                    $strRelationRows .= '<tr>';
+                    $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '" onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')" class="td';
+                    if($blnSelected){
+                        $strRelationRows .= 'Active">&#10004';
+                    }else{
+                        $strRelationRows .= 'NonActive">&#10006';
+                    }
+                    $strRelationRows .= '</td><td>' . $objRelationData[$objRelation['TBL_SOURCE_DISPLAY_FIELD']] . '</td>';
+                    $strRelationRows .= '</tr>';
                 }
-                switch($jsnRelation[0]['TBL_MULTIPLE']){
-                    case 0:
-                        $jsnData['strRelation'] .= '<option value="' . $objRelation[$jsnRelation[0]['TBL_SOURCE_ID_FIELD']] . '"';
-                        if($blnSelected){
-                            $jsnData['strRelation'] .= ' selected="selected"';
-                        }
-                        $jsnData['strRelation'] .= '>' . $objRelation[$jsnRelation[0]['TBL_SOURCE_DISPLAY_FIELD']] . '</option>';
-                        break;
-                    case 1;
-                        array_push($jsnData['arrRelation'],$objRelation[$jsnRelation[0]['TBL_SOURCE_ID_FIELD']]);
-                        $jsnData['strRelation'] .= '<tr>';
-                        $jsnData['strRelation'] .= '<td id="tdRelation_' . $jsnRelation[0]['TBL_NAME'] . '_' . $objRelation[$jsnRelation[0]['TBL_SOURCE_ID_FIELD']] . '" onclick="switchSelected(' . "'" . $jsnRelation[0]['TBL_NAME'] . "'," . $objRelation[$jsnRelation[0]['TBL_SOURCE_ID_FIELD']] . ')" class="td';
-                        if($blnSelected){
-                            $jsnData['strRelation'] .= 'Active">&#10004';
-                        }else{
-                            $jsnData['strRelation'] .= 'NonActive">&#10006';
-                        }
-                        $jsnData['strRelation'] .= '</td><td>' . $objRelation[$jsnRelation[0]['TBL_SOURCE_DISPLAY_FIELD']] . '</td>';
-                        $jsnData['strRelation'] .= '</tr>';
-                        break;
-                }
+                $strRelationIds = substr($strRelationIds,0,strlen($strRelationIds)-1);
             }
-            unset($objRelation);
+            array_push($jsnData,array('strTable'=>$objRelation['TBL_NAME'],'strDisplay'=>$objRelation['TBL_DISPLAY'],'strRows'=>$strRelationRows,'strIds'=>str_replace(",","|",$strRelationIds)));
+            getRelationbyLevel($_REQUEST['intTableId'], $objRelation['TBL_ID'], $strRelationIds);
         }
+        unset($objRelation);
         unset($rstRelation);
         break;
 };
 unset($objScrap);
 echo json_encode($jsnData);
+
+function buildRelationInsert(){
+
+}
+
+function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
+    global $objScrap;
+    global $jsnData;
+    $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = " . $intTableId . " AND TBL_PARENT = " . $intParent . " ORDER BY TBL_PARENT";
+
+//    echo $strSql . "<br /><br />";
+
+    $rstRelation = $objScrap->dbQuery($strSql);
+    foreach($rstRelation as $objRelation){
+        $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_ID = " . $objRelation['TBL_RELATION'];
+        $rstRelated = $objScrap->dbQuery($strSql);
+        $strSql = "SELECT " . $objRelation['TBL_SOURCE_ID_FIELD'] . ", " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . " ";
+        $strSql .= "FROM " . $objRelation['TBL_SOURCE_TABLE'] . " ";
+        $strSql .= "WHERE " . $objRelation['TBL_SOURCE_ID_FIELD'] . " IN (";
+        $strSql .= "SELECT DISTINCT(" . $rstRelated[0]['TBL_SOURCE'] . ") ";
+        $strSql .= "FROM " . $rstRelated[0]['TBL_TABLE'] . " ";
+        $strSql .= "WHERE " . $rstRelated[0]['TBL_TARGET'] . " IN (" . $strRelationIds . ")) ";
+        $strSql .= "AND " . $objRelation['TBL_SOURCE_STATUS_FIELD'] . " = 1 ";
+        $strSql .= "ORDER BY " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . ", " . $objRelation['TBL_SOURCE_ID_FIELD'];
+
+//        echo $strSql . "<br /><br />";
+
+        $rstRelationData = $objScrap->dbQuery($strSql);
+        $numRows = $objScrap->intAffectedRows;
+        $strRelationIds = "";
+        $strRelationRows = "";
+        if($objScrap->intAffectedRows!=0){
+            foreach($rstRelationData as $objRelationData){
+                $strRelationIds .= $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ",";
+                $blnSelected = false;
+                if($_REQUEST['intRecordId']!=0){
+                    $strSql = 'SELECT COUNT(*) AS "COUNT" FROM ' . $objRelation['TBL_TABLE'] . ' WHERE ' . $objRelation['TBL_TARGET'] . ' = ' . $_REQUEST['intRecordId'] . ' AND ' . $objRelation['TBL_SOURCE'] . ' = ' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']];
+                    $rstCount = $objScrap->dbQuery($strSql);
+                    if($rstCount[0]['COUNT']!=0){
+                        $blnSelected = true;
+                    }
+                    unset($rstCount);
+                }else{
+                    if($numRows==1){
+                        $blnSelected = true;
+                    }
+                }
+                $strRelationRows .= '<tr>';
+                $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '" onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')" class="td';
+                if($blnSelected){
+                    $strRelationRows .= 'Active">&#10004';
+                }else{
+                    $strRelationRows .= 'NonActive">&#10006';
+                }
+                $strRelationRows .= '</td><td>' . $objRelationData[$objRelation['TBL_SOURCE_DISPLAY_FIELD']] . '</td>';
+                $strRelationRows .= '</tr>';
+            }
+            $strRelationIds = substr($strRelationIds,0,strlen($strRelationIds)-1);
+        }
+        unset($rstRelated);
+        array_push($jsnData,array('strTable'=>$objRelation['TBL_NAME'],'strDisplay'=>$objRelation['TBL_DISPLAY'],'strRows'=>$strRelationRows,'strIds'=>str_replace(",","|",$strRelationIds)));
+        getRelationbyLevel($intTableId, $objRelation['TBL_ID'], $strRelationIds);
+    }
+    unset($objRelation);
+    unset($rstRelation);
+}
 ?>

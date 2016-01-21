@@ -146,7 +146,6 @@ class clsScrap
                     'TBL_DUPLICATE'=>$objField['TBL_DUPLICATE']
                 )
             );
-
             if($objField['TBL_ID_FIELD']==1){
                 $strTableSqlOrder = $objField['TBL_FIELD'];
                 $this->strTableIdField = $objField['TBL_FIELD'];
@@ -156,7 +155,6 @@ class clsScrap
                 $this->strTableStatusField = $objField['TBL_FIELD'];
             }
             $strTableSqlSelect .= $objField['TBL_FIELD'] . ', ';
-
             $this->strGridHeader .= '<th class="thGrid">';
             if($objField['TBL_SORT']==1){
                 $this->strGridHeader .= '<div class="divSort">';
@@ -170,7 +168,6 @@ class clsScrap
                 $this->strGridHeader .= $objField['TBL_NAME'];
             }
             $this->strGridHeader .= '</th>';
-
             if($objField['TBL_EDIT']==1){
                 $this->strGridForm .= '<tr>';
                 switch($objField['TBL_TYPE']){
@@ -202,8 +199,7 @@ class clsScrap
         }
         unset($objField);
         unset($rstField);
-
-        $strSql = 'SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = ' . $this->intTableId;
+        $strSql = 'SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = ' . $this->intTableId . ' ORDER BY TBL_ORDER';
         $rstRelation = $this->dbQuery($strSql);
         if($this->intAffectedRows!=0){
             foreach($rstRelation as $objRelation){
@@ -226,22 +222,13 @@ class clsScrap
                 $this->strGridForm .= '<tr>';
                 $this->strGridForm .= '<td class="form_main_td_title"><label class="form_label">' . $objRelation['TBL_DISPLAY'] . '</label></td>';
                 $this->strGridForm .= '<td class="form_main_td_data">';
-                switch($objRelation['TBL_MULTIPLE']){
-                    case 0:
-                        $this->strGridForm .= '<select id="selRelation_' . $objRelation['TBL_NAME'] . '" class="form_input_select" style="width: 162px;"></select>';
-                        break;
-                    case 1:
-                        $this->strGridForm .= '<table id="tblRelation_' . $objRelation['TBL_NAME'] . '" class="form_table_relation"></tr></table>';
-                        break;
-                }
+                $this->strGridForm .= '<table id="tblRelation_' . $objRelation['TBL_NAME'] . '" class="form_table_relation"></tr></table>';
                 $this->strGridForm .= '</td>';
                 $this->strGridForm .= '</tr>';
             }
             unset($objRelation);
-
         }
         unset($rstRelation);
-
         $this->arrFormField = json_encode($this->arrFormField);
         $this->arrTableRelation = json_encode($this->arrTableRelation);
         $this->strGridHeader .= '<th class="thGrid">Editar</th>';
