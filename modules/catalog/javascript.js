@@ -87,21 +87,18 @@ function gridBuildQueryString() {
 // ###### MODAL ######
 
 function showModal($intRecordId) {
+    var $strQueryString;
+    var $intIndex;
     $("body").css('overflow', 'hidden');
     showModalError('');
     $('#divModalBackground').fadeIn('fast', function(){
         $('#btnModalSubmitRecord').attr('intRecordId',$intRecordId);
         if($jsnGridData.arrTableRelation.length>0) {
             $strQueryString = "intTableId=" + $jsnGridData.intTableId + "&strProcess=getRelation&intRecordId=" + $intRecordId;
-            console.clear();
             console.log($jsnGridData.strAjaxUrl + "?" + $strQueryString);
             $.ajax({
                 url: $jsnGridData.strAjaxUrl, data: $strQueryString, type: "POST", dataType: "json",
                 success: function ($objJson) {
-
-                    console.clear();
-                    console.log($objJson);
-
                     $jsnGridData.arrRelation = $objJson;
                     for($intIndex=0;$intIndex<$objJson.length;$intIndex++){
                         $('#tblRelation_' + $objJson[$intIndex].strTable + ' tr').remove();
@@ -111,7 +108,7 @@ function showModal($intRecordId) {
                         $('#divModalTitle').html('Insertar');
                         $('#btnModalSubmitRecord').val('insertar')
                         $("#divModalForm :input").each(function() {
-                            if($(this).attr("type")=='text'){
+                            if($(this).attr("type")=='text' || $(this).attr("type")=='number'){
                                 $('#' + $(this).attr("id")).val('');
                             }
                         });
@@ -133,7 +130,7 @@ function showModal($intRecordId) {
                 $('#divModalTitle').html('Insertar');
                 $('#btnModalSubmitRecord').val('insertar')
                 $("#divModalForm :input").each(function() {
-                    if($(this).attr("type")=='text'){
+                    if($(this).attr("type")=='text' || $(this).attr("type")=='number'){
                         $('#' + $(this).attr("id")).val('');
                     }
                 });
@@ -254,10 +251,7 @@ function submitRecord(){
             $strQueryString = $strQueryString + "&intRelationCount=" + $intRelationCount + $strSelectedRelation;
         }
         $strQueryString = "intTableId=" + $jsnGridData.intTableId + "&strProcess=processRecord&intRecordId=" + $intRecordId + $strQueryString;
-
-        console.clear();
         console.log("ajax.php?" + $strQueryString);
-
         $.ajax({url : "ajax.php", data : $strQueryString, type : "POST", dataType : "json",
             success : function($objJson){
                 $('#divModalWorking').hide();

@@ -271,13 +271,13 @@
 }
 
 .divSortLabel {
-    width: calc( 100% - 11px );
+    width: calc( 100% - 9px );
     text-align: left;
 }
 
 .divSort .divSortContainer .divSortOrder {
     font-size: 7pt;
-    padding: 0 0 0 2px;
+    padding: 0 1px 0 2px;
     vertical-align: middle;
     cursor: pointer;
 }
@@ -310,6 +310,7 @@
     font-weight: normal;
     border-radius: 3px;
     padding: 1px 5px 1px 5px;
+    max-width: 200px;
 }
 
 .labelActions {

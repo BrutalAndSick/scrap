@@ -42,7 +42,7 @@ $objScrap = new clsScrap();
                 </div>
             </td>
             <td id="tdScrapLabel" class="capture_td_label">
-                <div id="divScrapLabel" style="background-color: #CC0000; width: 98mm; height: 58mm; margin: 0 0 0 0; padding: 0 1mm 0 1mm; border-radius: 5px; font-size: 7pt; font-weight: bold; color:#000000; font-family: Arial;">
+                <div id="divScrapLabel" style="background-color: #CC0000; width: 98mm; height: 58mm; margin: 0 0 0 0; padding: 0 1mm 0 1mm; border-radius: 5px; font-size: 7pt; font-weight: bold; color:#000000; font-family: monospace;">
                     <table style="border: 0; border-collapse: collapse; border-spacing: 0; width: 98mm; margin: 0 0 0 0;">
                         <tr style="border: 0; height: 10mm">
                             <td style="border: 0; padding: 0 0 0 0; height: 10mm; width: 28mm; text-align: center; vertical-align: middle;"><img src="/scrap/images/continental_black.png" style="border: 0; height: 6mm; vertical-align: bottom;" /></td>

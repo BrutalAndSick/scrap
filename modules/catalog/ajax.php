@@ -145,14 +145,22 @@ switch ($strProcess){
                         }
                         unset($rstCount);
                     }else{
-                        if($numRows = $objScrap->intAffectedRows==1){
+                        if($numRows==1){
                             $blnSelected = true;
                         }
                     }
                     $strRelationRows .= '<tr>';
-                    $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '" onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')" class="td';
+                    $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '"';
+//                    if($numRows>1) {
+                        $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
+//                    }
+                    $strRelationRows .= ' class="td';
                     if($blnSelected){
-                        $strRelationRows .= 'Active">&#10004';
+                        $strRelationRows .= 'Active"';
+//                        if($numRows==1){
+//                            $strRelationRows .= ' style="cursor:auto;"';
+//                        }
+                        $strRelationRows .= '>&#10004';
                     }else{
                         $strRelationRows .= 'NonActive">&#10006';
                     }
@@ -160,6 +168,10 @@ switch ($strProcess){
                     $strRelationRows .= '</tr>';
                 }
                 $strRelationIds = substr($strRelationIds,0,strlen($strRelationIds)-1);
+            }else{
+                $strRelationRows .= '<tr>';
+                $strRelationRows .= '<td colspan="2">no existen registros</td>';
+                $strRelationRows .= '</tr>';
             }
             array_push($jsnData,array('strTable'=>$objRelation['TBL_NAME'],'strDisplay'=>$objRelation['TBL_DISPLAY'],'strRows'=>$strRelationRows,'strIds'=>str_replace(",","|",$strRelationIds)));
             getRelationbyLevel($_REQUEST['intTableId'], $objRelation['TBL_ID'], $strRelationIds);
@@ -170,10 +182,6 @@ switch ($strProcess){
 };
 unset($objScrap);
 echo json_encode($jsnData);
-
-function buildRelationInsert(){
-
-}
 
 function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
     global $objScrap;
@@ -218,9 +226,17 @@ function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
                     }
                 }
                 $strRelationRows .= '<tr>';
-                $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '" onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')" class="td';
+                $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '"';
+//                if($numRows>1) {
+                    $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
+//                }
+                $strRelationRows .= ' class="td';
                 if($blnSelected){
-                    $strRelationRows .= 'Active">&#10004';
+                    $strRelationRows .= 'Active"';
+//                    if($numRows==1){
+//                        $strRelationRows .= ' style="cursor:auto;"';
+//                    }
+                    $strRelationRows .= '>&#10004';
                 }else{
                     $strRelationRows .= 'NonActive">&#10006';
                 }
@@ -228,6 +244,10 @@ function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
                 $strRelationRows .= '</tr>';
             }
             $strRelationIds = substr($strRelationIds,0,strlen($strRelationIds)-1);
+        }else{
+            $strRelationRows .= '<tr>';
+            $strRelationRows .= '<td colspan="2">no existen registros</td>';
+            $strRelationRows .= '</tr>';
         }
         unset($rstRelated);
         array_push($jsnData,array('strTable'=>$objRelation['TBL_NAME'],'strDisplay'=>$objRelation['TBL_DISPLAY'],'strRows'=>$strRelationRows,'strIds'=>str_replace(",","|",$strRelationIds)));
