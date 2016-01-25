@@ -117,18 +117,12 @@ switch ($strProcess){
     case 'getRelation':
         $jsnData = array();
         $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = " . $_REQUEST['intTableId'] . " AND TBL_PARENT = 0 ORDER BY TBL_PARENT";
-
-//        echo $strSql . "<br /><br />";
-
         $rstRelation = $objScrap->dbQuery($strSql);
         foreach($rstRelation as $objRelation){
             $strSql = "SELECT " . $objRelation['TBL_SOURCE_ID_FIELD'] . ", " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . " ";
             $strSql .= "FROM " . $objRelation['TBL_SOURCE_TABLE'] . " ";
             $strSql .= "WHERE " . $objRelation['TBL_SOURCE_STATUS_FIELD'] . " = 1 ";
             $strSql .= "ORDER BY " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . ", " . $objRelation['TBL_SOURCE_ID_FIELD'];
-
-//            echo $strSql . "<br /><br />";
-
             $rstRelationData = $objScrap->dbQuery($strSql);
             $numRows = $objScrap->intAffectedRows;
             $strRelationIds = "";
@@ -151,16 +145,10 @@ switch ($strProcess){
                     }
                     $strRelationRows .= '<tr>';
                     $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '"';
-//                    if($numRows>1) {
-                        $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
-//                    }
+                    $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
                     $strRelationRows .= ' class="td';
                     if($blnSelected){
-                        $strRelationRows .= 'Active"';
-//                        if($numRows==1){
-//                            $strRelationRows .= ' style="cursor:auto;"';
-//                        }
-                        $strRelationRows .= '>&#10004';
+                        $strRelationRows .= 'Active">&#10004';
                     }else{
                         $strRelationRows .= 'NonActive">&#10006';
                     }
@@ -187,9 +175,6 @@ function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
     global $objScrap;
     global $jsnData;
     $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_TARGET_TABLE = " . $intTableId . " AND TBL_PARENT = " . $intParent . " ORDER BY TBL_PARENT";
-
-//    echo $strSql . "<br /><br />";
-
     $rstRelation = $objScrap->dbQuery($strSql);
     foreach($rstRelation as $objRelation){
         $strSql = "SELECT * FROM TBL_TABLE_RELATION WHERE TBL_ID = " . $objRelation['TBL_RELATION'];
@@ -202,9 +187,6 @@ function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
         $strSql .= "WHERE " . $rstRelated[0]['TBL_TARGET'] . " IN (" . $strRelationIds . ")) ";
         $strSql .= "AND " . $objRelation['TBL_SOURCE_STATUS_FIELD'] . " = 1 ";
         $strSql .= "ORDER BY " . $objRelation['TBL_SOURCE_DISPLAY_FIELD'] . ", " . $objRelation['TBL_SOURCE_ID_FIELD'];
-
-//        echo $strSql . "<br /><br />";
-
         $rstRelationData = $objScrap->dbQuery($strSql);
         $numRows = $objScrap->intAffectedRows;
         $strRelationIds = "";
@@ -227,16 +209,10 @@ function getRelationbyLevel($intTableId, $intParent, $strRelationIds){
                 }
                 $strRelationRows .= '<tr>';
                 $strRelationRows .= '<td id="tdRelation_' . $objRelation['TBL_NAME'] . '_' . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . '"';
-//                if($numRows>1) {
-                    $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
-//                }
+                $strRelationRows .= ' onclick="switchSelected(' . "'" . $objRelation['TBL_NAME'] . "'," . $objRelationData[$objRelation['TBL_SOURCE_ID_FIELD']] . ')"';
                 $strRelationRows .= ' class="td';
                 if($blnSelected){
-                    $strRelationRows .= 'Active"';
-//                    if($numRows==1){
-//                        $strRelationRows .= ' style="cursor:auto;"';
-//                    }
-                    $strRelationRows .= '>&#10004';
+                    $strRelationRows .= 'Active">&#10004';
                 }else{
                     $strRelationRows .= 'NonActive">&#10006';
                 }
