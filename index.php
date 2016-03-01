@@ -123,6 +123,7 @@ session_destroy();
                 $('#divLoginWorking').fadeIn('fast',function(){
                     if($('#strPersonalNumber').val().trim()!=''){
                         $strQueryString = "strProcess=getWSUser&strPersonalNumber=" + encodeURIComponent($('#strPersonalNumber').val().trim());
+                        console.log("ajax.php?" + $strQueryString);
                         $.ajax({
                             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
                             success: function ($jsnPhpScriptResponse) {
