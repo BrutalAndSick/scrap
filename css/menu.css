@@ -27,7 +27,9 @@ table tr td {
 }
 
 #tdMenu {
+    min-width: 200px;
     width: 200px;
+    max-width: 200px;
 }
 
 #tdCollapse {
@@ -42,7 +44,9 @@ table tr td {
 }
 
 #tdWorkArea {
+    min-width: calc( 100% - 213px );
     width: calc( 100% - 213px );
+    max-width: calc( 100% - 213px );
 }
 
 .divMenuMain {

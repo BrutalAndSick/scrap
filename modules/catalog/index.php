@@ -1,10 +1,7 @@
 <?php
-ini_set("display_errors",1);
-session_start();
-date_default_timezone_set('America/Mexico_City');
-require_once('../../lib/scrap.php');
+require_once('../../include/config.php');
+require_once(LIB_PATH .  'scrap.php');
 $objScrap = new clsScrap();
-
 $objScrap->intTableId = $_GET['intTableId'];
 $objScrap->getTableData();
 ?>
@@ -14,13 +11,12 @@ $objScrap->getTableData();
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../../css/scrap.css">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-        <style>
-        </style>
     </head>
     <body>
         <div class=" divTitles ">Catálogo de <?php echo $objScrap->strGridTitle; ?></div>
         <div class="divActions">
             <input id="btnInsertRecord" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
+            <?php if($objScrap->intTableId!=19 && $objScrap->intTableId!=20) {?><input id="btnInsertRecord" type="button" class="buttons button_excel" value="importar" onclick="showImport();"><?php } ?>
         </div>
         <div class="divGrid" id="divGrid">
             <table class="tblGrid">
@@ -51,12 +47,37 @@ $objScrap->getTableData();
                 </div>
             </div>
         </div>
+        <div id="divImportBackground">
+            <div id="divImportMain">
+                <div id="divImportClose"><label id="lblImportClose" onclick="closeImport();">&#10006</label></div>
+                <div id="divImportTitle">Importar Catálogo de <?php echo $objScrap->strGridTitle; ?> desde Excel</div>
+                <div id="divImportFile">
+                    Descargar Plantilla <a id="ancImportTemplate" href="" target="_blank"></a>
+                    <br /><br />
+                    <input class="form_input_text" type="file" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" id="fleImportFile" onchange="validateExcelFile();">
+                </div>
+                <div id="divImportResults"></div>
+                <div id="divImportButtons">
+                    <input type="button" value="cancelar" onclick="closeImport();" class="buttons button_red">
+                </div>
+                <div id="divImportWorking">
+                    <img src="../../images/wait_48.gif" />
+                </div>
+            </div>
+        </div>
         <div id="divWorkingBackground">
             <div id="divWorking">
                 <img src="../../images/wait_64.gif" />
             </div>
         </div>
         <script src="../../js/jquery-1.11.3.min.js"></script>
+        <?php
+        if($objScrap->strIncludeJS!=''){
+            ?>
+            <script src="<?php echo $objScrap->strIncludeJS; ?>"></script>
+            <?php
+        }
+        ?>
         <script src="javascript.js"></script>
         <script>
             $('document').ready(function(){

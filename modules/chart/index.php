@@ -1,8 +1,6 @@
 <?php
-ini_set("display_errors",1);
-session_start();
-date_default_timezone_set('America/Mexico_City');
-require_once('../../lib/scrap.php');
+require_once('../../include/config.php');
+require_once(LIB_PATH .  'scrap.php');
 $objScrap = new clsScrap();
 ?>
     <!DOCTYPE html>

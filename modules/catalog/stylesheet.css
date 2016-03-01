@@ -6,14 +6,14 @@
     color: #FF2828;
     text-shadow: 0 1px 0 #EB1414;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 10pt;
 }
 
 .tdActive {
     color: #28B428;
     text-shadow: 0 1px 0 #14A014;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 10   pt;
 }
 /* ##### FORM ##### */
 
@@ -70,7 +70,8 @@
 
 .form_table_relation {
     margin: 0 auto 0 0;
-    max-height: 105px;
+    max-height: 285px;
+    width: 100%;
     display: block;
     font-size: 9pt;
     border: 1px #282828 solid;
@@ -80,6 +81,113 @@
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.form_table_relation tr:nth-child(even) {
+    background-color: #EFEFEF;
+}
+
+.form_table_relation tr:nth-child(odd) {
+    background-color: #FFFFFF;
+}
+
+.form_table_relation tr:hover {
+    background-color: rgba(249,161,27,.2);
+}
+
+/* ##### IMPORT ##### */
+#divImportBackground {
+    z-index: 10000000;
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: none
+}
+
+#divImportMain {
+    text-align: center;
+    padding: 0 10px 10px 10px;
+    border:1px #EAEAEA solid;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #FFFFFF;
+    background-color: #FFFFFF;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto auto auto;
+    position: absolute;
+    display: none;
+    height: calc( 100% - 60px );
+    width: 800px;
+}
+
+#divImportClose {
+    text-align: right;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+
+#lblImportClose {
+    cursor: pointer;
+    font-size: 14pt;
+    color: #FF2828;
+    text-shadow: 0 1px 0 #EB1414;
+}
+
+#divImportTitle {
+    background-color: #007A47;
+    text-align: center;
+    border: 1px #005C29 solid;
+    color:#FFFFFF;
+    text-shadow: 0 1px 0 #005C29;
+    box-shadow: 0 1px 0 #007A47;
+    border-radius: 3px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 8px;
+}
+
+#divImportButtons {
+    display: block;
+    height: 60px;
+}
+
+#divImportResults{
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0 10px 0;
+    height: calc( 100% - 228px );
+    max-height: calc( 100% - 228px );
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#ancImportTemplate {
+    color: #007A47;
+    text-shadow: 0 1px 0 #005C29;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#divImportWorking {
+    display: none;
+    text-align: center;
+    padding: 5px 0 5px 0;
+    border:1px #F9A11B solid;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 #E58D07;
+    background-color: #282828;
+}
+
+#divImportWorking img {
+    border: 0;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
 /* ##### MODAL ##### */
 #divModalBackground {
     z-index: 10000000;
@@ -109,7 +217,7 @@
     position: absolute;
     display: none;
     height: calc( 100% - 60px );
-    width: 500px;
+    width: 900px;
 }
 
 #divModalClose {
@@ -233,7 +341,7 @@
     padding: 8px 8px 8px 8px;
     text-align: center;
     border-radius: 5px;
-    height: calc(100% - 186px);
+    height: calc(100% - 205px);
     background-color: #FFFFFF;
 }
 
@@ -270,7 +378,7 @@
     vertical-align: middle;
 }
 
-.divSortLabel {
+.divSort .divSortContainer .divSortLabel {
     width: calc( 100% - 9px );
     text-align: left;
 }
@@ -310,7 +418,7 @@
     font-weight: normal;
     border-radius: 3px;
     padding: 1px 5px 1px 5px;
-    max-width: 200px;
+    max-width: 300px;
 }
 
 .labelActions {
@@ -364,6 +472,7 @@
     margin: 0 1px 0 1px;
     cursor: pointer;
     color: #282828;
+    vertical-align: top;
 }
 
 .labelPaginationCurrent {

@@ -1,14 +1,10 @@
 <?php
-ini_set('display_errors',1);
-date_default_timezone_set('America/Mexico_City');
-session_start();
-
-if(!isset($_SESSION["intUser"]))
-{
-//    header("location: index.php");
+require_once('include/config.php');
+if(!isset($_SESSION['USR_WINDOWSUID']) || $_SESSION['USR_WINDOWSUID']==''){
+    header('Location: /');
+    exit();
 }
-
-require_once('lib/scrap.php');
+require_once(LIB_PATH .  'scrap.php');
 $objScrap = new clsScrap();
 ?>
     <!DOCTYPE html>
@@ -20,9 +16,8 @@ $objScrap = new clsScrap();
         <link rel="stylesheet" type="text/css" href="css/menu.css">
     </head>
     <body>
-    <?php include_once('inc/header.php'); ?>
-    <?php include_once('inc/menu.php'); ?>
-    <table>
+    <?php include_once(INCLUDE_PATH . 'header.php'); ?>
+    <table style="width: 100%; height: calc(100% - 102px);">
         <tbody>
         <tr>
             <td id="tdMenu">
@@ -34,18 +29,15 @@ $objScrap = new clsScrap();
                     $rstCategories = $objScrap->dbQuery($strSql);
                     if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
                         foreach($rstCategories as $objCategories){
-                            $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategories['MNU_ID'] . " AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                            //$strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategories['MNU_ID'] . " AND MNU_STATUS = 1 ORDER BY MNU_ORDER, MNU_NAME";
+                            //$strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategories['MNU_ID'] . " AND MNU_STATUS = 1 AND MNU_ID IN (SELECT DISTINCT(PRO_MENU) FROM PRO_PROFILE_RELATION WHERE PRO_PROFILE IN (SELECT USR_PROFILE FROM USR_USER_RELATION WHERE USR_USER = (SELECT USR_ID FROM USR_USER WHERE USR_WINDOWSUSER = '" . strtoupper($_SESSION['USR_WINDOWSUID']) . "' AND USR_STATUS = 1) AND USR_STATUS = 1))";
+                            $strSql = "SELECT * FROM MNU_MENU WHERE MNU_PARENT = " . $objCategories['MNU_ID'] . " AND MNU_STATUS = 1 AND MNU_ID IN (SELECT DISTINCT(PRO_MENU) FROM PRO_PROFILE_RELATION WHERE PRO_PROFILE IN (SELECT DISTINCT(USR_PROFILE) FROM USR_USER_RELATION WHERE USR_USER = (SELECT USR_ID FROM USR_USER WHERE USR_WINDOWSUSER = '" . strtoupper($_SESSION['USR_WINDOWSUID']) . "' AND USR_STATUS = 1) AND USR_STATUS = 1) AND PRO_STATUS = 1) ORDER BY MNU_ORDER";
                             $rstMenus = $objScrap->dbQuery($strSql);
                             if($objScrap->getProperty('strDBError')=='' && $objScrap->getProperty('intAffectedRows')>0){
                                 $strMenu .= '<div class=" divMenuCategory " id="divCat_' . $objCategories['MNU_ID'] . '" onclick="collapseCategory(\'' . $objCategories['MNU_ID'] . '\')">' . $objCategories['MNU_NAME'] . '</div>';
                                 $strMenu .= '<div class=" divMenuContentContainer " style=" height: calc( 100% - #####px );" id="divCont_' . $objCategories['MNU_ID'] . '">';
                                 foreach($rstMenus as $objMenus){
-                                    if($objMenus['MNU_NAME']=='--separator--'){
-                                        $strMenu .= '<div class=" divMenuSeparator " ></div>';
-                                    }else{
-                                        $strMenu .= '<div class=" divMenuOption " onclick="handleTab(\'' . $objMenus['MNU_ID'] . '\',\'' . $objMenus['MNU_NAME'] . '\',\'' . $objMenus['MNU_URL'] . '\')">' . $objMenus['MNU_NAME'] . '</div>';
-                                    }
-
+                                    $strMenu .= '<div class=" divMenuOption " onclick="handleTab(\'' . $objMenus['MNU_ID'] . '\',\'' . $objMenus['MNU_NAME'] . '\',\'' . $objMenus['MNU_URL'] . '\')">' . $objMenus['MNU_NAME'] . '</div>';
                                 }
                                 unset($objMenus);
                                 $intTotalCategories++;
@@ -64,7 +56,7 @@ $objScrap = new clsScrap();
                 </div>
             </td>
             <td id="tdCollapse" onclick="collapseMenu();">&#9668;</td>
-            <td id="tdWorkArea" style="vertical-align: top">
+            <td id="tdWorkArea" style="vertical-align: top;">
                 <div id="divTabs" class=" divTabs "></div>
                 <div id="divSheets" class=" divSheets "></div>
             </td>
@@ -103,9 +95,13 @@ $objScrap = new clsScrap();
             if($('#tdMenu').is(":visible")){
                 $('#tdMenu').hide();
                 $('#tdCollapse').html("&#9658;");
+                $('#tdWorkArea').css('width','calc(100% - 13px)');
+                $('#tdWorkArea').css('max-width','calc(100% - 13px)');
             }else{
                 $('#tdMenu').show();
                 $('#tdCollapse').html("&#9668;");
+                $('#tdWorkArea').css('width','calc(100% - 213px)');
+                $('#tdWorkArea').css('max-width','calc(100% - 213px)');
             }
         };
 
