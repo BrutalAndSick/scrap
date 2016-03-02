@@ -18,25 +18,21 @@ $(function(){
         renderItem: function (item, search){
             search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
             var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
-            return '<div class="autocomplete-suggestion" style="background-image:url(\'../../images/parts/' + item[2] + '\')" data-numerodeparte="' + item[0] + '" data-val="' + item[0] +'">' + item[0].replace(re, "<b>$1</b>") + '<br /><br /><span>' + item[1] + '</span></div>';
+            return '<div class="autocomplete-suggestion" style="background-image:url(\'../../images/parts/' + item[2] + '\')" data-numerodeparte="' + item[0] + '" data-val="' + item[0] +'">' + item[0].replace(re, "<b>$1</b>") + '<br /><br /><span>' + item[1] + '<br /></span></div>';
         },
         onSelect: function(e, term, item){}
     });
-
     $("#txtPartNumber").keypress(function(e){
         if(e.which==13){
             $('#txtQuantity').focus();
             $('#txtQuantity').select();
         }
     });
-
     $("#txtQuantity").keypress(function(e){
         if(e.which==13){
             $('#txtLocation').focus();
         }
     });
-
-
 });
 
 $("#txtSerialNumber").keyup(function(e){
@@ -77,6 +73,7 @@ $("#txtSerialNumber").keyup(function(e){
 })
 
 function removeSerial($strSerial){
+    console.clear;
     $arrSerials.splice($arrSerials.indexOf($strSerial),1);
     $('#divSerial_' + $strSerial).remove();
     $('#lblSerialesContador').html(parseInt($('#lblSerialesContador').html()) - 1);
@@ -93,13 +90,15 @@ function removeSerial($strSerial){
 }
 
 function printLabel() {
+    console.clear;
     $('#divScrapLabel').css('background-color', '#FFFFFF');
     $('#divScrapLabel').css('color', '#000000');
     $('#divScrapLabel').printThis();
     $('#btnLastFinish').show();
 }
 
-function getData($strOption) {
+function getData($strOption,$blnCommon) {
+    console.clear;
     $("body").css('overflow', 'hidden');
     $('#divWorkingBackground').fadeIn('fast', function () {
         $strQueryString = "strProcess=" + $strOption;
@@ -123,6 +122,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intShip=" + encodeURIComponent($('#selShip').val()) + "&strShip=" + encodeURIComponent($('#selShip option:selected').text());
@@ -142,6 +142,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intArea=" + encodeURIComponent($('#selArea').val()) + "&strArea=" + encodeURIComponent($('#selArea option:selected').text());
@@ -159,6 +160,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intStation=" + encodeURIComponent($('#selStation').val()) + "&strStation=" + encodeURIComponent($('#selStation option:selected').text());
@@ -173,6 +175,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intLine=" + encodeURIComponent($('#selLine').val()) + "&strLine=" + encodeURIComponent($('#selLine option:selected').text());
@@ -185,6 +188,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intFault=" + encodeURIComponent($('#selFault').val()) + "&strFault=" + encodeURIComponent($('#selFault option:selected').text());
@@ -195,6 +199,7 @@ function getData($strOption) {
                 $('#divScrapCode').hide();
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intCause=" + encodeURIComponent($('#selCause').val()) + "&strCause=" + encodeURIComponent($('#selCause option:selected').text());
@@ -203,6 +208,7 @@ function getData($strOption) {
             case 'Project':
                 $('#selProject').find('option').remove().end();
                 $('#divProject').hide();
+                $('#divParts').hide();
                 $('#tdProject').html('');
                 $('#trCaptureParts').hide();
                 $strQueryString += "&intScrapCode=" + encodeURIComponent($('#selScrapCode').val()) + "&strScrapCode=" + encodeURIComponent($('#selScrapCode option:selected').text());
@@ -235,9 +241,13 @@ function getData($strOption) {
                             $('#div' + $strOption).show();
                             $('#sel' + $strOption).focus();
                         //}
-                        if($jsnPhpScriptResponse.intRecordCount==1){
-                            getData($strNextLoad);
-                        }
+                        if(typeof($blnCommon)!='undefined') {
+                            getCommonCapture($strOption);
+                        }else{
+                            if($jsnPhpScriptResponse.intRecordCount==1){
+                                getData($strNextLoad);
+                            }
+                        };
                         break;
                 }
                 $('#divWorkingBackground').fadeOut();
@@ -245,7 +255,55 @@ function getData($strOption) {
             }
         });
     });
+}
 
+$('document').ready(function () {
+    getData('Ship',true);
+});
+
+function getCommonCapture($strOption){
+    console.clear;
+    $("body").css('overflow', 'hidden');
+    $('#divWorkingBackground').fadeIn('fast', function () {
+        $strQueryString = "strProcess=getCommon" + $strOption;
+        switch ($strOption) {
+            case 'Ship':
+                $strNextLoad = 'Area';
+                break;
+            case 'Area':
+                $strNextLoad = 'Station';
+                break;
+            case 'Station':
+                $strNextLoad = 'Line';
+                break;
+            case 'Line':
+                $strNextLoad = 'Fault';
+                break;
+            case 'Fault':
+                $strNextLoad = 'Cause';
+                break;
+            case 'Cause':
+                $strNextLoad = 'ScrapCode';
+                break;
+            case 'ScrapCode':
+                $strNextLoad = 'Project';
+                break;
+            case 'Project':
+                //$strNextLoad = '';
+                break;
+        }
+        $.ajax({
+            url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
+            success: function ($jsnPhpScriptResponse) {
+                if($jsnPhpScriptResponse.intCommon!=-1){
+                    $('#sel' + $strOption + ' option[value="' + $jsnPhpScriptResponse.intCommon + '"]').prop('selected',true);
+                    getData($strNextLoad,true);
+                }
+                $('#divWorkingBackground').fadeOut();
+                $("body").css('overflow', 'auto');
+            }
+        });
+    });
 }
 
 function addParte(){
@@ -290,7 +348,6 @@ function addParte(){
 
 function goStep2(){
     console.clear;
-    console.log('ps entra');
     $("body").css('overflow', 'hidden');
     $('#divWorkingBackground').fadeIn('fast', function () {
         $strQueryString = "strProcess=addParts&intParts=" + $jsnParts.length;
@@ -300,7 +357,6 @@ function goStep2(){
             $strQueryString += "&intPartLoc_" + $intIndex + "=" + $('#txtPartLoc_' + $jsnParts[$intIndex]).val();
             $strQueryString += "&intPartSrl_" + $intIndex + "=" + $('#txtPartSrl_' + $jsnParts[$intIndex]).val();
         }
-        console.log("ajax.php?" + $strQueryString);
         $.ajax({
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function($jsnPhpScriptResponse){
@@ -319,12 +375,12 @@ function goStep2(){
 }
 
 function verifyComments(){
-    console.log($('#txtComments').val());
-    if($('#txtComments').val().trim()==''){
-        $('#btnFinish').hide();
-    }else{
-        $('#btnFinish').show();
-    }
+    console.clear;
+//    if($('#txtComments').val().trim()==''){
+//        $('#btnFinish').hide();
+//    }else{
+//        $('#btnFinish').show();
+//    }
 }
 
 function insertScrapRecord(){
@@ -343,12 +399,10 @@ function insertScrapRecord(){
         $strQueryString += "&strAction3=" + encodeURIComponent($('#txtAction3').val().trim());
         $strQueryString += "&strAction4=" + encodeURIComponent($('#txtAction4').val().trim());
         $strQueryString += "&strAction5=" + encodeURIComponent($('#txtAction5').val().trim());
-        console.log("ajax.php?" + $strQueryString);
         $.ajax({
             url: "ajax.php", data: $strQueryString, type: "POST", dataType: "json",
             success: function($jsnPhpScriptResponse){
                 $('#trStep2').hide('fast',function(){
-                    console.log($jsnPhpScriptResponse);
                     $('#tdLabelBarcode').barcode($jsnPhpScriptResponse.strFolio, "code39", {barHeight: 22, barWidth: 2, showHRI: true, fontSize: 8, addQuietZone: false, bgColor: 'transparent', output: 'css'});
                     $('#tdLabelAmount').html('$ ' + $jsnPhpScriptResponse.intAmount + ' ');
                     $('#tdLabelDate').html($jsnPhpScriptResponse.intDate.substr(0,4) + '-' + $jsnPhpScriptResponse.intDate.substr(4,2) + '-' + $jsnPhpScriptResponse.intDate.substr(6,2));
@@ -373,6 +427,7 @@ function insertScrapRecord(){
 }
 
 function removePart($intPartNumber){
+    console.clear;
     $('#trPart_' + $intPartNumber).remove();
     $jsnParts.splice($jsnParts.indexOf($intPartNumber),1);
     if($jsnParts.length==0){
@@ -381,12 +436,14 @@ function removePart($intPartNumber){
 }
 
 function editPart($intPartNumber){
+    console.clear;
     $('#txtPartNumber').val($('#txtPartPrt_' + $intPartNumber).val());
     $('#txtQuantity').val($('#txtPartQty_' + $intPartNumber).val());
     $('#txtLocation').val($('#txtPartLoc_' + $intPartNumber).val());
 }
 
 function showSeriales(){
+    console.clear;
     $('#divModalError').hide();
     $('#divModalError').html('');
     if($('#txtPartNumber').val()==''){
@@ -413,6 +470,7 @@ function showSeriales(){
 }
 
 function hideSeriales(){
+    console.clear;
     $('#lblSerialesErrors').hide();
     $('#lblSerialesErrors').html('');
     if($('#lblSerialesContador').css('color')=='rgb(255, 0, 0)'){
@@ -427,11 +485,6 @@ function hideSeriales(){
         })
     }
 }
-
-
-$('document').ready(function () {
-    getData('Ship')
-});
 
 function closeModal($blnClean){
     if($blnClean){

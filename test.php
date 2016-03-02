@@ -1,8 +1,8 @@
 <?php
-//require_once('include/config.php');
-//require_once ('lib/scrap.php');
-//ini_set('display_errors',1);
-//$objScrap = new clsScrap();
+require_once('include/config.php');
+require_once ('lib/scrap.php');
+ini_set('display_errors',1);
+$objScrap = new clsScrap();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,9 +72,9 @@ unset($ldapconn);
 //ldap_close($ldapconn);
 //unset($ldapconn);
 //
-//unset($objScrap);
+unset($objScrap);
 
-//var_dump($_SESSION);
+var_dump($_SESSION);
 ?>
 </body>
 </html>

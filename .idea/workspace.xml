@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23334add-e559-45bb-a1da-a5cc32239b24" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/capture/ajax.php" afterPath="$PROJECT_DIR$/modules/capture/ajax.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/ajax.php" afterPath="$PROJECT_DIR$/modules/catalog/ajax.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/config.php" afterPath="$PROJECT_DIR$/include/config.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/capture/index.php" afterPath="$PROJECT_DIR$/modules/capture/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/javascript.js" afterPath="$PROJECT_DIR$/modules/catalog/javascript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/scrap.php" afterPath="$PROJECT_DIR$/lib/scrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/catalog/index.php" afterPath="$PROJECT_DIR$/modules/catalog/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/modules/capture/javascript.js" afterPath="$PROJECT_DIR$/modules/capture/javascript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="scrap.iws" />
@@ -59,7 +60,171 @@
     <favorites_list name="scrap" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/modules/capture/ajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-22.59091">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <folding>
+                <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+                <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+                <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+                <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+                <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+                <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+                <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+                <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+                <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+                <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+                <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+                <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+                <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+                <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+                <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+                <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+                <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+                <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+                <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+                <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+                <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+                <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+                <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+                <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+                <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+                <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+                <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+                <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+                <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+                <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+                <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+                <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+                <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+                <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+                <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="javascript.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/modules/capture/javascript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.72873193">
+              <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,7 +241,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/modules/area/index.php" />
         <option value="$PROJECT_DIR$/modules/scrapcode/javascript.js" />
         <option value="$PROJECT_DIR$/modules/scrapcode/stylesheet.css" />
         <option value="$PROJECT_DIR$/modules/scrapcode/ajax.php" />
@@ -111,22 +275,23 @@
         <option value="$PROJECT_DIR$/scrapcapture.php" />
         <option value="$PROJECT_DIR$/modules/capture/stylesheet.css" />
         <option value="$PROJECT_DIR$/css/working.css" />
-        <option value="$PROJECT_DIR$/modules/capture/javascript.js" />
         <option value="$PROJECT_DIR$/rels.php" />
         <option value="$PROJECT_DIR$/css/menu.css" />
-        <option value="$PROJECT_DIR$/modules/catalog/index.php" />
         <option value="$PROJECT_DIR$/css/scrap.css" />
         <option value="$PROJECT_DIR$/modules/catalog/stylesheet.css" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/config/scrap.ini" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/ajax.php" />
-        <option value="$PROJECT_DIR$/modules/capture/index.php" />
         <option value="$PROJECT_DIR$/include/config.php" />
         <option value="$PROJECT_DIR$/scrap.php" />
         <option value="$PROJECT_DIR$/lib/scrap.php" />
         <option value="$PROJECT_DIR$/modules/catalog/javascript.js" />
+        <option value="$PROJECT_DIR$/modules/catalog/index.php" />
         <option value="$PROJECT_DIR$/modules/catalog/ajax.php" />
+        <option value="$PROJECT_DIR$/modules/capture/index.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/modules/capture/ajax.php" />
+        <option value="$PROJECT_DIR$/modules/capture/javascript.js" />
       </list>
     </option>
   </component>
@@ -189,6 +354,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -250,7 +416,39 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="modules" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="capture" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -270,14 +468,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="recentsLimit" value="5" />
@@ -378,9 +575,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1322" height="768" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18564743" sideWeight="0.47926268" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21216848" sideWeight="0.47926268" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839313" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973805" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -423,6 +620,324 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/modules/capture/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+            <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+            <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+            <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+            <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+            <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+            <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+            <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+            <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+            <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+            <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/javascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="306" column="39" selection-start-line="306" selection-start-column="39" selection-end-line="306" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+            <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+            <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+            <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+            <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+            <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+            <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+            <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+            <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+            <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+            <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/javascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="306" column="39" selection-start-line="306" selection-start-column="39" selection-end-line="306" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -435,7 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="65" selection-start-line="125" selection-start-column="65" selection-end-line="125" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -443,11 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding>
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT CST_C..CST_COSTCENTER..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -455,7 +964,150 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+            <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+            <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+            <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+            <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+            <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+            <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+            <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+            <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+            <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+            <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -463,7 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -471,18 +1122,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_FIELD..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_RELATION..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -498,7 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="65" selection-start-line="125" selection-start-column="65" selection-end-line="125" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -506,11 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding>
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT CST_C..CST_COSTCENTER..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -518,7 +1152,150 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+            <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+            <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+            <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+            <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+            <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+            <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+            <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+            <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+            <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+            <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -526,7 +1303,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -534,18 +1310,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="29" selection-start-line="34" selection-start-column="29" selection-end-line="34" selection-end-column="29" />
-          <folding>
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_FIELD..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_RELATION..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -654,39 +1419,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="35" selection-start-line="1" selection-start-column="35" selection-end-line="1" selection-end-column="35" />
-          <folding>
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT CST_C..CST_COSTCENTER..." />
-            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/capture/ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="65" selection-start-line="125" selection-start-column="65" selection-end-line="125" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/modules/capture/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -702,14 +1438,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.0">
           <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding>
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..MNU_MENU..." />
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..MNU_MENU..." />
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="SELECT DISTI..PRO_PROFILE_RELATION..." />
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="SELECT DISTI..USR_USER_RELATION..." />
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="SELECT USR_I..USR_USER..." />
-            <marker date="1456895608293" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -717,18 +1445,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.0">
           <caret line="264" column="121" selection-start-line="264" selection-start-column="121" selection-end-line="264" selection-end-column="121" />
-          <folding>
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_FIELD..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_RELATION..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456897256842" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -736,90 +1453,229 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="231" column="217" selection-start-line="231" selection-start-column="217" selection-end-line="231" selection-end-column="217" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/catalog/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6258823">
+          <caret line="19" column="189" selection-start-line="19" selection-start-column="189" selection-end-line="19" selection-end-column="189" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/modules/catalog/ajax.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="25.244967">
-          <caret line="953" column="28" selection-start-line="953" selection-start-column="28" selection-end-line="953" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.86333334">
+          <caret line="907" column="75" selection-start-line="907" selection-start-column="75" selection-end-line="907" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.auto-complete.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2247191">
+          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.029668411">
+          <caret line="74" column="102" selection-start-line="74" selection-start-column="102" selection-end-line="74" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78369385">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
           <folding>
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PLN_P..PLN_PLANT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT ARE_A..ARE_AREA..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT FLT_F..FLT_FAULT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT CAS_C..CAS_CAUSE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT UNT_U..UNT_UNIT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT TYP_T..TYP_TYPE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT UNT_U..UNT_UNIT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT TYP_T..TYP_TYPE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRT_P..PRT_PART..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRT_P..PRT_PART..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..TBL_TABLE_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PLN_P..PLN_PLANT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT ARE_A..ARE_AREA..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT FLT_F..FLT_FAULT_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT CAS_C..CAS_CAUSE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT UNT_U..UNT_UNIT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT TYP_T..TYP_TYPE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT UNT_U..UNT_UNIT..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT TYP_T..TYP_TYPE..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT STT_S..STT_STATION..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRT_P..PRT_PART..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="SELECT PRT_P..PRT_PART..." />
-            <marker date="1456899089546" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <element signature="e#180#579#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8702163">
+          <caret line="91" column="9" selection-start-line="91" selection-start-column="9" selection-end-line="91" selection-end-column="9" />
+          <folding>
+            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT COUNT..." />
+            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT CST_C..CST_COSTCENTER..." />
+            <marker date="1456863681126" expanded="true" signature="-1:-1" placeholder="SELECT DVS_D..DVS_DIVISION..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/scrapcapture.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1455804414000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1455804414000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1455804414000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-22.59091">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <marker date="1456949922338" expanded="true" signature="370:535" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="370:628" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="451:535" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="951:1370" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1117" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1032:1156" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="1696:2175" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="1783:1868" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="2498:3025" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="2579:2664" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="3349:3930" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="3432:3517" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="4254:4888" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="4337:4422" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="5216:5915" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="5307:5392" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="6241:6995" placeholder="SELECT COUNT..SCR_SCRAP..." />
+            <marker date="1456949922338" expanded="true" signature="6328:6413" placeholder="SELECT SCR_S..SCR_SCRAP_STATUS..." />
+            <marker date="1456949922338" expanded="true" signature="9293:9589" placeholder="SELECT SHP_I..SHP_SHIP..." />
+            <marker date="1456949922338" expanded="true" signature="9367:9562" placeholder="SELECT SHP_S..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="9442:9525" placeholder="SELECT DVS_S..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10651:10939" placeholder="SELECT PLN_I..PLN_PLANT..." />
+            <marker date="1456949922338" expanded="true" signature="10726:10912" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="10803:10879" placeholder="SELECT SHP_P..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11156:11453" placeholder="SELECT PLN_P..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="11614:11852" placeholder="SELECT CNT_C..CNT_COUNTRY..." />
+            <marker date="1456949922338" expanded="true" signature="11738:11818" placeholder="SELECT PLN_C..PLN_PLANT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13075:13724" placeholder="SELECT ARE_I..ARE_AREA..." />
+            <marker date="1456949922338" expanded="true" signature="13149:13697" placeholder="SELECT STT_A..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13227:13696" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="13312:13695" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="13407:13694" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13493:13693" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="13575:13656" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15711:16414" placeholder="SELECT STT_I..STT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="15788:16387" placeholder="SELECT STT_S..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="15917:16386" placeholder="SELECT PRJ_S..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="16002:16385" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="16097:16384" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16183:16383" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="16265:16346" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18324:18659" placeholder="SELECT LIN_I..LIN_LINE..." />
+            <marker date="1456949922338" expanded="true" signature="18398:18632" placeholder="SELECT DISTI..LIN_LINE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="18488:18599" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20478:20816" placeholder="SELECT FLT_I..FLT_FAULT..." />
+            <marker date="1456949922338" expanded="true" signature="20553:20789" placeholder="SELECT DISTI..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="20645:20756" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22557:23023" placeholder="SELECT CAS_I..CAS_CAUSE..." />
+            <marker date="1456949922338" expanded="true" signature="22632:22996" placeholder="SELECT DISTI..CAS_CAUSE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22722:22995" placeholder="SELECT FLT_I..FLT_FAULT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="22851:22962" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="24686:24949" placeholder="SELECT SCD_I..SCD_SCRAPCODE..." />
+            <marker date="1456949922338" expanded="true" signature="24794:24890" placeholder="SELECT DISTI..SCD_SCRAPCODE_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26536:27355" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26613:27064" placeholder="SELECT PRJ_I..PRJ_PROJECT..." />
+            <marker date="1456949922338" expanded="true" signature="26680:27063" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="26775:27062" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26861:27061" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="26943:27024" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="27081:27328" placeholder="SELECT PRJ_P..PRJ_PROJECT_STATION..." />
+            <marker date="1456949922338" expanded="true" signature="27146:27308" placeholder="SELECT STT_I..STT_STATION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28291:29032" placeholder="SELECT PRF_I..PRF_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28373:29031" placeholder="SELECT PRF_P..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28464:29030" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="28618:29029" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28704:29028" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28786:29027" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="28921:28994" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29263:30076" placeholder="SELECT SGM_I..SGM_SEGMENT..." />
+            <marker date="1456949922338" expanded="true" signature="29340:30075" placeholder="SELECT SGM_S..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29421:30074" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29507:30073" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="29661:30072" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29747:30071" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29829:30070" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="29964:30037" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30297:31181" placeholder="SELECT APD_I..APD_APD..." />
+            <marker date="1456949922338" expanded="true" signature="30370:31180" placeholder="SELECT APD_A..APD_APD_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30449:31179" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30525:31178" placeholder="SELECT PRF_S..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30611:31177" placeholder="SELECT PRJ_P..PRJ_PROJECT_PROFITCENTER..." />
+            <marker date="1456949922338" expanded="true" signature="30765:31176" placeholder="SELECT PRF_I..PRF_PROFITCENTER_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30851:31175" placeholder="SELECT SGM_I..SGM_SEGMENT_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="30933:31174" placeholder="SELECT DVS_I..DVS_DIVISION_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31068:31141" placeholder="SELECT SHP_I..SHP_SHIP_RELATION..." />
+            <marker date="1456949922338" expanded="true" signature="31627:31916" placeholder="SELECT PRT_N..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31803:31880" placeholder="SELECT PRJ_P..PRJ_PROJECT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="31969:32266" placeholder="SELECT ASM_N..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="32145:32230" placeholder="SELECT PRJ_A..PRJ_PROJECT_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33024:33303" placeholder="SELECT 'A' A..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="33449:33728" placeholder="SELECT 'P' A..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="37479:37553" placeholder="SELECT PRT_D..PRT_PART..." />
+            <marker date="1456949922338" expanded="true" signature="38006:38177" placeholder="SELECT TYP_T..PRT_PART_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="38482:38653" placeholder="SELECT UNT_U..PRT_PART_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="39140:39216" placeholder="SELECT ASM_D..ASM_ASSEMBLY..." />
+            <marker date="1456949922338" expanded="true" signature="39667:39854" placeholder="SELECT TYP_T..ASM_ASSEMBLY_TYPE..." />
+            <marker date="1456949922338" expanded="true" signature="40159:40346" placeholder="SELECT UNT_U..ASM_ASSEMBLY_UNIT..." />
+            <marker date="1456949922338" expanded="true" signature="40819:42366" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42477:42725" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="42942:43707" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44084:44222" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44483:44595" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="44833:44966" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45107:45240" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45381:45514" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45655:45788" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="45929:46062" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46232:46374" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46592:46734" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="46952:47094" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47312:47454" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47672:47814" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="47963:48034" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48163:48266" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48367:48490" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="48619:48722" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="48823:48995" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49124:49227" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49328:49552" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="49681:49784" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="49885:49934" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="50388:50491" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="50592:50641" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="51172:51275" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="51376:51425" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52029:52132" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="52233:52282" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="52869:52972" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53073:53122" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="53778:53881" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="53982:54031" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="54756:54859" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="54960:55009" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="55801:55904" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="56005:56054" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="56914:57017" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="57118:57167" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="58099:58202" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="58303:58352" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="59358:59461" placeholder="INSERT INTO ..." />
+            <marker date="1456949922338" expanded="true" signature="59562:59611" placeholder="SELECT ALR_I..ALR_ALERT..." />
+            <marker date="1456949922338" expanded="true" signature="60642:60745" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/capture/javascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.72873193">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

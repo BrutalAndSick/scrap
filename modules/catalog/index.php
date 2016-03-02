@@ -17,6 +17,7 @@ $objScrap->getTableData();
         <div class="divActions">
             <input id="btnInsertRecord" type="button" class="buttons button_orange" value="insertar" onclick="showModal(0);">
             <?php if($objScrap->intTableId!=19 && $objScrap->intTableId!=20) {?><input id="btnInsertRecord" type="button" class="buttons button_excel" value="importar" onclick="showImport();"><?php } ?>
+            <?php if($objScrap->intTableId==18) {?><input id="btnImportImages" type="button" class="buttons button_orange" value="importar imágenes" onclick="showUploadImages();"><?php } ?>
         </div>
         <div class="divGrid" id="divGrid">
             <table class="tblGrid">

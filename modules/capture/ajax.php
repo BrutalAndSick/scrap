@@ -11,6 +11,78 @@ if($_SERVER['HTTP_X_REQUESTED_WITH']==''){
 }
 
 switch ($strProcess) {
+    case 'getCommonShip':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_SHIP_ID), SCR_SHIP_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND ROWNUM = 1 GROUP BY SCR_SHIP_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonArea':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_AREA_ID), SCR_AREA_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND ROWNUM = 1 GROUP BY SCR_AREA_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonStation':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_STATION_ID), SCR_STATION_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND ROWNUM = 1 GROUP BY SCR_STATION_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonLine':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_LINE_ID), SCR_LINE_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND SCR_STATION_ID = " . $_SESSION['STT_STATION_ID'] . " AND ROWNUM = 1 GROUP BY SCR_LINE_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonFault':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_FAULT_ID), SCR_FAULT_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND SCR_STATION_ID = " . $_SESSION['STT_STATION_ID'] . " AND SCR_LINE_ID = " . $_SESSION['LIN_LINE_ID'] . " AND ROWNUM = 1 GROUP BY SCR_FAULT_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonCause':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_CAUSE_ID), SCR_CAUSE_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND SCR_STATION_ID = " . $_SESSION['STT_STATION_ID'] . " AND SCR_LINE_ID = " . $_SESSION['LIN_LINE_ID'] . " AND SCR_FAULT_ID = " . $_SESSION['FLT_FAULT_ID'] . " AND ROWNUM = 1 GROUP BY SCR_CAUSE_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonScrapCode':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_SCRAPCODE_ID), SCR_SCRAPCODE_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND SCR_STATION_ID = " . $_SESSION['STT_STATION_ID'] . " AND SCR_LINE_ID = " . $_SESSION['LIN_LINE_ID'] . " AND SCR_FAULT_ID = " . $_SESSION['FLT_FAULT_ID'] . " AND SCR_CAUSE_ID = " . $_SESSION['CAS_CAUSE_ID'] . " AND ROWNUM = 1 GROUP BY SCR_SCRAPCODE_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
+    case 'getCommonProject':
+        $jsnPhpScriptResponse = array('intCommon'=>-1);
+        $strSql = "SELECT COUNT(SCR_PROJECT_ID), SCR_PROJECT_ID AS COMMON FROM SCR_SCRAP WHERE SCR_ID IN (SELECT SCR_SCRAP FROM SCR_SCRAP_STATUS WHERE SCR_STATUS = 0 AND SCR_PERSONALNUMBER = " . $_SESSION['USR_PERSONALNUMBER'] . ") AND SCR_COUNTRY_ID = " . $_SESSION['CNT_COUNTRY_ID'] . " AND SCR_PLANT_ID = " . $_SESSION['PLN_PLANT_ID'] . " AND SCR_SHIP_ID = " . $_SESSION['SHP_SHIP_ID'] . " AND SCR_AREA_ID = " . $_SESSION['ARE_AREA_ID'] . " AND SCR_STATION_ID = " . $_SESSION['STT_STATION_ID'] . " AND SCR_LINE_ID = " . $_SESSION['LIN_LINE_ID'] . " AND SCR_FAULT_ID = " . $_SESSION['FLT_FAULT_ID'] . " AND SCR_CAUSE_ID = " . $_SESSION['CAS_CAUSE_ID'] . " AND SCR_SCRAPCODE_ID = " . $_SESSION['SCD_SCRAPCODE_ID'] . " AND ROWNUM = 1 GROUP BY SCR_PROJECT_ID ORDER BY 1 DESC";
+        $rstCommon = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows!=0){
+            $jsnPhpScriptResponse['intCommon'] = $rstCommon[0]['COMMON'];
+        }
+        unset($rstCommon);
+        break;
     case 'Ship':
         $jsnPhpScriptResponse = array('strResponse'=>'<option selected="selected" value="-1">-- no se encontraron registros --</option>','strError'=>'','intRecordCount'=>0);
         $_SESSION['SHP_SHIP_ID'] = '';
@@ -382,36 +454,45 @@ switch ($strProcess) {
         break;
     case 'getParts':
         $jsnPhpScriptResponse = array();
-        $strSql = "SELECT PRT_ID, PRT_NUMBER, PRT_DESCRIPTION, PRT_COST, PRT_GLOBALPC FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER LIKE ('" . $_REQUEST['strPart'] . "%') AND PRT_ID IN (SELECT PRJ_PART FROM PRJ_PROJECT_PART WHERE PRJ_STATUS = 1 AND PRJ_PROJECT = " . $_SESSION['PRJ_PROJECT_ID'] . ")";
+        $strSql = "SELECT PRT_NUMBER AS FIELD_NUMBER, PRT_DESCRIPTION AS FIELD_DESCRIPTION FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER LIKE ('" . $_REQUEST['strPart'] . "%') AND PRT_ID IN (SELECT PRJ_PART FROM PRJ_PROJECT_PART WHERE PRJ_STATUS = 1 AND PRJ_PROJECT = " . $_SESSION['PRJ_PROJECT_ID'] . ") ";
+        $strSql .= "UNION ";
+        $strSql .= "SELECT ASM_NAME AS FIELD_NUMBER, ASM_DESCRIPTION AS FIELD_DESCRIPTION FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1 AND ASM_NAME LIKE ('" . $_REQUEST['strPart'] . "%') AND ASM_ID IN (SELECT PRJ_ASSEMBLY FROM PRJ_PROJECT_ASSEMBLY WHERE PRJ_STATUS = 1 AND PRJ_PROJECT = " . $_SESSION['PRJ_PROJECT_ID'] . ") ";
+        $strSql .= "ORDER BY FIELD_NUMBER";
         $rstResponse = $objScrap->dbQuery($strSql);
         $strPartPhoto = '';
         foreach($rstResponse as $objResponse){
-            if(file_exists(PART_IMAGE_PATH . $objResponse['PRT_NUMBER'] . '.jpg')){
-                $strPartPhoto = $objResponse['PRT_NUMBER'] . '.jpg';
+            if(file_exists(PART_IMAGE_PATH . $objResponse['FIELD_NUMBER'] . '.jpg')){
+                $strPartPhoto = $objResponse['FIELD_NUMBER'] . '.jpg';
             }else{
                 $strPartPhoto = 'no_photo.png';
             }
-            array_push($jsnPhpScriptResponse, array($objResponse['PRT_NUMBER'],$objResponse['PRT_DESCRIPTION'],$strPartPhoto));
+            array_push($jsnPhpScriptResponse, array($objResponse['FIELD_NUMBER'],$objResponse['FIELD_DESCRIPTION'],$strPartPhoto));
         }
         unset($objResponse);
         unset($rstResponse);
         break;
     case 'PartData':
         $jsnPhpScriptResponse = array('strResponse'=>'','intPartId'=>'0','strError'=>'');
-        $strSql = "SELECT * FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER = '" . $_REQUEST['strPart'] . "'";
+        $strSql = "SELECT 'A' AS FIELD_SOURCE, ASM_ID AS FIELD_ID, ASM_NAME AS FIELD_NUMBER, ASM_DESCRIPTION AS FIELD_DESCRIPTION, ASM_COST AS FIELD_COST, ASM_GLOBALPC AS FIELD_GLOBALPC, ASM_STATUS AS FIELD_STATUS FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1 AND ASM_NAME = '" . $_REQUEST['strPart'] . "'";
         $rstData = $objScrap->dbQuery($strSql);
+        if($objScrap->intAffectedRows==0){
+            unset($rstData);
+            $strSql = "SELECT 'P' AS FIELD_SOURCE, PRT_ID AS FIELD_ID, PRT_NUMBER AS FIELD_NUMBER, PRT_DESCRIPTION AS FIELD_DESCRIPTION, PRT_COST AS FIELD_COST, PRT_GLOBALPC AS FIELD_GLOBALPC, PRT_STATUS AS FIELD_STATUS FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER = '" . $_REQUEST['strPart'] . "'";
+            $rstData = $objScrap->dbQuery($strSql);
+        }
         if($objScrap->intAffectedRows!=0){
-            $jsnPhpScriptResponse['intPartId'] = $rstData[0]['PRT_ID'];
-            $jsnPhpScriptResponse['strResponse'] = '<tr id="trPart_' . $rstData[0]['PRT_ID'] . '">';
-            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridQty"><input id="txtPartQty_' . $rstData[0]['PRT_ID'] . '" type="text" disabled="disabled" class="inputGridQty" value="' . $_REQUEST['intQty'] . '" /></td>';
-            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridPrt"><input id="txtPartPrt_' . $rstData[0]['PRT_ID'] . '" type="text" disabled="disabled" class="inputGridPrt" value="' . $rstData[0]['PRT_NUMBER'] . '" /></td>';
-            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridDsc"><input id="txtPartDsc_' . $rstData[0]['PRT_ID'] . '" type="text" disabled="disabled" class="inputGridDsc" value="' . $rstData[0]['PRT_DESCRIPTION'] . '" /></td>';
-            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridCst"><input id="txtPartCst_' . $rstData[0]['PRT_ID'] . '" type="text" disabled="disabled" class="inputGridCst" value="' . number_format(($rstData[0]['PRT_COST'] * $_REQUEST['intQty']),2,'.',',') . '" /></td>';
+            $strPartID = $rstData[0]['FIELD_SOURCE'] . '_' . $rstData[0]['FIELD_ID'];
+            $jsnPhpScriptResponse['intPartId'] = $strPartID;
+            $jsnPhpScriptResponse['strResponse'] = '<tr id="trPart_' . $strPartID . '">';
+            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridQty"><input id="txtPartQty_' . $strPartID . '" type="text" disabled="disabled" class="inputGridQty" value="' . $_REQUEST['intQty'] . '" /></td>';
+            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridPrt"><input id="txtPartPrt_' . $strPartID . '" type="text" disabled="disabled" class="inputGridPrt" value="' . $rstData[0]['FIELD_NUMBER'] . '" /></td>';
+            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridDsc"><input id="txtPartDsc_' . $strPartID . '" type="text" disabled="disabled" class="inputGridDsc" value="' . $rstData[0]['FIELD_DESCRIPTION'] . '" /></td>';
+            $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridCst"><input id="txtPartCst_' . $strPartID . '" type="text" disabled="disabled" class="inputGridCst" value="' . number_format(($rstData[0]['FIELD_COST'] * $_REQUEST['intQty']),2,'.',',') . '" /></td>';
             $jsnPhpScriptResponse['strResponse'] .= '<td class="tdGridEdt">';
-            $jsnPhpScriptResponse['strResponse'] .= '<label class="lblEdit" onclick="editPart(' . $rstData[0]['PRT_ID'] . ')">&#9998;</label>&nbsp;';
-            $jsnPhpScriptResponse['strResponse'] .= '<label class="lblRemove" onclick="removePart(' . $rstData[0]['PRT_ID'] . ')">&#10006;</label>';
-            $jsnPhpScriptResponse['strResponse'] .= '<input id="txtPartLoc_' . $rstData[0]['PRT_ID'] . '" type="hidden" value="' . $_REQUEST['strLocation'] . '" /></td>';
-            $jsnPhpScriptResponse['strResponse'] .= '<input id="txtPartSrl_' . $rstData[0]['PRT_ID'] . '" type="hidden" value="' . $_REQUEST['strSerials'] . '" /></td>';
+            $jsnPhpScriptResponse['strResponse'] .= '<label class="lblEdit" onclick="editPart(\'' . $strPartID . '\')">&#9998;</label>&nbsp;';
+            $jsnPhpScriptResponse['strResponse'] .= '<label class="lblRemove" onclick="removePart(\'' . $strPartID . '\')">&#10006;</label>';
+            $jsnPhpScriptResponse['strResponse'] .= '<input id="txtPartLoc_' . $strPartID . '" type="hidden" value="' . $_REQUEST['strLocation'] . '" /></td>';
+            $jsnPhpScriptResponse['strResponse'] .= '<input id="txtPartSrl_' . $strPartID . '" type="hidden" value="' . $_REQUEST['strSerials'] . '" /></td>';
             $jsnPhpScriptResponse['strResponse'] .= '</td>';
             $jsnPhpScriptResponse['strResponse'] .= '</tr>';
         }
@@ -447,25 +528,53 @@ switch ($strProcess) {
 
         $intAmount = 0;
 
+
+
+
         $strLabelParts = 'Parte(s) [Cantidad]: ';
         foreach($_SESSION['PART_ID'] as $intArrIndex=>$objPartId){
-            $strSql = "SELECT PRT_DESCRIPTION, PRT_COST, PRT_NUMBER FROM PRT_PART WHERE PRT_ID = " . $objPartId;
-            $rstPart = $objScrap->dbQuery($strSql);
-            $_SESSION['PART_DESCRIPTION'][$intArrIndex] = $rstPart[0]['PRT_DESCRIPTION'];
-            $_SESSION['PART_COST'][$intArrIndex] = $rstPart[0]['PRT_COST'];
-            $strLabelParts .= $rstPart[0]['PRT_NUMBER'] . '[' . $_SESSION['PART_QUANTITY'][$intArrIndex] . '] ';
-            unset($rstPart);
-            $strSql = "SELECT TYP_TYPE.TYP_ID, TYP_TYPE.TYP_NAME FROM PRT_PART_TYPE, TYP_TYPE WHERE PRT_PART_TYPE.PRT_PART = " . $objPartId . " AND PRT_PART_TYPE.PRT_TYPE = TYP_TYPE.TYP_ID";
-            $rstPart = $objScrap->dbQuery($strSql);
-            $_SESSION['PART_TYPE_ID'][$intArrIndex] = $rstPart[0]['TYP_ID'];
-            $_SESSION['PART_TYPE_NAME'][$intArrIndex] = $rstPart[0]['TYP_NAME'];
-            unset($rstPart);
-            $strSql = "SELECT UNT_UNIT.UNT_ID, UNT_UNIT.UNT_CODE FROM PRT_PART_UNIT, UNT_UNIT WHERE PRT_PART_UNIT.PRT_PART = " . $objPartId . " AND PRT_PART_UNIT.PRT_UNIT = UNT_UNIT.UNT_ID";
-            $rstPart = $objScrap->dbQuery($strSql);
-            $_SESSION['PART_UNIT_ID'][$intArrIndex] = $rstPart[0]['UNT_ID'];
-            $_SESSION['PART_UNIT_NAME'][$intArrIndex] = $rstPart[0]['UNT_CODE'];
-            unset($rstPart);
-            $intAmount = $intAmount + ($_SESSION['PART_COST'][$intArrIndex] * $_SESSION['PART_QUANTITY'][$intArrIndex]);
+            $arrPartSplit = explode('_',$objPartId);
+
+            switch($arrPartSplit[0]){
+                case 'P':
+                    $strSql = "SELECT PRT_DESCRIPTION, PRT_COST, PRT_NUMBER FROM PRT_PART WHERE PRT_ID = " . $arrPartSplit[1];
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_DESCRIPTION'][$intArrIndex] = $rstPart[0]['PRT_DESCRIPTION'];
+                    $_SESSION['PART_COST'][$intArrIndex] = $rstPart[0]['PRT_COST'];
+                    $strLabelParts .= $rstPart[0]['PRT_NUMBER'] . '[' . $_SESSION['PART_QUANTITY'][$intArrIndex] . '] ';
+                    unset($rstPart);
+                    $strSql = "SELECT TYP_TYPE.TYP_ID, TYP_TYPE.TYP_NAME FROM PRT_PART_TYPE, TYP_TYPE WHERE PRT_PART_TYPE.PRT_PART = " . $arrPartSplit[1] . " AND PRT_PART_TYPE.PRT_TYPE = TYP_TYPE.TYP_ID";
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_TYPE_ID'][$intArrIndex] = $rstPart[0]['TYP_ID'];
+                    $_SESSION['PART_TYPE_NAME'][$intArrIndex] = $rstPart[0]['TYP_NAME'];
+                    unset($rstPart);
+                    $strSql = "SELECT UNT_UNIT.UNT_ID, UNT_UNIT.UNT_CODE FROM PRT_PART_UNIT, UNT_UNIT WHERE PRT_PART_UNIT.PRT_PART = " . $arrPartSplit[1] . " AND PRT_PART_UNIT.PRT_UNIT = UNT_UNIT.UNT_ID";
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_UNIT_ID'][$intArrIndex] = $rstPart[0]['UNT_ID'];
+                    $_SESSION['PART_UNIT_NAME'][$intArrIndex] = $rstPart[0]['UNT_CODE'];
+                    unset($rstPart);
+                    $intAmount = $intAmount + ($_SESSION['PART_COST'][$intArrIndex] * $_SESSION['PART_QUANTITY'][$intArrIndex]);
+                    break;
+                case 'A':
+                    $strSql = "SELECT ASM_DESCRIPTION, ASM_COST, ASM_NAME FROM ASM_ASSEMBLY WHERE ASM_ID = " . $arrPartSplit[1];
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_DESCRIPTION'][$intArrIndex] = $rstPart[0]['ASM_DESCRIPTION'];
+                    $_SESSION['PART_COST'][$intArrIndex] = $rstPart[0]['ASM_COST'];
+                    $strLabelParts .= $rstPart[0]['ASM_NAME'] . '[' . $_SESSION['PART_QUANTITY'][$intArrIndex] . '] ';
+                    unset($rstPart);
+                    $strSql = "SELECT TYP_TYPE.TYP_ID, TYP_TYPE.TYP_NAME FROM ASM_ASSEMBLY_TYPE, TYP_TYPE WHERE ASM_ASSEMBLY_TYPE.ASM_ASSEMBLY = " . $arrPartSplit[1] . " AND ASM_ASSEMBLY_TYPE.ASM_TYPE = TYP_TYPE.TYP_ID";
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_TYPE_ID'][$intArrIndex] = $rstPart[0]['TYP_ID'];
+                    $_SESSION['PART_TYPE_NAME'][$intArrIndex] = $rstPart[0]['TYP_NAME'];
+                    unset($rstPart);
+                    $strSql = "SELECT UNT_UNIT.UNT_ID, UNT_UNIT.UNT_CODE FROM ASM_ASSEMBLY_UNIT, UNT_UNIT WHERE ASM_ASSEMBLY_UNIT.ASM_ASSEMBLY = " . $arrPartSplit[1] . " AND ASM_ASSEMBLY_UNIT.ASM_UNIT = UNT_UNIT.UNT_ID";
+                    $rstPart = $objScrap->dbQuery($strSql);
+                    $_SESSION['PART_UNIT_ID'][$intArrIndex] = $rstPart[0]['UNT_ID'];
+                    $_SESSION['PART_UNIT_NAME'][$intArrIndex] = $rstPart[0]['UNT_CODE'];
+                    unset($rstPart);
+                    $intAmount = $intAmount + ($_SESSION['PART_COST'][$intArrIndex] * $_SESSION['PART_QUANTITY'][$intArrIndex]);
+                    break;
+            }
         }
         $strSql = "INSERT INTO SCR_SCRAP(SCR_COUNTRY_ID,SCR_COUNTRY,SCR_PLANT_ID,SCR_PLANT,SCR_SHIP_ID,SCR_SHIP,SCR_DIVISION_ID,SCR_DIVISION,SCR_SEGMENT_ID,SCR_SEGMENT,SCR_PROFITCENTER_ID,SCR_PROFITCENTER,SCR_APD_ID,SCR_APD,SCR_COSTCENTER_ID,SCR_COSTCENTER,SCR_AREA_ID,SCR_AREA,SCR_STATION_ID,SCR_STATION,SCR_LINE_ID,SCR_LINE,SCR_FAULT_ID,SCR_FAULT,SCR_CAUSE_ID,SCR_CAUSE,SCR_SCRAPCODE_ID,SCR_SCRAPCODE,SCR_COST,SCR_PROJECT_ID,SCR_PROJECT) VALUES(" . $_SESSION['CNT_COUNTRY_ID'] . ",'" . $_SESSION['CNT_COUNTRY_NAME'] . "'," . $_SESSION['PLN_PLANT_ID'] . ",'" . $_SESSION['PLN_PLANT_NAME'] . "'," . $_SESSION['SHP_SHIP_ID'] . ",'" . $_SESSION['SHP_SHIP_NAME'] . "'," . $_SESSION['DVS_DIVISION_ID'] . ",'" . $_SESSION['DVS_DIVISION_NAME'] . "'," . $_SESSION['SGM_SEGMENT_ID'] . ",'" . $_SESSION['SGM_SEGMENT_NAME'] . "'," . $_SESSION['PRF_PROFITCENTER_ID'] . ",'" . $_SESSION['PRF_PROFITCENTER_NAME'] . "',1,'15'," . $_SESSION['CST_COSTCENTER_ID'] . ",'" . $_SESSION['CST_COSTCENTER_NAME'] . "'," . $_SESSION['ARE_AREA_ID'] . ",'" . $_SESSION['ARE_AREA_NAME'] . "'," . $_SESSION['STT_STATION_ID'] . ",'" . $_SESSION['STT_STATION_NAME'] . "'," . $_SESSION['LIN_LINE_ID'] . ",'" . $_SESSION['LIN_LINE_NAME'] . "'," . $_SESSION['FLT_FAULT_ID'] . ",'" . $_SESSION['FLT_FAULT_NAME'] . "'," . $_SESSION['CAS_CAUSE_ID'] . ",'" . $_SESSION['CAS_CAUSE_NAME'] . "'," . $_SESSION['SCD_SCRAPCODE_ID'] . ",'" . $_SESSION['SCD_SCRAPCODE_NAME'] . "'," . $intAmount . "," . $_SESSION['PRJ_PROJECT_ID'] . ",'" . $_SESSION['PRJ_PROJECT_NAME'] . "') RETURNING SCR_ID INTO :intInsertedID";
         $objScrap->dbInsert($strSql);
@@ -475,8 +584,9 @@ switch ($strProcess) {
         $objScrap->dbInsert($strSql);
 
         foreach($_SESSION['PART_ID'] as $intArrIndex=>$objPartId){
-
-            $strSql = "INSERT INTO SCR_SCRAP_PART(SCR_SCRAP,SCR_PART,SCR_DESCRIPTION,SCR_QUANTITY,SCR_COST,SCR_LOCATION,SCR_TYPE_ID,SCR_TYPE,SCR_UNIT_ID,SCR_UNIT,SCR_AMOUNT) VALUES(" . $intScrapId . "," . $objPartId . ",'" . $_SESSION['PART_DESCRIPTION'][$intArrIndex] . "'," . $_SESSION['PART_QUANTITY'][$intArrIndex] . "," . $_SESSION['PART_COST'][$intArrIndex] . ",'" . $_SESSION['PART_LOCATION'][$intArrIndex] . "'," . $_SESSION['PART_TYPE_ID'][$intArrIndex] . ",'" . $_SESSION['PART_TYPE_NAME'][$intArrIndex] . "'," . $_SESSION['PART_UNIT_ID'][$intArrIndex] . ",'" . $_SESSION['PART_UNIT_NAME'][$intArrIndex] . "'," . $_SESSION['PART_QUANTITY'][$intArrIndex] * $_SESSION['PART_COST'][$intArrIndex] . ") RETURNING SCR_ID INTO :intInsertedID";
+            $arrPartSplit = [];
+            $arrPartSplit = explode('_',$objPartId);
+            $strSql = "INSERT INTO SCR_SCRAP_PART(SCR_SCRAP,SCR_PART,SCR_DESCRIPTION,SCR_QUANTITY,SCR_COST,SCR_LOCATION,SCR_TYPE_ID,SCR_TYPE,SCR_UNIT_ID,SCR_UNIT,SCR_AMOUNT,SCR_SOURCE) VALUES(" . $intScrapId . "," . $arrPartSplit[1] . ",'" . $_SESSION['PART_DESCRIPTION'][$intArrIndex] . "'," . $_SESSION['PART_QUANTITY'][$intArrIndex] . "," . $_SESSION['PART_COST'][$intArrIndex] . ",'" . $_SESSION['PART_LOCATION'][$intArrIndex] . "'," . $_SESSION['PART_TYPE_ID'][$intArrIndex] . ",'" . $_SESSION['PART_TYPE_NAME'][$intArrIndex] . "'," . $_SESSION['PART_UNIT_ID'][$intArrIndex] . ",'" . $_SESSION['PART_UNIT_NAME'][$intArrIndex] . "'," . $_SESSION['PART_QUANTITY'][$intArrIndex] * $_SESSION['PART_COST'][$intArrIndex] . ",'" . $arrPartSplit[0] . "') RETURNING SCR_ID INTO :intInsertedID";
             $objScrap->dbInsert($strSql);
             $intScrapPartId = $objScrap->intLastInsertId;
             if($_SESSION['PART_SERIAL'][$intArrIndex]!=''){
@@ -490,8 +600,10 @@ switch ($strProcess) {
             }
         }
         $strLabelCommentsActions = 'Comentarios y/o Acciones Correctivas: ';
-        $strSql = "INSERT INTO SCR_SCRAP_COMMENT(SCR_SCRAP,SCR_COMMENT) VALUES(" . $intScrapId . ",'" . $_SESSION['COMMENTS'] . "')";
-        $objScrap->dbInsert($strSql);
+        if($_SESSION['COMMENTS']!='') {
+            $strSql = "INSERT INTO SCR_SCRAP_COMMENT(SCR_SCRAP,SCR_COMMENT) VALUES(" . $intScrapId . ",'" . $_SESSION['COMMENTS'] . "')";
+            $objScrap->dbInsert($strSql);
+        }
         $strLabelCommentsActions .= trim($_SESSION['COMMENTS']) . ' ';
         $intRecIndex = 0;
         if($_SESSION['WHY1']!=''){
@@ -765,7 +877,7 @@ echo json_encode($jsnPhpScriptResponse);
 
 if(!$blnFromAjax){
     ini_set("display_errors",1);
-    var_dump($_SESSION) . "<br /><br />";
+//    var_dump($_SESSION) . "<br /><br />";
 }
 
 ?>

@@ -194,6 +194,9 @@ switch ($strProcess) {
                     case 'PROJECT_PART':
                         $strRelationSql = "SELECT PRT_PART.PRT_ID AS FIELD_ID, PRT_PART.PRT_NUMBER AS FIELD_NAME FROM PRT_PART WHERE PRT_STATUS = 1";
                         break;
+                    case 'PROJECT_ASSEMBLY':
+                        $strRelationSql = "SELECT ASM_ASSEMBLY.ASM_ID AS FIELD_ID, ASM_ASSEMBLY.ASM_NAME AS FIELD_NAME FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1";
+                        break;
                 }
                 $rstRelationData = $objScrap->dbQuery($strRelationSql);
                 $intNumRows = $objScrap->intAffectedRows;
@@ -427,7 +430,15 @@ switch ($strProcess) {
                         $strRelationSql .= "0";
                     }
                     $strRelationSql .= " AS COUNT FROM PRT_PART WHERE PRT_STATUS = 1 ORDER BY COUNT DESC, FIELD_NAME, FIELD_ID";
-                    $strCountSql = "SELECT COUNT(*) AS COUNT FROM PRJ_PROJECT_PART WHERE PRJ_STATUS = 1 AND PRJ_PROJECT = " . $_REQUEST['intRecordId'] . " AND PRJ_PART = ";
+                    break;
+                case 'PROJECT_ASSEMBLY':
+                    $strRelationSql = "SELECT ASM_ASSEMBLY.ASM_ID AS FIELD_ID, ASM_ASSEMBLY.ASM_NAME||' - '||ASM_ASSEMBLY.ASM_DESCRIPTION AS FIELD_NAME, ";
+                    if($_REQUEST['intRecordId']!=0){
+                        $strRelationSql .= "(SELECT COUNT(*) AS COUNT FROM PRJ_PROJECT_ASSEMBLY WHERE PRJ_STATUS = 1 AND PRJ_PROJECT = " . $_REQUEST['intRecordId'] . " AND PRJ_ASSEMBLY = ASM_ASSEMBLY.ASM_ID)";
+                    }else{
+                        $strRelationSql .= "0";
+                    }
+                    $strRelationSql .= " AS COUNT FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1 ORDER BY COUNT DESC, FIELD_NAME, FIELD_ID";
                     break;
             }
             $rstRelationData = $objScrap->dbQuery($strRelationSql);
@@ -606,6 +617,9 @@ switch ($strProcess) {
                                                     case 'PROJECT_PART':
                                                         $strRelationSql = "SELECT COUNT(PRT_PART.PRT_ID) AS COUNT FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER = '" . $varValue . "'";
                                                         break;
+                                                    case 'PROJECT_ASSEMBLY':
+                                                        $strRelationSql = "SELECT COUNT(ASM_ASSEMBLY.ASM_ID) AS COUNT FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1 AND ASM_NAME = '" . $varValue . "'";
+                                                        break;
                                                 }
                                                 $rstExcelRelation = $objScrap->dbQuery($strRelationSql);
                                                 if($rstExcelRelation[0]['COUNT']==0){
@@ -783,6 +797,9 @@ switch ($strProcess) {
                                                 break;
                                             case 'PROJECT_PART':
                                                 $strRelationSql = "SELECT PRT_PART.PRT_ID AS RELATIONID FROM PRT_PART WHERE PRT_STATUS = 1 AND PRT_NUMBER = '" . $varValue . "'";
+                                                break;
+                                            case 'PROJECT_ASSEMBLY':
+                                                $strRelationSql = "SELECT ASM_ASSEMBLY.ASM_ID AS RELATIONID FROM ASM_ASSEMBLY WHERE ASM_STATUS = 1 AND ASM_NAME = '" . $varValue . "'";
                                                 break;
                                         }
                                         $intRelationID = 0;
@@ -996,6 +1013,14 @@ function relationTable($strRelation,$strSql){
             $strSql = str_replace("||strField_Id||","PRJ_ID",$strSql);
             $strSql = str_replace("||strField_0||","PRJ_PROJECT",$strSql);
             $strSql = str_replace("||strField_1||","PRJ_PART",$strSql);
+            $strSql = str_replace("||strField_Status||","PRJ_STATUS",$strSql);
+            return $strSql;
+            break;
+        case 'PROJECT_ASSEMBLY':
+            $strSql = str_replace("||strTable||","PRJ_PROJECT_ASSEMBLY",$strSql);
+            $strSql = str_replace("||strField_Id||","PRJ_ID",$strSql);
+            $strSql = str_replace("||strField_0||","PRJ_PROJECT",$strSql);
+            $strSql = str_replace("||strField_1||","PRJ_ASSEMBLY",$strSql);
             $strSql = str_replace("||strField_Status||","PRJ_STATUS",$strSql);
             return $strSql;
             break;

@@ -72,7 +72,7 @@ if (!isset($_GET['source'])) {
                     <div class="capture_div_row" style="" id="divAction5"><label for="txtAction1" class="capture_label">Acción correctiva (5)</label><input type="text" id="txtAction5" maxlength="254" tabindex="24" class="capture_input_text" style="width: calc(100% - 182px);" /></div>
                     <div class="capture_div_row" style="text-align: right;">
                         <label id="lblPartError" style="display: inline-block; margin-right: 5px; width: 766px; padding: 6px 5px 6px 5px; border: 1px #FF2828 solid; border-radius: 3px; color:#FF2828; text-align: left; display: none "></label>
-                        <input type="button" class="buttons button_green" id="btnFinish" tabindex="25" style="display: none;" value="terminar" onclick="insertScrapRecord();">
+                        <input type="button" class="buttons button_green" id="btnFinish" tabindex="25" value="terminar" onclick="insertScrapRecord();">
                         <input type="button" class="buttons button_red" value="cancelar" tabindex="26" id="btnCancel" onclick="location.reload();">
                     </div>
                 </div>
