@@ -176,6 +176,12 @@ switch ($strProcess) {
                     case 'PART_TYPE':
                         $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS FIELD_ID, TYP_TYPE.TYP_NAME AS FIELD_NAME FROM TYP_TYPE WHERE TYP_STATUS = 1";
                         break;
+                    case 'ASSEMBLY_UNIT':
+                        $strRelationSql = "SELECT UNT_UNIT.UNT_ID AS FIELD_ID, UNT_UNIT.UNT_CODE AS FIELD_NAME FROM UNT_UNIT WHERE UNT_STATUS = 1";
+                        break;
+                    case 'ASSEMBLY_TYPE':
+                        $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS FIELD_ID, TYP_TYPE.TYP_NAME AS FIELD_NAME FROM TYP_TYPE WHERE TYP_STATUS = 1";
+                        break;
                     case 'PROJECT_PROFITCENTER':
                         $strRelationSql = "SELECT PRF_PROFITCENTER_RELATION.PRF_ID AS FIELD_ID, CNT_COUNTRY.CNT_NAME||' - '||PLN_PLANT.PLN_NAME||' - '||SHP_SHIP.SHP_NAME||' - '||DVS_DIVISION.DVS_NAME||' - '||SGM_SEGMENT.SGM_NAME||' - '||PRF_PROFITCENTER.PRF_NAME AS FIELD_NAME FROM PRF_PROFITCENTER_RELATION, SGM_SEGMENT_RELATION, DVS_DIVISION_RELATION, SHP_SHIP_RELATION, PLN_PLANT_RELATION, PRF_PROFITCENTER, SGM_SEGMENT, DVS_DIVISION, SHP_SHIP, PLN_PLANT, CNT_COUNTRY WHERE PRF_PROFITCENTER_RELATION.PRF_SEGMENT = SGM_SEGMENT_RELATION.SGM_ID AND SGM_SEGMENT_RELATION.SGM_DIVISION = DVS_DIVISION_RELATION.DVS_ID AND DVS_DIVISION_RELATION.DVS_SHIP = SHP_SHIP_RELATION.SHP_ID AND SHP_SHIP_RELATION.SHP_PLANT = PLN_PLANT_RELATION.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_PROFITCENTER = PRF_PROFITCENTER.PRF_ID AND SGM_SEGMENT_RELATION.SGM_SEGMENT = SGM_SEGMENT.SGM_ID AND DVS_DIVISION_RELATION.DVS_DIVISION = DVS_DIVISION.DVS_ID AND SHP_SHIP_RELATION.SHP_SHIP = SHP_SHIP.SHP_ID AND PLN_PLANT_RELATION.PLN_PLANT = PLN_PLANT.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_STATUS = 1 AND SGM_SEGMENT_RELATION.SGM_STATUS = 1 AND DVS_DIVISION_RELATION.DVS_STATUS = 1 AND SHP_SHIP_RELATION.SHP_STATUS = 1 AND PLN_PLANT_RELATION.PLN_STATUS = 1 AND PRF_PROFITCENTER.PRF_STATUS = 1 AND SGM_SEGMENT.SGM_STATUS = 1 AND DVS_DIVISION.DVS_STATUS = 1 AND SHP_SHIP.SHP_STATUS = 1 AND PLN_PLANT.PLN_STATUS = 1 AND CNT_COUNTRY.CNT_STATUS = 1 ORDER BY FIELD_NAME, FIELD_ID";
                         break;
@@ -345,6 +351,24 @@ switch ($strProcess) {
                     $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS FIELD_ID, TYP_TYPE.TYP_NAME AS FIELD_NAME, ";
                     if($_REQUEST['intRecordId']!=0){
                         $strRelationSql .= "(SELECT COUNT(*) AS COUNT FROM PRT_PART_TYPE WHERE PRT_STATUS = 1 AND PRT_PART = " . $_REQUEST['intRecordId'] . " AND PRT_TYPE = TYP_TYPE.TYP_ID)";
+                    }else{
+                        $strRelationSql .= "0";
+                    }
+                    $strRelationSql .= " AS COUNT FROM TYP_TYPE WHERE TYP_STATUS = 1 ORDER BY COUNT DESC, FIELD_NAME, FIELD_ID";
+                    break;
+                case 'ASSEMBLY_UNIT':
+                    $strRelationSql = "SELECT UNT_UNIT.UNT_ID AS FIELD_ID, UNT_UNIT.UNT_CODE AS FIELD_NAME, ";
+                    if($_REQUEST['intRecordId']!=0){
+                        $strRelationSql .= "(SELECT COUNT(*) AS COUNT FROM ASM_ASSEMBLY_UNIT WHERE ASM_STATUS = 1 AND ASM_ASSEMBLY = " . $_REQUEST['intRecordId'] . " AND ASM_UNIT = UNT_UNIT.UNT_ID)";
+                    }else{
+                        $strRelationSql .= "0";
+                    }
+                    $strRelationSql .= " AS COUNT FROM UNT_UNIT WHERE UNT_STATUS = 1 ORDER BY COUNT DESC, FIELD_NAME, FIELD_ID";
+                    break;
+                case 'ASSEMBLY_TYPE':
+                    $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS FIELD_ID, TYP_TYPE.TYP_NAME AS FIELD_NAME, ";
+                    if($_REQUEST['intRecordId']!=0){
+                        $strRelationSql .= "(SELECT COUNT(*) AS COUNT FROM ASM_ASSEMBLY_TYPE WHERE ASM_STATUS = 1 AND ASM_ASSEMBLY = " . $_REQUEST['intRecordId'] . " AND ASM_TYPE = TYP_TYPE.TYP_ID)";
                     }else{
                         $strRelationSql .= "0";
                     }
@@ -564,6 +588,12 @@ switch ($strProcess) {
                                                     case 'PART_TYPE':
                                                         $strRelationSql = "SELECT COUNT(TYP_TYPE.TYP_ID) AS COUNT FROM TYP_TYPE WHERE TYP_STATUS = 1 AND TYP_NAME = '" . $varValue . "'";
                                                         break;
+                                                    case 'ASSEMBLY_UNIT':
+                                                        $strRelationSql = "SELECT COUNT(UNT_UNIT.UNT_ID) AS COUNT FROM UNT_UNIT WHERE UNT_STATUS = 1 AND UNT_CODE = '" . $varValue . "'";
+                                                        break;
+                                                    case 'ASSEMBLY_TYPE':
+                                                        $strRelationSql = "SELECT COUNT(TYP_TYPE.TYP_ID) AS COUNT FROM TYP_TYPE WHERE TYP_STATUS = 1 AND TYP_NAME = '" . $varValue . "'";
+                                                        break;
                                                     case 'PROJECT_PROFITCENTER':
                                                         $strRelationSql = "SELECT COUNT(PRF_PROFITCENTER_RELATION.PRF_ID) AS COUNT FROM PRF_PROFITCENTER_RELATION, SGM_SEGMENT_RELATION, DVS_DIVISION_RELATION, SHP_SHIP_RELATION, PLN_PLANT_RELATION, PRF_PROFITCENTER, SGM_SEGMENT, DVS_DIVISION, SHP_SHIP, PLN_PLANT, CNT_COUNTRY WHERE PRF_PROFITCENTER_RELATION.PRF_SEGMENT = SGM_SEGMENT_RELATION.SGM_ID AND SGM_SEGMENT_RELATION.SGM_DIVISION = DVS_DIVISION_RELATION.DVS_ID AND DVS_DIVISION_RELATION.DVS_SHIP = SHP_SHIP_RELATION.SHP_ID AND SHP_SHIP_RELATION.SHP_PLANT = PLN_PLANT_RELATION.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_PROFITCENTER = PRF_PROFITCENTER.PRF_ID AND SGM_SEGMENT_RELATION.SGM_SEGMENT = SGM_SEGMENT.SGM_ID AND DVS_DIVISION_RELATION.DVS_DIVISION = DVS_DIVISION.DVS_ID AND SHP_SHIP_RELATION.SHP_SHIP = SHP_SHIP.SHP_ID AND PLN_PLANT_RELATION.PLN_PLANT = PLN_PLANT.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_STATUS = 1 AND SGM_SEGMENT_RELATION.SGM_STATUS = 1 AND DVS_DIVISION_RELATION.DVS_STATUS = 1 AND SHP_SHIP_RELATION.SHP_STATUS = 1 AND PLN_PLANT_RELATION.PLN_STATUS = 1 AND PRF_PROFITCENTER.PRF_STATUS = 1 AND SGM_SEGMENT.SGM_STATUS = 1 AND DVS_DIVISION.DVS_STATUS = 1 AND SHP_SHIP.SHP_STATUS = 1 AND PLN_PLANT.PLN_STATUS = 1 AND CNT_COUNTRY.CNT_STATUS = 1 AND CNT_COUNTRY.CNT_NAME||' - '||PLN_PLANT.PLN_NAME||' - '||SHP_SHIP.SHP_NAME||' - '||DVS_DIVISION.DVS_NAME||' - '||SGM_SEGMENT.SGM_NAME||' - '||PRF_PROFITCENTER.PRF_NAME = '" . $varValue . "'";
                                                         break;
@@ -736,6 +766,12 @@ switch ($strProcess) {
                                             case 'PART_TYPE':
                                                 $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS RELATIONID FROM TYP_TYPE WHERE TYP_STATUS = 1 AND TYP_NAME = '" . $varValue . "'";
                                                 break;
+                                            case 'ASSEMBLY_UNIT':
+                                                $strRelationSql = "SELECT UNT_UNIT.UNT_ID AS RELATIONID FROM UNT_UNIT WHERE UNT_STATUS = 1 AND UNT_CODE = '" . $varValue . "'";
+                                                break;
+                                            case 'ASSEMBLY_TYPE':
+                                                $strRelationSql = "SELECT TYP_TYPE.TYP_ID AS RELATIONID FROM TYP_TYPE WHERE TYP_STATUS = 1 AND TYP_NAME = '" . $varValue . "'";
+                                                break;
                                             case 'PROJECT_PROFITCENTER':
                                                 $strRelationSql = "SELECT PRF_PROFITCENTER_RELATION.PRF_ID AS RELATIONID FROM PRF_PROFITCENTER_RELATION, SGM_SEGMENT_RELATION, DVS_DIVISION_RELATION, SHP_SHIP_RELATION, PLN_PLANT_RELATION, PRF_PROFITCENTER, SGM_SEGMENT, DVS_DIVISION, SHP_SHIP, PLN_PLANT, CNT_COUNTRY WHERE PRF_PROFITCENTER_RELATION.PRF_SEGMENT = SGM_SEGMENT_RELATION.SGM_ID AND SGM_SEGMENT_RELATION.SGM_DIVISION = DVS_DIVISION_RELATION.DVS_ID AND DVS_DIVISION_RELATION.DVS_SHIP = SHP_SHIP_RELATION.SHP_ID AND SHP_SHIP_RELATION.SHP_PLANT = PLN_PLANT_RELATION.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_PROFITCENTER = PRF_PROFITCENTER.PRF_ID AND SGM_SEGMENT_RELATION.SGM_SEGMENT = SGM_SEGMENT.SGM_ID AND DVS_DIVISION_RELATION.DVS_DIVISION = DVS_DIVISION.DVS_ID AND SHP_SHIP_RELATION.SHP_SHIP = SHP_SHIP.SHP_ID AND PLN_PLANT_RELATION.PLN_PLANT = PLN_PLANT.PLN_ID AND PLN_PLANT_RELATION.PLN_COUNTRY = CNT_COUNTRY.CNT_ID AND PRF_PROFITCENTER_RELATION.PRF_STATUS = 1 AND SGM_SEGMENT_RELATION.SGM_STATUS = 1 AND DVS_DIVISION_RELATION.DVS_STATUS = 1 AND SHP_SHIP_RELATION.SHP_STATUS = 1 AND PLN_PLANT_RELATION.PLN_STATUS = 1 AND PRF_PROFITCENTER.PRF_STATUS = 1 AND SGM_SEGMENT.SGM_STATUS = 1 AND DVS_DIVISION.DVS_STATUS = 1 AND SHP_SHIP.SHP_STATUS = 1 AND PLN_PLANT.PLN_STATUS = 1 AND CNT_COUNTRY.CNT_STATUS = 1 AND CNT_COUNTRY.CNT_NAME||' - '||PLN_PLANT.PLN_NAME||' - '||SHP_SHIP.SHP_NAME||' - '||DVS_DIVISION.DVS_NAME||' - '||SGM_SEGMENT.SGM_NAME||' - '||PRF_PROFITCENTER.PRF_NAME = '" . $varValue . "'";
                                                 break;
@@ -897,6 +933,22 @@ function relationTable($strRelation,$strSql){
             $strSql = str_replace("||strField_0||","PRT_PART",$strSql);
             $strSql = str_replace("||strField_1||","PRT_TYPE",$strSql);
             $strSql = str_replace("||strField_Status||","PRT_STATUS",$strSql);
+            return $strSql;
+            break;
+        case 'ASSEMBLY_UNIT':
+            $strSql = str_replace("||strTable||","ASM_ASSEMBLY_UNIT",$strSql);
+            $strSql = str_replace("||strField_Id||","ASM_ID",$strSql);
+            $strSql = str_replace("||strField_0||","ASM_ASSEMBLY",$strSql);
+            $strSql = str_replace("||strField_1||","ASM_UNIT",$strSql);
+            $strSql = str_replace("||strField_Status||","ASM_STATUS",$strSql);
+            return $strSql;
+            break;
+        case 'ASSEMBLY_TYPE':
+            $strSql = str_replace("||strTable||","ASM_ASSEMBLY_TYPE",$strSql);
+            $strSql = str_replace("||strField_Id||","ASM_ID",$strSql);
+            $strSql = str_replace("||strField_0||","ASM_ASSEMBLY",$strSql);
+            $strSql = str_replace("||strField_1||","ASM_TYPE",$strSql);
+            $strSql = str_replace("||strField_Status||","ASM_STATUS",$strSql);
             return $strSql;
             break;
         case 'PROFILE_MENU':

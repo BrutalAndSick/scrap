@@ -227,7 +227,15 @@ function showModal($intRecordId) {
                                 if($jsnGridData.arrFormField[$intIndex].TBL_TYPE=='I'){
                                     $('#img' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).attr("src","/images/parts/" + $('#td' + $jsnGridData.arrFormField[4].TBL_FIELD + '_' + $intRecordId).html());
                                 }else{
-                                    $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html());
+                                    if($jsnGridData.arrFormField[$intIndex].TBL_TYPE=='N' || $jsnGridData.arrFormField[$intIndex].TBL_TYPE=='D4'){
+
+                                        console.log($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html().replace(',','').replace(',','').replace(',','').replace(',','').replace(',','') + ' - ' + $('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html().replace(',',''));
+
+                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html().replace(',','').replace(',','').replace(',','').replace(',','').replace(',',''));
+                                    }else{
+                                        $('#txt' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD).val($('#td' + $jsnGridData.arrFormField[$intIndex].TBL_FIELD + '_' + $intRecordId).html());
+                                    }
+
                                 }
                             }
                         };

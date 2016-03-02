@@ -253,6 +253,7 @@ class clsScrap
                 $this->strGridForm .= '<tr>';
                 switch ($objField['TBL_TYPE']) {
                     case 'N':
+                    case 'D4':
                         array_push($this->arrFormField, array(
                             'TBL_FIELD' => $objField['TBL_FIELD'],
                             'TBL_NAME' => $objField['TBL_NAME'],
@@ -261,7 +262,7 @@ class clsScrap
                             'TBL_LENGTH' => $objField['TBL_LENGTH']
                         ));
                         $this->strGridForm .= '<td class="form_main_td_title"><label for="txt' . $objField['TBL_FIELD'] . '" class="form_label">' . $objField['TBL_NAME'] . '</label></td>';
-                        $this->strGridForm .= '<td class="form_main_td_data"><input type="number" min="1" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
+                        $this->strGridForm .= '<td class="form_main_td_data"><input type="number" min="1" max="999999999" id="txt' . $objField['TBL_FIELD'] . '" class="form_input_text" style="width: 150px;" value="" /></td>';
                         break;
                     case 'T':
                         array_push($this->arrFormField, array(
@@ -348,7 +349,7 @@ class clsScrap
                 for ($intArrayIndex = 0; $intArrayIndex < count($this->arrTableField); $intArrayIndex++) {
                     switch ($this->arrTableField[$intArrayIndex]['TBL_TYPE']) {
                         case 'N':
-                            $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['TBL_FIELD'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['TBL_ALIGN'] . ';">' . $rstData[$intIndex][$this->arrTableField[$intArrayIndex]['TBL_FIELD']] . '</td>';
+                            $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['TBL_FIELD'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['TBL_ALIGN'] . ';">' . number_format($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['TBL_FIELD']],0,'.',',') . '</td>';
                             break;
                         case 'D4':
                             $this->strGrid .= '<td id="td' . $this->arrTableField[$intArrayIndex]['TBL_FIELD'] . '_' . $rstData[$intIndex][$this->strTableIdField] . '" class="tdGrid" style="text-align: ' . $this->arrTableField[$intArrayIndex]['TBL_ALIGN'] . ';">' . number_format($rstData[$intIndex][$this->arrTableField[$intArrayIndex]['TBL_FIELD']],4,'.',',') . '</td>';

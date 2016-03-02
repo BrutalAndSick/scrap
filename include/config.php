@@ -5,11 +5,11 @@ ini_set("max_execution_time",1800);
 ini_set("memory_limit", "-1");
 ini_set('session.cookie_httponly',1);
 date_default_timezone_set('America/Mexico_City');
-//mb_internal_encoding("UTF-8");
+mb_internal_encoding("UTF-8");
 
 //##### GENERAL CONSTANTS #####
 if(!defined('ENVIRONMENT'))         define('ENVIRONMENT','DEV'); // DEV=DEVELOPMENT, PROD=PRODUCTION
-if(!defined('PATH_APP'))            define('PATH_APP',$_SERVER["DOCUMENT_ROOT"] . '/scrap');
+if(!defined('PATH_APP'))            define('PATH_APP',$_SERVER["DOCUMENT_ROOT"]);
 if(!defined('CSS_PATH'))            define('CSS_PATH',PATH_APP.'/css/');
 if(!defined('IMAGE_PATH'))          define('IMAGE_PATH',PATH_APP.'/images/');
 if(!defined('PART_IMAGE_PATH'))     define('PART_IMAGE_PATH',PATH_APP.'/images/parts/');

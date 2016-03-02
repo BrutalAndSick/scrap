@@ -9,7 +9,7 @@ $objScrap = new clsScrap();
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="../../css/scrap.css">
         <link rel="stylesheet" type="text/css" href="../../css/working.css">
-        <link rel="stylesheet" type="text/css" href="modules/capture/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/modules/capture/stylesheet.css">
         <link rel="stylesheet" type="text/css" href="../../css/scrapcapture.css">
     </head>
 <body>
